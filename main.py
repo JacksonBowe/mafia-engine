@@ -1,9 +1,24 @@
+'''
+This file houses all of the user-facing commands such as create_game, build_game, resolve_state
+'''
 
 
-from engine.roles.actor import Actor
+
+players = ["Amy", "Bob", "Cat", "Dog", "Frog", "Egg", "Groot"]
+roles = ["Citizen", "Citizen", "Citizen", "Citizen", "Citizen", "Mafioso", "Mafioso"]
 
 
-a = Actor()
+
+def main():
+    pass
+
+
+
+
+if __name__ == "__main__":
+    main()
+
+
 
 
 
@@ -24,7 +39,7 @@ GameState:
                 role: str (to be converted to object on Game.ResolveState)
                 target: [] (can be a list in event of two-target night actions),
                 house: int (what house is the actor at on this night),
-                
+            
             }
         ], ...
     }
