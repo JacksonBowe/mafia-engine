@@ -1,15 +1,23 @@
+import json
+
 '''
 This file houses all of the user-facing commands such as create_game, build_game, resolve_state
+It is essentially the API
 '''
 
+from mafia_engine import MafiaEngine
 
 
 players = ["Amy", "Bob", "Cat", "Dog", "Frog", "Egg", "Groot"]
-roles = ["Citizen", "Citizen", "Citizen", "Citizen", "Citizen", "Mafioso", "Mafioso"]
+roles = ["Citizen", "Citizen", "Citizen", "Citizen", "SerialKiller", "Mafioso", "Mafioso"]
 
 
 
 def main():
+    Mafia = MafiaEngine()
+    game = Mafia.create_game(players=players, roles=roles)
+    print("\nPrinting GameState")
+    print(json.dumps(game, indent=4))
     pass
 
 
