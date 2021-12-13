@@ -54,8 +54,12 @@ class MafiaEngine():
                 "name": actor.name,
                 "role": actor.role_name,
                 "house": actor.house,
-                "targets": []
-            } for actor in self.actors]
+                "targets": [],
+                "alive": actor.alive
+            } for actor in self.actors],
+            "graveyard": [{
+                "name": actor.name
+            } for actor in self.actors if not actor.alive]
         }
         return result
         pass

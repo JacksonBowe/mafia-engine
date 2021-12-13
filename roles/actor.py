@@ -4,6 +4,7 @@ class Actor:
 
     def __init__(self, name):
         self.name = name
+        self.alive = True
 
     def set_number_and_house(self, number):
         self.set_number(number),
