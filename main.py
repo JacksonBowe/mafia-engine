@@ -5,19 +5,25 @@ This file houses all of the user-facing commands such as create_game, build_game
 It is essentially the API
 '''
 
-from mafia_engine import MafiaEngine
+# from mafia_engine import MafiaEngine
+from engine import MafiaEngine
 
+with open('players.json', 'r') as p:
+    players = json.load(p)
 
-players = ["Amy", "Bob", "Cat", "Dog", "Frog", "Egg", "Groot"]
-roles = ["Citizen", "Citizen", "Citizen", "Citizen", "SerialKiller", "Mafioso", "Mafioso"]
+with open('sample_game_save.json', 'r') as s:
+    save = json.load(s)
 
 
 
 def main():
+    print(players)
     Mafia = MafiaEngine()
-    game = Mafia.create_game(players=players, roles=roles)
-    print("\nPrinting GameState")
-    print(json.dumps(game, indent=4))
+    game = Mafia.create_game(players, save)
+    # Mafia = MafiaEngine()
+    # game = Mafia.create_game(players=players, roles=roles)
+    # print("\nPrinting GameState")
+    # print(json.dumps(game, indent=4))
     pass
 
 

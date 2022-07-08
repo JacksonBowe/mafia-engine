@@ -1,0 +1,36 @@
+{
+    "setup": ["town_random", "mafia_killing"],
+    "config": {},
+    "factions": {
+        "TOWN": {
+            "config":{
+                "min": 1,
+                "max": 2
+            },
+            "roles": {
+                "citizen": {
+                    "tags": ["town_random", "town_government"],
+                    "config": {
+                        "min": 1,
+                        "max": 1
+                    }
+                }
+            }
+        },
+        "MAFIA": {
+            "config":{
+                "min": 1,
+                "max": 0
+            },
+            "roles": {
+                "mafioso": {
+                    "tags": ["mafia_killing"],
+                    "config": {
+                        "min": 1,
+                        "max": 10
+                    }
+                }
+            }
+        }
+    }
+}

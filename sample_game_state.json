@@ -1,0 +1,22 @@
+{
+    "day": "2",
+    "state": "",
+    "players": [
+        {
+            "id":  "12345",
+            "name": "Player 1",
+            "alias": "Jackson",
+            "number": "1",
+            "role": "Mafioso",
+            "targets": []
+        },
+        {
+            "id": "54321",
+            "name": "Player 2",
+            "alias": "Brandon",
+            "number": "2",
+            "role": "Citizen",
+            "targets": []
+        }
+    ]
+}
