@@ -6,6 +6,7 @@ class GameSave():
     def __init__(self, config: dict) -> None:
         self.settings = config['settings']
         self.roles = self.select_roles(config)
+        print(self.roles)
         pass
     
     def select_roles(self, config):
@@ -18,7 +19,7 @@ class GameSave():
         role_options = sorted(role_options, key=lambda option: len(option[1]))
 
         # Loop through and assign roles
-        roles = []
+        selected_roles = []
         blacklist = []
         
         for option in role_options:
@@ -26,7 +27,7 @@ class GameSave():
             #          = (tag, [(role, weight, max), etc...])
             # Update the blacklist
             for role in config['roles']:
-                if roles.count(role) == config['roles'][role]['max'] and role not in blacklist:
+                if selected_roles.count(role) == config['roles'][role]['max'] and role not in blacklist:
                     print(f"Max reached for '{role}' -> adding to blacklist")
                     blacklist.append(role)
                     
@@ -49,10 +50,10 @@ class GameSave():
                 if not choice in blacklist: break
                 
             print(f"Picking {option[0]}: {choice}")
-                
+            selected_roles.append(choice)
             del role_options[0]
 
-        return 1
+        return selected_roles
     
     def find_by_tag(self, tag, config_roles):
         # get all the roles that have this tag along with their weight and max
