@@ -1,6 +1,22 @@
 {
-    "tags": ["town_random", "town_random", "mafia_killing", "town_government"],
-    "config": {},
+    "tags": [
+        "town_government", 
+        "town_protective", 
+        "town_protective", 
+        "town_power", 
+        "town_investigative", 
+        "town_killing", 
+        "town_investigative", 
+        "town_random", 
+        "mafia_killing",
+        "mafia_deception",
+        "mafia_support",
+        "neutral_evil",
+        "neutral_benign",
+        "neutral_random",
+        "any_random"
+    ],
+    "settings": {},
     "roles": {
         "citizen": {
             "max": 1,
@@ -10,7 +26,43 @@
             "max": 4,
             "weight": 1
         },
+        "bodyguard": {
+            "max": 4,
+            "weight": 1
+        },
+        "escort": {
+            "max": 4,
+            "weight": 1
+        },
+        "sheriff": {
+            "max": 4,
+            "weight": 1
+        },
+        "investigator": {
+            "max": 4,
+            "weight": 1
+        },
         "mafioso": {
+            "max": 10,
+            "weight": 1
+        },
+        "consort": {
+            "max": 10,
+            "weight": 1
+        },
+        "janitor": {
+            "max": 10,
+            "weight": 1
+        },
+        "survivor": {
+            "max": 10,
+            "weight": 1
+        },
+        "serial_killer": {
+            "max": 10,
+            "weight": 1
+        },
+        "enforcer": {
             "max": 10,
             "weight": 1
         }

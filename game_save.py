@@ -4,17 +4,16 @@ from consts import ROLE_TAGS
 
 class GameSave():
     def __init__(self, config: dict) -> None:
-        self.config = config
-        self.roles = self.select_roles()
+        self.settings = config['settings']
+        self.roles = self.select_roles(config)
         pass
     
-    def select_roles(self):
-        
+    def select_roles(self, config):
         role_options = []
-        for tag in self.config['tags']:
-            role_options.append((tag, self.find_by_tag(tag)))
+        for tag in config['tags']:
+            role_options.append((tag, self.find_by_tag(tag, config['roles'])))
 
-        # Sort the tag:[roles] tuples by increading len([roles]), 
+        # Sort the tag:[roles] tuples by increasing len([roles]), 
         # this means that tags with only a single valid outcome have a higher chance of succeeding
         role_options = sorted(role_options, key=lambda option: len(option[1]))
 
@@ -23,9 +22,11 @@ class GameSave():
         blacklist = []
         
         for option in role_options:
+            # 'option' = ('town_random', [('citizen', 5, 1), ('doctor', 1, 4)])
+            #          = (tag, [(role, weight, max), etc...])
             # Update the blacklist
-            for role in self.config['roles']:
-                if roles.count(role) == self.config['roles'][role]['max'] and role not in blacklist:
+            for role in config['roles']:
+                if roles.count(role) == config['roles'][role]['max'] and role not in blacklist:
                     print(f"Max reached for '{role}' -> adding to blacklist")
                     blacklist.append(role)
                     
@@ -53,22 +54,18 @@ class GameSave():
 
         return 1
     
-    def find_by_tag(self, tag):
+    def find_by_tag(self, tag, config_roles):
         # get all the roles that have this tag along with their weight and max
         roles = []
         for role in ROLE_TAGS:
             if tag in ROLE_TAGS[role] or tag == role:
-                weight = self.config['roles'][role]['weight']
-                max = self.config['roles'][role]['max']
+                weight = config_roles[role]['weight']
+                max = config_roles[role]['max']
                 roles.append((role, weight, max))
         return roles
     
     
-    '''
-    
-    
-    
-    '''
+
     
     
     
