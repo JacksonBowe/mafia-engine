@@ -19,6 +19,7 @@ with open('sample_game_save.json', 'r') as s:
 def main():
     Mafia = MafiaController()
     game = Mafia.create_game(players, save)
+    # print(Mafia.test_save(save))
     # Mafia = MafiaEngine()
     # game = Mafia.create_game(players=players, roles=roles)
     # print("\nPrinting GameState")
