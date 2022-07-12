@@ -11,5 +11,7 @@ class MafiaController():
         print("Players:", len(players))
         print(players)
         
-        print("\nSelecting roles")
-        self.GameSave = GameSave(save)
+        
+        Game = GameSave(save)
+        Game.generate_roles()
+        print(Game.roles)
