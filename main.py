@@ -6,7 +6,7 @@ It is essentially the API
 '''
 
 # from mafia_engine import MafiaEngine
-from engine import MafiaEngine
+from controller import MafiaController
 
 with open('players.json', 'r') as p:
     players = json.load(p)
@@ -17,8 +17,7 @@ with open('sample_game_save.json', 'r') as s:
 
 
 def main():
-    print(players)
-    Mafia = MafiaEngine()
+    Mafia = MafiaController()
     game = Mafia.create_game(players, save)
     # Mafia = MafiaEngine()
     # game = Mafia.create_game(players=players, roles=roles)
