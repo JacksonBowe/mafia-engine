@@ -6,7 +6,8 @@ class GameSave():
     def __init__(self, config: dict) -> None:
         self.settings = config['settings']
         self.roles = self.select_roles(config)
-        print(self.roles)
+        print()
+        print("Roles", self.roles)
         pass
     
     def select_roles(self, config):
@@ -18,6 +19,7 @@ class GameSave():
         # this means that tags with only a single valid outcome have a higher chance of succeeding
         role_options = sorted(role_options, key=lambda option: len(option[1]))
 
+        
         # Loop through and assign roles
         selected_roles = []
         blacklist = []
@@ -28,11 +30,20 @@ class GameSave():
             # Update the blacklist
             for role in config['roles']:
                 if selected_roles.count(role) == config['roles'][role]['max'] and role not in blacklist:
-                    print(f"Max reached for '{role}' -> adding to blacklist")
+                    print(f"\tMax reached for '{role}' -> adding to blacklist")
                     blacklist.append(role)
+                    # Remove the role from all remaining options
+                    for option_index, role_option in enumerate(role_options):
+                        for role_index, remaining_role in enumerate(role_option[1]):
+                            if remaining_role[0] == role:
+                                print("\t\tDeleting role '{}' from '{}'".format(role_options[option_index][1][role_index][0], role_options[option_index][0]))
+                                del role_options[option_index][1][role_index]
+                                
+            # input("\nEnter to continue")
                     
             # sort again
             role_options = sorted(role_options, key=lambda option: len(option[1]))
+            
 
             # remove roles that are in the blacklist
             available_roles = [role for role in role_options[0][1] if role[0] not in blacklist]
@@ -43,7 +54,7 @@ class GameSave():
 
             for i in range(100):
                 if len(available_roles) == 0 or i == 99:
-                    print("Unable to select free role, failing to 'citizen'")
+                    print("\tUnable to select free role, failing to 'citizen'")
                     choice = "citizen"
                     break
                 choice = random.choices(roles, weights=weights, k=1)[0]
@@ -51,7 +62,14 @@ class GameSave():
                 
             print(f"Picking {option[0]}: {choice}")
             selected_roles.append(choice)
+            
+            
+                        
+                        
             del role_options[0]
+            
+            
+
 
         return selected_roles
     

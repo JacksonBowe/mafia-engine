@@ -2,6 +2,7 @@
 ROLE_TAGS = {
     # TOWN
     "citizen"       : ["any_random", "town_random", "town_government"],
+    "mayor"         : ["any_random", "town_random", "town_government"],
     "doctor"        : ["any_random", "town_random", "town_protective"],
     "bodyguard"     : ["any_random", "town_random", "town_protective", "town_killing"],
     "escort"        : ["any_random", "town_random", "town_protective", "town_power"],
