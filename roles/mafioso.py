@@ -6,3 +6,12 @@ class Mafioso(Actor):
         self.alignment = "mafia"
         super().__init__(player)
         pass
+    
+    @property
+    def state(self):
+        return {**{
+            "remainingVests": self.remainingVests
+        }, **self.actor_state}
+        
+    def action(self, targets: list=[]):
+        self.remainingVests -= 1

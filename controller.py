@@ -29,16 +29,22 @@ class MafiaController():
 
         # Sort by new numbers
         players = sorted(players, key=lambda player: player['number'])
-        for player in players:
-            print(player)
+        # for player in players:
+        #     print(player)
             
         # Generate a GameState
         print()
         actors = []
         for player in players:
             role = self.class_for_name('roles', player['role'])
-            print(role(player, save['roles'][player['role']]['settings']))
-            print(player['role'], save['roles'][player['role']]['settings'])
+            actors.append(role(player, save['roles'][player['role']]['settings']))
+            # print(role(player, save['roles'][player['role']]['settings']))
+            # print(player['role'], save['roles'][player['role']]['settings'])
+            
+        for actor in actors:
+            print(actor.name, actor.role_name, actor.state)
+            
+            
         
 
 

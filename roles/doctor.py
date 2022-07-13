@@ -7,3 +7,5 @@ class Doctor(Actor):
         super().__init__(player)
 
         pass
+    
+    

@@ -33,35 +33,35 @@
             }
         },
         "Doctor": {
-            "max": 4,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "Bodyguard": {
-            "max": 4,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "Escort": {
-            "max": 4,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "Sheriff": {
-            "max": 4,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "Investigator": {
-            "max": 4,
+            "max": 0,
             "weight": 1,
             "settings": {
 
@@ -75,35 +75,35 @@
             }
         },
         "Consort": {
-            "max": 10,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "Janitor": {
-            "max": 10,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "Survivor": {
-            "max": 10,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "SerialKiller": {
-            "max": 1,
+            "max": 0,
             "weight": 1,
             "settings": {
 
             }
         },
         "Enforcer": {
-            "max": 10,
+            "max": 0,
             "weight": 1,
             "settings": {
 
