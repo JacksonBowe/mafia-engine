@@ -1,10 +1,9 @@
 from roles.actor import Actor
 
-class Citizen(Actor):
+class Doctor(Actor):
     def __init__(self, player, settings):
-        self.role_name = "Citizen"
+        self.role_name = "Doctor"
         self.alignment = "Town"
-        self.maxVests = settings.get('maxVests', 2)
         super().__init__(player)
 
         pass

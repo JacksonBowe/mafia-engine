@@ -2,8 +2,8 @@
 
 class Actor:
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, player):
+        # self.name = name
         self.alive = True
 
     def set_number_and_house(self, number):

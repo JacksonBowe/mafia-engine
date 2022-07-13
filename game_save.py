@@ -58,14 +58,14 @@ class GameSave():
             # for i in range(100):
             if len(available_roles) == 0:
                 # print("\tUnable to select free role, failing to 'citizen'")
-                choice = "citizen"
+                choice = "Citizen"
                 print(f"Picking {role_options[0][0]}: {choice} <--- FAILED!!!")
                 failed_roles+=1
             else:
                 choice = random.choices(roles, weights=weights, k=1)[0]
                 print(f"Picking {role_options[0][0]}: {choice}")
                 
-            selected_roles.append((role_options[0][0], choice))
+            selected_roles.append(choice)
             
             del role_options[0] # Remove the tag from the list
         

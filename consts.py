@@ -1,21 +1,21 @@
 
 ROLE_TAGS = {
     # TOWN
-    "citizen"       : ["any_random", "town_random", "town_government"],
-    "mayor"         : ["any_random", "town_random", "town_government"],
-    "doctor"        : ["any_random", "town_random", "town_protective"],
-    "bodyguard"     : ["any_random", "town_random", "town_protective", "town_killing"],
-    "escort"        : ["any_random", "town_random", "town_protective", "town_power"],
-    "sheriff"       : ["any_random", "town_random", "town_investigative"],
-    "investigator"  : ["any_random", "town_random", "town_investigative"],
+    "Citizen"       : ["any_random", "town_random", "town_government"],
+    # "Mayor"         : ["any_random", "town_random", "town_government"],
+    "Doctor"        : ["any_random", "town_random", "town_protective"],
+    # "Bodyguard"     : ["any_random", "town_random", "town_protective", "town_killing"],
+    # "Escort"        : ["any_random", "town_random", "town_protective", "town_power"],
+    # "Sheriff"       : ["any_random", "town_random", "town_investigative"],
+    # "Investigator"  : ["any_random", "town_random", "town_investigative"],
     # MAFIA
-    "mafioso"       : ["any_random", "mafia_random", "mafia_killing"],
-    "consort"       : ["any_random", "mafia_random", "mafia_support"],
-    "janitor"       : ["any_random", "mafia_random", "mafia_deception"],
+    "Mafioso"       : ["any_random", "mafia_random", "mafia_killing"],
+    # "Consort"       : ["any_random", "mafia_random", "mafia_support"],
+    # "Janitor"       : ["any_random", "mafia_random", "mafia_deception"],
     # TRIAD
-    "enforcer"      : ["any_random", "triad_random", "triad_killing"],
+    # "Enforcer"      : ["any_random", "triad_random", "triad_killing"],
     # CULT
     # NEUTRAL
-    "survivor"      : ["any_random", "neutral_random", "neutral_benign"],
-    "serial_killer" : ["any_random", "neutral_random", "neutral_evil", "neutral_killing"],    
+    # "Survivor"      : ["any_random", "neutral_random", "neutral_benign"],
+    "SerialKiller" : ["any_random", "neutral_random", "neutral_evil", "neutral_killing"],    
 }

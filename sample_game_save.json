@@ -18,57 +18,96 @@
     ],
     "settings": {},
     "roles": {
-        "citizen": {
+        "Citizen": {
             "max": 1,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+                "maxVests": 2
+            }
         },
-        "mayor": {
+        "Mayor": {
             "max": 0,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "doctor": {
+        "Doctor": {
             "max": 4,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "bodyguard": {
+        "Bodyguard": {
             "max": 4,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "escort": {
+        "Escort": {
             "max": 4,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "sheriff": {
+        "Sheriff": {
             "max": 4,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "investigator": {
+        "Investigator": {
             "max": 4,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "mafioso": {
-            "max": 10,
-            "weight": 1
+        "Mafioso": {
+            "max": 1,
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "consort": {
+        "Consort": {
             "max": 10,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "janitor": {
+        "Janitor": {
             "max": 10,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "survivor": {
+        "Survivor": {
             "max": 10,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "serial_killer": {
-            "max": 10,
-            "weight": 1
+        "SerialKiller": {
+            "max": 1,
+            "weight": 1,
+            "settings": {
+
+            }
         },
-        "enforcer": {
+        "Enforcer": {
             "max": 10,
-            "weight": 1
+            "weight": 1,
+            "settings": {
+
+            }
         }
     }
 }
