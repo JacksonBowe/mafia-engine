@@ -1,0 +1,201 @@
+{
+    "day": 1,
+    "players": [
+        {
+            "id": "4",
+            "name": "Player 4",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Wesley",
+                "number": 1,
+                "house": 1,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "6",
+            "name": "Player 6",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Kody",
+                "number": 2,
+                "house": 2,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "5",
+            "name": "Player 5",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Rory",
+                "number": 3,
+                "house": 3,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "2",
+            "name": "Player 2",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Brandon",
+                "number": 4,
+                "house": 4,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "1",
+            "name": "Player 1",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Jackson",
+                "number": 5,
+                "house": 5,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "12",
+            "name": "Player 12",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Muck",
+                "number": 6,
+                "house": 6,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "10",
+            "name": "Player 10",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Alfonso",
+                "number": 7,
+                "house": 7,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "13",
+            "name": "Player 13",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Mick",
+                "number": 8,
+                "house": 8,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "11",
+            "name": "Player 11",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Brett",
+                "number": 9,
+                "house": 9,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "7",
+            "name": "Player 7",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Dinkle",
+                "number": 10,
+                "house": 10,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "3",
+            "name": "Player 3",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Bronson",
+                "number": 11,
+                "house": 11,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "8",
+            "name": "Player 8",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Gorden",
+                "number": 12,
+                "house": 12,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "9",
+            "name": "Player 9",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Scrooge",
+                "number": 13,
+                "house": 13,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "14",
+            "name": "Player 14",
+            "state": {
+                "remainingVests": 2,
+                "alias": "Dog",
+                "number": 14,
+                "house": 14,
+                "alive": true
+            },
+            "role": "Citizen",
+            "targets": []
+        },
+        {
+            "id": "15",
+            "name": "Player 15",
+            "state": {
+                "alias": "Car",
+                "number": 15,
+                "house": 15,
+                "alive": true
+            },
+            "role": "Mafioso",
+            "targets": []
+        }
+    ],
+    "events": [],
+    "graveyard": []
+}

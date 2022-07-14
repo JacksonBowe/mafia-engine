@@ -3,7 +3,7 @@ import importlib
 class GameState():
 
     def __init__(self, players, game_save: GameSave):
-        self.day = None
+        self.day = 1
         self.actors = []
         for index, player in enumerate(players):
             role = self.class_for_name('roles', player['role'])
@@ -30,8 +30,10 @@ class GameState():
         result = {
             "day": self.day,
             "players": [actor.dump() for actor in self.actors],
+            "events": [],
             "graveyard": [{
                 "name": actor.alias
             } for actor in self.actors if not actor.alive]
         }
+        # result = [actor.dump() for actor in self.actors]
         return result

@@ -8,6 +8,7 @@ class Actor:
         self.number = ''
         self.house = ''
         self.alive = True
+        self.target = player.get('targets', [])
         
         
     @property
