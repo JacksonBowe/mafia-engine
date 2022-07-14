@@ -6,3 +6,10 @@ class SerialKiller(Actor):
         self.alignment = "Neutral"
         super().__init__(player)
         pass
+    
+    @property
+    def state(self):
+        # Return 'self.state' merged with 'parent.state'
+        return {**{
+            
+        }, **super().state}

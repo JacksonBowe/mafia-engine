@@ -5,11 +5,11 @@ from consts import ROLE_TAGS
 class GameSave():
     def __init__(self, config: dict) -> None:
         self.settings = config['settings']
-        self.role_settings = config['roles']
+        self.roles_settings = config['roles']
         self.tags = config['tags']
     
     def generate_roles(self):
-        print("\n--- Generating roles ---\n")
+        print("\n--- Generating roles ---")
         failed_roles = 0
         # Contruct a list of all the possible options for each specified tag
         role_options = []
@@ -17,8 +17,8 @@ class GameSave():
             possible_roles = []
             for role in ROLE_TAGS:
                 if tag in ROLE_TAGS[role] or tag == role:
-                    weight = self.role_settings[role]['weight']
-                    max = self.role_settings[role]['max']
+                    weight = self.roles_settings[role]['weight']
+                    max = self.roles_settings[role]['max']
                     possible_roles.append((role, weight, max))
             role_options.append((tag, possible_roles))
 
@@ -34,8 +34,8 @@ class GameSave():
             # 'option' = ('town_random', [('citizen', 5, 1), ('doctor', 1, 4)])
             #          = (tag, [(role, weight, max), etc...])
             # Update the blacklist
-            for role in self.role_settings:
-                if selected_roles.count(role) == self.role_settings[role]['max'] and role not in blacklist:
+            for role in self.roles_settings:
+                if selected_roles.count(role) == self.roles_settings[role]['max'] and role not in blacklist:
                     print(f"\tMax reached for '{role}' -> adding to blacklist")
                     blacklist.append(role)
                     # Remove the role from all remaining options
@@ -71,7 +71,7 @@ class GameSave():
         
         self.roles = selected_roles
         self.failed_roles = failed_roles
-        return selected_roles, failed_roles
+        # return selected_roles, failed_roles
     
     def find_by_tag(self, tag, config_roles):
         # get all the roles that have this tag along with their weight and max
@@ -82,6 +82,9 @@ class GameSave():
                 max = config_roles[role]['max']
                 roles.append((role, weight, max))
         return roles
+    
+    def role_settings(self, role_name):
+        return self.roles_settings[role_name]['settings']
     
     
 

@@ -2,76 +2,106 @@
     {
         "id":  "1",
         "name": "Player 1",
-        "alias": "Jackson"
+        "state": {
+            "alias": "Jackson"
+        }
     },
     {
         "id": "2",
         "name": "Player 2",
-        "alias": "Brandon"
+        "state": {
+            "alias": "Brandon"
+        }
     },
     {
         "id": "3",
         "name": "Player 3",
-        "alias": "Bronson"
+        "state": {
+            "alias": "Bronson"
+        }
     },
     {
         "id": "4",
         "name": "Player 4",
-        "alias": "Wesley"
+        "state": {
+            "alias": "Wesley"
+        }
     },
     {
         "id": "5",
         "name": "Player 5",
-        "alias": "Rory"
+        "state": {
+            "alias": "Rory"
+        }
     },
     {
         "id": "6",
         "name": "Player 6",
-        "alias": "Kody"
+        "state": {
+            "alias": "Kody"
+        }
     },
     {
         "id": "7",
         "name": "Player 7",
-        "alias": "Dinkle"
+        "state": {
+            "alias": "Dinkle"
+        }
     },
     {
         "id": "8",
         "name": "Player 8",
-        "alias": "Gorden"
+        "state": {
+            "alias": "Gorden"
+        }
     },
     {
         "id": "9",
         "name": "Player 9",
-        "alias": "Scrooge"
+        "state": {
+            "alias": "Scrooge"
+        }
     },
     {
         "id": "10",
         "name": "Player 10",
-        "alias": "Alfonso"
+        "state": {
+            "alias": "Alfonso"
+        }
     },
     {
         "id": "11",
         "name": "Player 11",
-        "alias": "Brett"
+        "state": {
+            "alias": "Brett"
+        }
     },
     {
         "id": "12",
         "name": "Player 12",
-        "alias": "Muck"
+        "state": {
+            "alias": "Muck"
+        }
     },
     {
         "id": "13",
         "name": "Player 13",
-        "alias": "Mick"
+        "state": {
+            "alias": "Mick"
+        }
     },
     {
         "id": "14",
         "name": "Player 14",
-        "alias": "Dog"
+        "state": {
+            "alias": "Dog"
+        }
     },
     {
         "id": "15",
         "name": "Player 15",
-        "alias": "Car"
+        "state": {
+            "alias": "Car"
+        }
     }
 ]

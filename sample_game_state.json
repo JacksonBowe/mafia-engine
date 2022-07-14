@@ -8,6 +8,7 @@
             "alias": "Jackson",
             "number": "1",
             "role": "Mafioso",
+            "state": {},
             "targets": []
         },
         {
@@ -15,6 +16,7 @@
             "name": "Player 2",
             "alias": "Brandon",
             "number": "2",
+            "state": {},
             "role": "Citizen",
             "targets": []
         }

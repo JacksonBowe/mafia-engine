@@ -9,9 +9,10 @@ class Mafioso(Actor):
     
     @property
     def state(self):
+        # Return 'self.state' merged with 'parent.state'
         return {**{
-            "remainingVests": self.remainingVests
-        }, **self.actor_state}
+            
+        }, **super().state}
         
-    def action(self, targets: list=[]):
-        self.remainingVests -= 1
+    # def action(self, targets: list=[]):
+    #     self.remainingVests -= 1
