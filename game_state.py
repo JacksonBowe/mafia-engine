@@ -23,16 +23,21 @@ class GameState():
         c = getattr(m, class_name)
         return c
     
-    def dump_state(self):
+    def dump(self):
         # result = {}
         # for actor in self.actors:
             
         result = {
             "day": self.day,
-            "players": [actor.dump() for actor in self.actors],
+            "players": [{
+                "number": actor.number,
+                "name": actor.alias
+            } for actor in self.actors],
             "events": [],
             "graveyard": [{
-                "name": actor.alias
+                "number": actor.number,
+                "name": actor.alias,
+                "death_reason": actor.death_reason
             } for actor in self.actors if not actor.alive]
         }
         # result = [actor.dump() for actor in self.actors]

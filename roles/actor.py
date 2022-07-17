@@ -7,6 +7,7 @@ class Actor:
         self.player = player
         self.number = ''
         self.house = ''
+        self.death_reason = ''
         self.alive = True
         self.target = player.get('targets', [])
         

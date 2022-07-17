@@ -8,8 +8,9 @@ It is essentially the API
 # from mafia_engine import MafiaEngine
 from controller import MafiaController
 
-with open('players.json', 'r') as p:
-    players = json.load(p)
+with open('sample_lobby.json', 'r') as l:
+    lobby = json.load(l)
+    players = lobby['players']
 
 with open('sample_game_save.json', 'r') as s:
     save = json.load(s)

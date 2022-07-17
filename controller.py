@@ -32,11 +32,13 @@ class MafiaController():
         print("\n--- Generating initial GameState ---")
         game_state = GameState(players, game_save)
         
-        print(json.dumps(game_state.dump_state(), indent=4))
+        # print(json.dumps(game_state.dump(), indent=4))
         
-        print("Saving to file...")
+        print("\nSaving to file 'output.json'...")
         with open('output.json', 'w') as f:
-            f.write(json.dumps(game_state.dump_state(), indent=4))    
+            f.write(json.dumps(game_state.dump(), indent=4))    
+
+
         
 
 
