@@ -22,7 +22,7 @@ class Citizen(Actor):
         self.allies = []
         
     def find_possible_targets(self, actors):
-        self.possible_targets = [1]
+        self.possible_targets = [self.number]
     
       
     def action(self, targets: list=[]):

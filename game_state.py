@@ -24,7 +24,9 @@ class GameState():
     
     def generate_allies_and_possible_targets(self):
         for actor in self.actors:
+            if not actor.alive: continue
             actor.find_allies(self.actors)
+            actor.find_possible_targets(self.actors)
     
     def dump(self):
         # result = {}
