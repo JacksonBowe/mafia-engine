@@ -18,7 +18,13 @@ class Citizen(Actor):
             "remainingVests": self.remainingVests
         }, **super().state}
         
+    def find_allies(self, actors):
+        self.allies = []
         
+    def find_possible_targets(self, actors):
+        self.possible_targets = [1]
+    
+      
     def action(self, targets: list=[]):
         self.remainingVests -= 1
         

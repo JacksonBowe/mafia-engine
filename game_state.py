@@ -11,7 +11,6 @@ class GameState():
             actor = role(player, game_save.role_settings(player['role']))
             actor.set_number_and_house(index+1)
             self.actors.append(actor)
-            print(actor.state)
             
     def class_for_name(self, module_name, class_name):
         # Imports a class based on a provided string 
@@ -23,6 +22,10 @@ class GameState():
         c = getattr(m, class_name)
         return c
     
+    def generate_allies_and_possible_targets(self):
+        for actor in self.actors:
+            actor.find_allies(self.actors)
+    
     def dump(self):
         # result = {}
         # for actor in self.actors:
@@ -31,7 +34,8 @@ class GameState():
             "day": self.day,
             "players": [{
                 "number": actor.number,
-                "name": actor.alias
+                "name": actor.alias,
+                "alive": actor.alive
             } for actor in self.actors],
             "events": [],
             "graveyard": [{

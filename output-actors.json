@@ -1,0 +1,195 @@
+[
+    {
+        "remainingVests": 2,
+        "number": 1,
+        "house": 1,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "5",
+        "name": "Player 5",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 2,
+        "house": 2,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "13",
+        "name": "Player 13",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 3,
+        "house": 3,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "14",
+        "name": "Player 14",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 4,
+        "house": 4,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "8",
+        "name": "Player 8",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 5,
+        "house": 5,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "10",
+        "name": "Player 10",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 6,
+        "house": 6,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "1",
+        "name": "Player 1",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 7,
+        "house": 7,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "4",
+        "name": "Player 4",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 8,
+        "house": 8,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "6",
+        "name": "Player 6",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 9,
+        "house": 9,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "12",
+        "name": "Player 12",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 10,
+        "house": 10,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "3",
+        "name": "Player 3",
+        "role": "Citizen"
+    },
+    {
+        "number": 11,
+        "house": 11,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "11",
+        "name": "Player 11",
+        "role": "Consort"
+    },
+    {
+        "number": 12,
+        "house": 12,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [
+            {
+                "11": {
+                    "alias": "Brett",
+                    "role": "Consort",
+                    "alive": true
+                }
+            },
+            {
+                "12": {
+                    "alias": "Car",
+                    "role": "Mafioso",
+                    "alive": true
+                }
+            }
+        ],
+        "id": "15",
+        "name": "Player 15",
+        "role": "Mafioso"
+    },
+    {
+        "remainingVests": 2,
+        "number": 13,
+        "house": 13,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "2",
+        "name": "Player 2",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 14,
+        "house": 14,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "7",
+        "name": "Player 7",
+        "role": "Citizen"
+    },
+    {
+        "remainingVests": 2,
+        "number": 15,
+        "house": 15,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "id": "9",
+        "name": "Player 9",
+        "role": "Citizen"
+    }
+]

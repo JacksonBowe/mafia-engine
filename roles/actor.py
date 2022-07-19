@@ -3,24 +3,35 @@
 class Actor:
 
     def __init__(self, player):
-        self.alias = player['state']['alias']
+        self.alias = player.pop('alias')
         self.player = player
         self.number = ''
         self.house = ''
         self.death_reason = ''
         self.alive = True
-        self.target = player.get('targets', [])
+        self.allies = []
+        self.possible_targets = []
+        self.targets = player.get('targets', [])
         
         
     @property
     def state(self):
-        return {
-            'alias': self.alias,
+        # Returns the base player used to construct the Actor, and some actor fields
+        return {**{
             'number': self.number,
             'house': self.house,
-            'alive': self.alive
-        }
-
+            'alive': self.alive,
+            'possible_targets': self.possible_targets,
+            'targets': self.targets,
+            'allies': self.allies
+        },**self.player}
+    
+    def find_allies(self, actors):
+        pass
+    
+    def find_possible_targets(self, actors):
+        pass
+        
     def set_number_and_house(self, number):
         self.set_number(number),
         self.set_house(number)
@@ -34,13 +45,21 @@ class Actor:
     def set_house(self, house):
         self.house = house
 
-    def dump(self):
+    # def dump(self):
         # This is an ACTOR level method that is used by ROLE children. When the ROLE child 
         # calls self.dump() it will run the Actor.dump() method, which calls the Child.state 
-        # propery, which in turn calls the Actor.state propery
-        self.player['state'] = self.state
-        self.player['targets'] = []
-        return self.player
+        # propery, which in turn calls the Actor.state property
+        # state = self.state
+        # self.player['state'] = self.state
+        # for key in state:
+        #     self.player[key] = state[key]
+        # self.player['targets'] = []
+        # self.player['allies'] = self.allies
+        # self.player['possible_targets'] = self.possible_targets
+        # return self.state
+    
+    
+        
     
     
         

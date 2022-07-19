@@ -10,7 +10,7 @@ ROLE_TAGS = {
     # "Investigator"  : ["any_random", "town_random", "town_investigative"],
     # MAFIA
     "Mafioso"       : ["any_random", "mafia_random", "mafia_killing"],
-    # "Consort"       : ["any_random", "mafia_random", "mafia_support"],
+    "Consort"       : ["any_random", "mafia_random", "mafia_support"],
     # "Janitor"       : ["any_random", "mafia_random", "mafia_deception"],
     # TRIAD
     # "Enforcer"      : ["any_random", "triad_random", "triad_killing"],

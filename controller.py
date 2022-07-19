@@ -26,16 +26,20 @@ class MafiaController():
         print("\n--- Allocating roles ---")
         for index, player in enumerate(players):
             player['role'] = game_save.roles[index]
-            # print(f"{player['state']['alias']} ({player['name']}): {player['role']}")
+            print(f"{player['alias']} ({player['name']}): {player['role']}")
             
         # Generate GameState
         print("\n--- Generating initial GameState ---")
         game_state = GameState(players, game_save)
+        game_state.generate_allies_and_possible_targets()
         
-        # print(json.dumps(game_state.dump(), indent=4))
         
-        print("\nSaving to file 'output.json'...")
-        with open('output.json', 'w') as f:
+        print("\nSaving Actors to file 'output-actors.json'...")
+        with open('output-actors.json', 'w') as f:
+            f.write(json.dumps([actor.state for actor in game_state.actors], indent=4))   
+        
+        print("Saving GameState to file 'output-game-state.json'...")
+        with open('output-game-state.json', 'w') as f:
             f.write(json.dumps(game_state.dump(), indent=4))    
 
 
