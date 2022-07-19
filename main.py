@@ -16,6 +16,18 @@ with open('sample_game_save.json', 'r') as s:
     save = json.load(s)
 
 
+def Test1(game):
+    # Test1
+    print("\nRunning 'Test1'")
+    with open('tests/Test1/test1-players.json') as f:
+        pass
+    
+    # Open
+    
+    
+    
+    
+    
 
 def main():
     Mafia = MafiaController()
@@ -23,12 +35,22 @@ def main():
     
     input("\nEnter to continue")
     
+    Test1(game)
+    
+    
+    
+    
+    
+    
+    
     # print(Mafia.test_save(save))
     # Mafia = MafiaEngine()
     # game = Mafia.create_game(players=players, roles=roles)
     # print("\nPrinting GameState")
     # print(json.dumps(game, indent=4))
     pass
+
+
 
 
 

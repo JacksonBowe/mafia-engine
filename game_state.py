@@ -4,6 +4,7 @@ class GameState():
 
     def __init__(self, players, game_save: GameSave):
         self.day = 1
+        self.save = game_save
         self.actors = []
         for index, player in enumerate(players):
             role = self.class_for_name('roles', player['role'])

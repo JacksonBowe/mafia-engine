@@ -3,57 +3,57 @@
     "players": [
         {
             "number": 1,
-            "name": "Rory",
-            "alive": true
-        },
-        {
-            "number": 2,
-            "name": "Scrooge",
-            "alive": true
-        },
-        {
-            "number": 3,
-            "name": "Car",
-            "alive": true
-        },
-        {
-            "number": 4,
-            "name": "Brett",
-            "alive": true
-        },
-        {
-            "number": 5,
-            "name": "Jackson",
-            "alive": true
-        },
-        {
-            "number": 6,
-            "name": "Muck",
-            "alive": true
-        },
-        {
-            "number": 7,
-            "name": "Dinkle",
-            "alive": true
-        },
-        {
-            "number": 8,
             "name": "Brandon",
             "alive": true
         },
         {
-            "number": 9,
-            "name": "Gorden",
-            "alive": true
-        },
-        {
-            "number": 10,
+            "number": 2,
             "name": "Kody",
             "alive": true
         },
         {
+            "number": 3,
+            "name": "Dinkle",
+            "alive": true
+        },
+        {
+            "number": 4,
+            "name": "Bronson",
+            "alive": true
+        },
+        {
+            "number": 5,
+            "name": "Scrooge",
+            "alive": true
+        },
+        {
+            "number": 6,
+            "name": "Car",
+            "alive": true
+        },
+        {
+            "number": 7,
+            "name": "Alfonso",
+            "alive": true
+        },
+        {
+            "number": 8,
+            "name": "Muck",
+            "alive": true
+        },
+        {
+            "number": 9,
+            "name": "Brett",
+            "alive": true
+        },
+        {
+            "number": 10,
+            "name": "Gorden",
+            "alive": true
+        },
+        {
             "number": 11,
-            "name": "Mick",
+            "name": "Wesley",
             "alive": true
         },
         {
@@ -63,20 +63,109 @@
         },
         {
             "number": 13,
-            "name": "Wesley",
+            "name": "Jackson",
             "alive": true
         },
         {
             "number": 14,
-            "name": "Bronson",
+            "name": "Rory",
             "alive": true
         },
         {
             "number": 15,
-            "name": "Alfonso",
+            "name": "Mick",
             "alive": true
         }
     ],
     "events": [],
-    "graveyard": []
+    "graveyard": [],
+    "config": {
+        "tags": [
+            "town_government",
+            "town_protective",
+            "town_protective",
+            "town_power",
+            "town_investigative",
+            "town_killing",
+            "town_investigative",
+            "town_random",
+            "mafia_killing",
+            "mafia_deception",
+            "mafia_support",
+            "neutral_evil",
+            "neutral_benign",
+            "neutral_random",
+            "any_random"
+        ],
+        "settings": {},
+        "roles": {
+            "Citizen": {
+                "max": 1,
+                "weight": 1,
+                "settings": {
+                    "maxVests": 2
+                }
+            },
+            "Mayor": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Doctor": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Bodyguard": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Escort": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Sheriff": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Investigator": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Mafioso": {
+                "max": 1,
+                "weight": 1,
+                "settings": {}
+            },
+            "Consort": {
+                "max": 1,
+                "weight": 1,
+                "settings": {}
+            },
+            "Janitor": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Survivor": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "SerialKiller": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            },
+            "Enforcer": {
+                "max": 0,
+                "weight": 1,
+                "settings": {}
+            }
+        }
+    }
 }

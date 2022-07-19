@@ -4,6 +4,7 @@ from consts import ROLE_TAGS
 
 class GameSave():
     def __init__(self, config: dict) -> None:
+        self.config = config
         self.settings = config['settings']
         self.roles_settings = config['roles']
         self.tags = config['tags']

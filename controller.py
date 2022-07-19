@@ -41,6 +41,7 @@ class MafiaController():
         print("Saving GameState to file 'output-game-state.json'...")
         with open('output-game-state.json', 'w') as f:
             f.write(json.dumps(game_state.dump(), indent=4))    
+            
 
 
         
