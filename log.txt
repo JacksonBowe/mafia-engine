@@ -45,24 +45,24 @@
 [generate_roles][INFO] 	Picking any_random: Citizen 	<--- FAILED!!!
 [create_game][INFO] 	Roles: ['Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Mafioso', 'Consort', 'Citizen']
 [create_game][INFO] 	--- Allocating roles ---
-[create_game][INFO] 		--> Dinkle (Player 7):		Mafioso
-[create_game][INFO] 		--> Brett (Player 11):		Citizen
-[create_game][INFO] 		--> Brandon (Player 2):		Consort
-[create_game][INFO] 		--> Bronson (Player 3):		Citizen
-[create_game][INFO] 		--> Gorden (Player 8):		Citizen
 [create_game][INFO] 		--> Wesley (Player 4):		Citizen
-[create_game][INFO] 		--> Car (Player 15):		Citizen
-[create_game][INFO] 		--> Bertha (Player 10):		Citizen
+[create_game][INFO] 		--> Brandon (Player 2):		Citizen
 [create_game][INFO] 		--> Jackson (Player 1):		Citizen
 [create_game][INFO] 		--> Kody (Player 6):		Citizen
+[create_game][INFO] 		--> Bronson (Player 3):		Mafioso
+[create_game][INFO] 		--> Gorden (Player 8):		Citizen
 [create_game][INFO] 		--> Dog (Player 14):		Citizen
-[create_game][INFO] 		--> Rory (Player 5):		Citizen
-[create_game][INFO] 		--> Scrooge (Player 9):		Citizen
+[create_game][INFO] 		--> Bertha (Player 10):		Citizen
+[create_game][INFO] 		--> Muck (Player 12):		Consort
+[create_game][INFO] 		--> Car (Player 15):		Citizen
 [create_game][INFO] 		--> Mick (Player 13):		Citizen
-[create_game][INFO] 		--> Muck (Player 12):		Citizen
+[create_game][INFO] 		--> Rory (Player 5):		Citizen
+[create_game][INFO] 		--> Dinkle (Player 7):		Citizen
+[create_game][INFO] 		--> Brett (Player 11):		Citizen
+[create_game][INFO] 		--> Scrooge (Player 9):		Citizen
 [create_game][INFO] 	--- Generating initial GameState ---
 [check][ERROR] 	name 'yes' is not defined
 Traceback (most recent call last):
-  File "C:\Users\JacksonBowe\Documents\GitHub\mafia-engine\tests\Test1\test.py", line 13, in check
+  File "C:\Users\JacksonBowe\Documents\GitHub\mafia-engine\tests\Test1\test.py", line 18, in check
     assert 1 == yes
 NameError: name 'yes' is not defined

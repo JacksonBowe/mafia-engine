@@ -1,1 +1,1 @@
-from tests.Test1 import test
+from tests.Test1.test import TestCase

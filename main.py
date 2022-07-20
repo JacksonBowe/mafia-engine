@@ -32,11 +32,12 @@ def main():
         format="[%(funcName)s][%(levelname)s] \t%(message)s",
         filemode="w")
     for test_dir in listdir('tests'):
-        if test_dir == '__init__.py': continue
+        if test_dir.endswith('.py'): continue
         for file in listdir(f"tests/{test_dir}"):
             if file == "test.py":
-                # Test = class_for_name(f"tests.{test_dir}.{file.replace('.py', '')}", 'Test')
-                test = class_for_name(f"tests.{test_dir}", file.replace('.py', ''))
+                TestCase = class_for_name(f"tests.{test_dir}.{file.replace('.py', '')}", 'TestCase')
+                # test = class_for_name(f"tests.{test_dir}", file.replace('.py', ''))
+                test = TestCase()
                 test.run()
                 
    
