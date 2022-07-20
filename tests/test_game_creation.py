@@ -5,14 +5,9 @@ import logging
 
 from controller import MafiaController
 
-logging.basicConfig(filename="log.txt",
-    level=logging.DEBUG, 
-    format="[%(funcName)s][%(levelname)s] \t%(message)s",
-    filemode="w"
-    )
-
 @pytest.fixture
-def test_init():
+def test_create_game():
+    logging.info('Running Test: game_creation')
     dir_path = os.path.dirname(os.path.realpath(__file__))
     with open(dir_path+f'/test_game_creation_files/test1-input-lobby.json', 'r') as l:
         lobby = json.load(l)
@@ -32,8 +27,11 @@ def test_init():
     with open(dir_path+'/test_game_creation_files/test1-output-game-state.json', 'w') as f:
         f.write(json.dumps(game.dump(), indent=4))
 
+    print(game)
+    yield game, save
+
     
 
-def test_02(test_init):
+def test_02(test_create_game):
     # assert test_init == 3
     pass
