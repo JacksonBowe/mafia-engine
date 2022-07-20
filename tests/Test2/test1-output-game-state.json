@@ -3,7 +3,7 @@
     "players": [
         {
             "number": 1,
-            "name": "Mick",
+            "name": "Car",
             "alive": true
         },
         {
@@ -13,27 +13,27 @@
         },
         {
             "number": 3,
-            "name": "Kody",
+            "name": "Brett",
             "alive": true
         },
         {
             "number": 4,
-            "name": "Rory",
+            "name": "Gorden",
             "alive": true
         },
         {
             "number": 5,
-            "name": "Dinkle",
+            "name": "Dog",
             "alive": true
         },
         {
             "number": 6,
-            "name": "Wesley",
+            "name": "Rory",
             "alive": true
         },
         {
             "number": 7,
-            "name": "Alfonso",
+            "name": "Kody",
             "alive": true
         },
         {
@@ -43,37 +43,37 @@
         },
         {
             "number": 9,
-            "name": "Jackson",
+            "name": "Bronson",
             "alive": true
         },
         {
             "number": 10,
-            "name": "Gorden",
+            "name": "Mick",
             "alive": true
         },
         {
             "number": 11,
-            "name": "Dog",
+            "name": "Wesley",
             "alive": true
         },
         {
             "number": 12,
-            "name": "Brandon",
+            "name": "Alfonso",
             "alive": true
         },
         {
             "number": 13,
-            "name": "Brett",
+            "name": "Jackson",
             "alive": true
         },
         {
             "number": 14,
-            "name": "Car",
+            "name": "Brandon",
             "alive": true
         },
         {
             "number": 15,
-            "name": "Bronson",
+            "name": "Dinkle",
             "alive": true
         }
     ],

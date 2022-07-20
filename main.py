@@ -1,41 +1,45 @@
-import json
+import importlib
+import logging
+from os import listdir
 
 '''
 This file houses all of the user-facing commands such as create_game, build_game, resolve_state
 It is essentially the API
 '''
 
-# from mafia_engine import MafiaEngine
-from controller import MafiaController
+# from tests.Test1 import test
 
-with open('sample_lobby.json', 'r') as l:
-    lobby = json.load(l)
-    players = lobby['players']
+    
+    
+    
+def class_for_name(module_name, class_name):
+        # Imports a class based on a provided string 
+        # i.e ->
+        #       :module_name = roles
+        #       :class_name = citizen
+        # Result: from roles.citizen import Citizen
+        m = importlib.import_module(module_name)
+        c = getattr(m, class_name)
+        return c
+    
+# def run_tests():
+    
 
-with open('sample_game_save.json', 'r') as s:
-    save = json.load(s)
-
-
-def Test1(game):
-    # Test1
-    print("\nRunning 'Test1'")
-    with open('tests/Test1/test1-players.json') as f:
-        pass
-    
-    # Open
-    
-    
-    
-    
-    
 
 def main():
-    Mafia = MafiaController()
-    game = Mafia.create_game(players, save)
+    logging.basicConfig(filename="log.txt")
+    for test_dir in listdir('tests'):
+        if test_dir == '__init__.py': continue
+        for file in listdir(f"tests/{test_dir}"):
+            if file == "test.py":
+                # Test = class_for_name(f"tests.{test_dir}.{file.replace('.py', '')}", 'Test')
+                test = class_for_name(f"tests.{test_dir}", file.replace('.py', ''))
+                test.run()
+   
     
-    input("\nEnter to continue")
+    # Test1(game)
     
-    Test1(game)
+    # test1.run()
     
     
     

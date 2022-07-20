@@ -5,42 +5,44 @@ import random
 import json
 
 class MafiaController():
-    def __init__(self):
+    def __init__(self, verbose: bool=False):
+        self.verbose = verbose
+        self.logs = ''
         pass
+    
+    def log(self, *args):
+        if not self.verbose: return
+        print(*args)
     
     def create_game(self, players, save: str):
         # TODO: Needs to take a a GameSave rather than simply a roles list
-        print("\n--- Creating Game ---")
-        print("Players:", len(players))
-        print("Tags:", save['tags'])        
+        self.log("\n--- Creating Game ---")
+        self.log("Players:", len(players))
+        self.log("Tags:", save['tags'])        
         
         game_save = GameSave(save)
         game_save.generate_roles()
-        print("\nRoles:", game_save.roles)
+        self.log("\nRoles:", game_save.roles)
         
         # Assign roles and numbers to players
         random.shuffle(players)
         random.shuffle(game_save.roles)
         
         # Allocate Roles
-        print("\n--- Allocating roles ---")
+        self.log("\n--- Allocating roles ---")
         for index, player in enumerate(players):
             player['role'] = game_save.roles[index]
-            print(f"{player['alias']} ({player['name']}): {player['role']}")
+            self.log(f"{player['alias']} ({player['name']}): {player['role']}")
             
         # Generate GameState
-        print("\n--- Generating initial GameState ---")
+        self.log("\n--- Generating initial GameState ---")
         game_state = GameState(players, game_save)
         game_state.generate_allies_and_possible_targets()
         
+        return game_state
         
-        print("\nSaving Actors to file 'output-actors.json'...")
-        with open('output-actors.json', 'w') as f:
-            f.write(json.dumps([actor.state for actor in game_state.actors], indent=4))   
         
-        print("Saving GameState to file 'output-game-state.json'...")
-        with open('output-game-state.json', 'w') as f:
-            f.write(json.dumps(game_state.dump(), indent=4))    
+          
             
 
 
