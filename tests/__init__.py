@@ -1,1 +1,0 @@
-from tests.Test1.test import TestCase
