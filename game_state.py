@@ -1,11 +1,13 @@
 from game_save import GameSave
 import importlib
+import logging
 class GameState():
 
     def __init__(self, players, game_save: GameSave):
         self.day = 1
         self.save = game_save
         self.actors = []
+        logging.info("\tImporting required roles and instantiating actors")
         for index, player in enumerate(players):
             role = self.class_for_name('roles', player['role'])
             # Instantiate a Role class with :player and :role_settings <- Pulled from GameSave

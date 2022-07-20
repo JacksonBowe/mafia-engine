@@ -2,11 +2,29 @@
 This file houses all of the user-facing commands such as create_game, build_game, resolve_state
 It is essentially the API
 '''
+import json
+import logging
+from controller import MafiaController
 
-    
 
 
 def main():
+    logging.basicConfig(filename="log.txt",
+    level=logging.DEBUG, 
+    format="[%(funcName)s][%(levelname)s] \t%(message)s",
+    filemode="w")
+
+    with open('test-actors.json', 'r') as l:
+        players = json.load(l)
+
+    with open('test-game-save.json', 'r') as s:
+        save = json.load(s)
+
+    with open('test-game-state.json', 'r') as st:
+        state = json.load(st)
+
+    # apply state
+    game = MafiaController().load_game(players, save)
     pass
 
 

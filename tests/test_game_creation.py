@@ -27,11 +27,14 @@ def test_create_game():
     with open(dir_path+'/test_game_creation_files/test1-output-game-state.json', 'w') as f:
         f.write(json.dumps(game.dump(), indent=4))
 
-    print(game)
     yield game, save
 
     
 
 def test_02(test_create_game):
-    # assert test_init == 3
+    game, save = test_create_game
+    assert len(game.actors) == 15
+
+    for actor in game.actors:
+        assert actor.alive, f"All actors should be alive, but '{actor.alias}' is dead"
     pass

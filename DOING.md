@@ -1,0 +1,1 @@
+In test-actors.json modify it such that certain actors are targetting others. See what happens

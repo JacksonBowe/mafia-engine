@@ -38,6 +38,10 @@ class MafiaController():
         game_state.generate_allies_and_possible_targets()
         
         return game_state
+
+    def load_game(self, players, save):
+        logging.info("--- Loading Game ---")
+        
         
         
           
