@@ -27,7 +27,10 @@ def class_for_name(module_name, class_name):
 
 
 def main():
-    logging.basicConfig(filename="log.txt")
+    logging.basicConfig(filename="log.txt",
+        level=logging.DEBUG, 
+        format="[%(funcName)s][%(levelname)s] \t%(message)s",
+        filemode="w")
     for test_dir in listdir('tests'):
         if test_dir == '__init__.py': continue
         for file in listdir(f"tests/{test_dir}"):
@@ -35,6 +38,7 @@ def main():
                 # Test = class_for_name(f"tests.{test_dir}.{file.replace('.py', '')}", 'Test')
                 test = class_for_name(f"tests.{test_dir}", file.replace('.py', ''))
                 test.run()
+                
    
     
     # Test1(game)
