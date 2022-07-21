@@ -2,13 +2,18 @@
     "day": 1,
     "players": [
         {
+            "number": 6,
+            "name": "Bertha",
+            "alive": true
+        },
+        {
             "number": 12,
             "name": "Gorden",
             "alive": true
         },
         {
-            "number": 10,
-            "name": "Car",
+            "number": 11,
+            "name": "Bronson",
             "alive": true
         },
         {
@@ -17,13 +22,23 @@
             "alive": true
         },
         {
-            "number": 14,
-            "name": "Brandon",
+            "number": 13,
+            "name": "Mick",
             "alive": true
         },
         {
-            "number": 11,
-            "name": "Bronson",
+            "number": 1,
+            "name": "Wesley",
+            "alive": true
+        },
+        {
+            "number": 7,
+            "name": "Brett",
+            "alive": true
+        },
+        {
+            "number": 4,
+            "name": "Dinkle",
             "alive": true
         },
         {
@@ -37,23 +52,18 @@
             "alive": true
         },
         {
-            "number": 4,
-            "name": "Dinkle",
+            "number": 14,
+            "name": "Brandon",
             "alive": true
         },
         {
-            "number": 7,
-            "name": "Brett",
+            "number": 5,
+            "name": "Dog",
             "alive": true
         },
         {
-            "number": 6,
-            "name": "Bertha",
-            "alive": true
-        },
-        {
-            "number": 1,
-            "name": "Wesley",
+            "number": 10,
+            "name": "Car",
             "alive": true
         },
         {
@@ -62,18 +72,8 @@
             "alive": true
         },
         {
-            "number": 13,
-            "name": "Mick",
-            "alive": true
-        },
-        {
             "number": 9,
             "name": "Muck",
-            "alive": true
-        },
-        {
-            "number": 5,
-            "name": "Dog",
             "alive": true
         }
     ],

@@ -1,4 +1,5 @@
 from game_save import GameSave
+from consts import TURN_ORDER
 import importlib
 import logging
 import json
@@ -56,9 +57,18 @@ class GameState():
          
     def resolve(self):
         self.generate_allies_and_possible_targets()
+        # sort the actors based on TURN_ORDER
+        self.actors.sort(key=lambda actor: TURN_ORDER.index(actor.role_name))
+        
         for actor in self.actors:
             if not actor.targets: continue
-            print(f"{actor.alias}({actor.number}) is targetting {actor.targets}")
+            print(f"|{actor.role_name}| {actor.alias}({actor.number}) is targetting {actor.targets}")
+            targets = []
+            for t in actor.targets:
+                for a in self.actors:
+                    if a.number == t:
+                        targets.append(a)
+            actor.action(targets)
         # print(json.dumps([actor.state for actor in self.actors], indent=4))
     
     def dump(self):

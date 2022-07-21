@@ -1,1 +1,2 @@
 [load_game][INFO] 	--- Loading Game ---
+[action][INFO] 	|Citizen| Bronson(11) used vest. 1 remaining

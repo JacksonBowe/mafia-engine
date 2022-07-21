@@ -46,6 +46,9 @@ class Actor:
 
     def set_house(self, house):
         self.house = house
+        
+    def action(self, targets: list=[]):
+        pass
 
     # def dump(self):
         # This is an ACTOR level method that is used by ROLE children. When the ROLE child 

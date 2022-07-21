@@ -19,3 +19,14 @@ ROLE_TAGS = {
     # "Survivor"      : ["any_random", "neutral_random", "neutral_benign"],
     "SerialKiller" : ["any_random", "neutral_random", "neutral_evil", "neutral_killing"],    
 }
+
+TURN_ORDER = [
+    # Roleblocking
+    "Consort",
+    # Self Protecting
+    "Citizen",
+    # Target Protecting
+    "Doctor",
+    # Killing
+    "Mafioso"
+]

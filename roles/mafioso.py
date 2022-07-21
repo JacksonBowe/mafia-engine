@@ -34,5 +34,6 @@ class Mafioso(Actor):
                 and actor.number != self.number
             ])
             
-    # def action(self, targets: list=[]):
-    #     self.remainingVests -= 1
+    def action(self, actor_targets):
+        
+        print(actor_targets)
