@@ -6,17 +6,14 @@ class Citizen(Actor):
         self.role_name = "Citizen"
         self.alignment = "Town"
         self.maxVests = settings.get('maxVests', 2)
-        self.remainingVests = self.maxVests
-        
-
-        pass
+        self.remainingVests = player.get('remainingVests', self.maxVests)
     
     @property
     def state(self):
         # Return 'self.state' merged with 'parent.state'
-        return {**{
+        return {**super().state,**{
             "remainingVests": self.remainingVests
-        }, **super().state}
+        }}
         
     def find_allies(self, actors):
         self.allies = []

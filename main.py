@@ -10,9 +10,9 @@ from controller import MafiaController
 
 def main():
     logging.basicConfig(filename="log.txt",
-    level=logging.DEBUG, 
-    format="[%(funcName)s][%(levelname)s] \t%(message)s",
-    filemode="w")
+        level=logging.DEBUG, 
+        format="[%(funcName)s][%(levelname)s] \t%(message)s",
+        filemode="w")
 
     with open('test-actors.json', 'r') as l:
         players = json.load(l)
@@ -24,7 +24,18 @@ def main():
         state = json.load(st)
 
     # apply state
-    game = MafiaController().load_game(players, save)
+    game = MafiaController().load_game(players, save, state)
+    
+    with open('test-actors-output.json', 'w') as f:
+        f.write(json.dumps([actor.state for actor in game.actors], indent=4))   
+        
+        # log("Saving GameState to file 'output-game-state.json'...")
+    with open('test-game-state-output.json', 'w') as f:
+        f.write(json.dumps(game.dump(), indent=4))
+        
+        
+    game.resolve()
+    
     pass
 
 

@@ -3,28 +3,30 @@
 class Actor:
 
     def __init__(self, player):
-        self.alias = player.pop('alias')
+        self.alias = player.get('alias', None)
         self.player = player
-        self.number = ''
-        self.house = ''
-        self.death_reason = ''
-        self.alive = True
+        self.number = player.get('number', None)
+        self.house = player.get('number', None)
+        self.death_reason = player.get('deathReason', '')
+        self.alive = player.get('alive', True)
         self.allies = []
         self.possible_targets = []
         self.targets = player.get('targets', [])
+        self.events = []
         
         
     @property
     def state(self):
         # Returns the base player used to construct the Actor, and some actor fields
-        return {**{
+        return {**self.player,**{
             'number': self.number,
             'house': self.house,
             'alive': self.alive,
             'possible_targets': self.possible_targets,
             'targets': self.targets,
-            'allies': self.allies
-        },**self.player}
+            'allies': self.allies,
+            'alias': self.alias
+        }}
     
     def find_allies(self, actors):
         pass

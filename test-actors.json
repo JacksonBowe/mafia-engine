@@ -1,45 +1,18 @@
 [
     {
+        "remainingVests": 2,
         "number": 1,
         "house": 1,
         "alive": true,
         "possible_targets": [
-            [
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                14,
-                15
-            ]
+            1
         ],
         "targets": [],
-        "allies": [
-            {
-                "1": {
-                    "alias": "Dinkle",
-                    "role": "Mafioso",
-                    "alive": true
-                }
-            },
-            {
-                "13": {
-                    "alias": "Muck",
-                    "role": "Consort",
-                    "alive": true
-                }
-            }
-        ],
-        "id": "7",
-        "name": "Player 7",
-        "role": "Mafioso"
+        "allies": [],
+        "alias": "Wesley",
+        "id": "4",
+        "name": "Player 4",
+        "role": "Citizen"
     },
     {
         "remainingVests": 2,
@@ -51,8 +24,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "4",
-        "name": "Player 4",
+        "alias": "Kody",
+        "id": "6",
+        "name": "Player 6",
         "role": "Citizen"
     },
     {
@@ -65,8 +39,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "9",
-        "name": "Player 9",
+        "alias": "Jackson",
+        "id": "1",
+        "name": "Player 1",
         "role": "Citizen"
     },
     {
@@ -79,8 +54,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "5",
-        "name": "Player 5",
+        "alias": "Dinkle",
+        "id": "7",
+        "name": "Player 7",
         "role": "Citizen"
     },
     {
@@ -93,8 +69,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "10",
-        "name": "Player 10",
+        "alias": "Dog",
+        "id": "14",
+        "name": "Player 14",
         "role": "Citizen"
     },
     {
@@ -107,8 +84,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "2",
-        "name": "Player 2",
+        "alias": "Bertha",
+        "id": "10",
+        "name": "Player 10",
         "role": "Citizen"
     },
     {
@@ -121,8 +99,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "13",
-        "name": "Player 13",
+        "alias": "Brett",
+        "id": "11",
+        "name": "Player 11",
         "role": "Citizen"
     },
     {
@@ -135,8 +114,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "6",
-        "name": "Player 6",
+        "alias": "Scrooge",
+        "id": "9",
+        "name": "Player 9",
         "role": "Citizen"
     },
     {
@@ -149,8 +129,9 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "3",
-        "name": "Player 3",
+        "alias": "Muck",
+        "id": "12",
+        "name": "Player 12",
         "role": "Citizen"
     },
     {
@@ -163,41 +144,33 @@
         ],
         "targets": [],
         "allies": [],
-        "id": "14",
-        "name": "Player 14",
-        "role": "Citizen"
-    },
-    {
-        "number": 11,
-        "house": 11,
-        "alive": true,
-        "possible_targets": [],
-        "targets": [],
-        "allies": [],
-        "id": "11",
-        "name": "Player 11",
-        "role": "Doctor"
-    },
-    {
-        "remainingVests": 2,
-        "number": 12,
-        "house": 12,
-        "alive": true,
-        "possible_targets": [
-            12
-        ],
-        "targets": [],
-        "allies": [],
+        "alias": "Car",
         "id": "15",
         "name": "Player 15",
         "role": "Citizen"
     },
     {
-        "number": 13,
-        "house": 13,
+        "remainingVests": 2,
+        "number": 11,
+        "house": 11,
+        "alive": true,
+        "possible_targets": [
+            11
+        ],
+        "targets": [11],
+        "allies": [],
+        "alias": "Bronson",
+        "id": "3",
+        "name": "Player 3",
+        "role": "Citizen"
+    },
+    {
+        "number": 12,
+        "house": 12,
         "alive": true,
         "possible_targets": [
             [
+                1,
                 2,
                 3,
                 4,
@@ -208,58 +181,100 @@
                 9,
                 10,
                 11,
-                12,
-                14,
-                15
+                13,
+                14
             ]
         ],
         "targets": [],
         "allies": [
             {
-                "1": {
-                    "alias": "Dinkle",
-                    "role": "Mafioso",
+                "12": {
+                    "alias": "Gorden",
+                    "role": "Consort",
                     "alive": true
                 }
             },
             {
-                "13": {
-                    "alias": "Muck",
-                    "role": "Consort",
+                "15": {
+                    "alias": "Rory",
+                    "role": "Mafioso",
                     "alive": true
                 }
             }
         ],
-        "id": "12",
-        "name": "Player 12",
+        "alias": "Gorden",
+        "id": "8",
+        "name": "Player 8",
         "role": "Consort"
     },
     {
         "remainingVests": 2,
-        "number": 14,
-        "house": 14,
+        "number": 13,
+        "house": 13,
         "alive": true,
         "possible_targets": [
-            14
+            13
         ],
         "targets": [],
         "allies": [],
-        "id": "1",
-        "name": "Player 1",
+        "alias": "Mick",
+        "id": "13",
+        "name": "Player 13",
         "role": "Citizen"
     },
     {
-        "remainingVests": 2,
+        "number": 14,
+        "house": 14,
+        "alive": true,
+        "possible_targets": [],
+        "targets": [],
+        "allies": [],
+        "alias": "Brandon",
+        "id": "2",
+        "name": "Player 2",
+        "role": "Doctor"
+    },
+    {
         "number": 15,
         "house": 15,
         "alive": true,
         "possible_targets": [
-            15
+            [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                13,
+                14
+            ]
         ],
-        "targets": [],
-        "allies": [],
-        "id": "8",
-        "name": "Player 8",
-        "role": "Citizen"
+        "targets": [14],
+        "allies": [
+            {
+                "12": {
+                    "alias": "Gorden",
+                    "role": "Consort",
+                    "alive": true
+                }
+            },
+            {
+                "15": {
+                    "alias": "Rory",
+                    "role": "Mafioso",
+                    "alive": true
+                }
+            }
+        ],
+        "alias": "Rory",
+        "id": "5",
+        "name": "Player 5",
+        "role": "Mafioso"
     }
 ]

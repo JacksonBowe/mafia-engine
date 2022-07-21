@@ -7,6 +7,8 @@ import logging
 
 class MafiaController():
     def __init__(self):
+        self.game_state = None
+        self.game_save = None
         pass
     
 
@@ -17,30 +19,53 @@ class MafiaController():
         logging.info("Players: {}".format(len(players)))
         logging.info("Tags: {}".format(save['tags']))
         
-        game_save = GameSave(save)
-        game_save.generate_roles()
-        logging.info("Roles: {}".format(game_save.roles))
+        self.game_save = GameSave(save)
+        self.game_save.generate_roles()
+        logging.info("Roles: {}".format(self.game_save.roles))
         
         # Assign roles and numbers to players
         random.shuffle(players)
-        random.shuffle(game_save.roles)
+        random.shuffle(self.game_save.roles)
         
         # Allocate Roles
         logging.info("--- Allocating roles ---")
         for index, player in enumerate(players):
-            player['role'] = game_save.roles[index]
+            player['role'] = self.game_save.roles[index]
             logging.info(f"\t--> {player['alias']} ({player['name']}):\t\t{player['role']}")
         
             
         # Generate GameState
         logging.info("--- Generating initial GameState ---")
-        game_state = GameState(players, game_save)
-        game_state.generate_allies_and_possible_targets()
+        self.game_state = GameState(players, self.game_save)
+        self.game_state.generate_allies_and_possible_targets()
         
-        return game_state
+        return self.game_state
 
-    def load_game(self, players, save):
+    def load_game(self, players, save, prev_state):
         logging.info("--- Loading Game ---")
+        
+        random.shuffle(players)
+        
+        # Load the previous state
+        self.game_state = GameState()
+        self.game_state.load(players, GameSave(save), prev_state)
+        
+        # random.shuffle(players)
+        # for (player, actor) in zip(players, self.game_state.actors):
+        #     # WHen GameState is initialised it treats players as if they were just created, need to make it not do that
+        #     print(f"{player['alias']}: {player['number']} --> {actor.alias}: {actor.number}")
+            
+        # for actor in game_state.actors:
+            
+        
+        # print(json.dumps([actor.state for actor in self.game_state.actors], indent=4))
+        return self.game_state
+
+
+
+
+        
+        
         
         
         

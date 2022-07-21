@@ -1,19 +1,14 @@
 from game_save import GameSave
 import importlib
 import logging
+import json
 class GameState():
 
-    def __init__(self, players, game_save: GameSave):
-        self.day = 1
-        self.save = game_save
+    def __init__(self):
+        self.day = None
         self.actors = []
-        logging.info("\tImporting required roles and instantiating actors")
-        for index, player in enumerate(players):
-            role = self.class_for_name('roles', player['role'])
-            # Instantiate a Role class with :player and :role_settings <- Pulled from GameSave
-            actor = role(player, game_save.role_settings(player['role']))
-            actor.set_number_and_house(index+1)
-            self.actors.append(actor)
+        self.save = None
+        pass
             
     def class_for_name(self, module_name, class_name):
         # Imports a class based on a provided string 
@@ -31,10 +26,42 @@ class GameState():
             actor.find_allies(self.actors)
             actor.find_possible_targets(self.actors)
     
+    def new(self, players, game_save):
+        self.day = 1
+        self.save = game_save
+        # self.actors = []
+        print("Initing Gamestate with default value, applying new numbers to players")
+        logging.info("Importing required roles and instantiating actors")
+        for index, player in enumerate(players):
+            role = self.class_for_name('roles', player['role'])
+            # Instantiate a Role class with :player and :role_settings <- Pulled from GameSave
+            actor = role(player, game_save.role_settings(player['role']))
+            actor.set_number_and_house(index+1)
+            self.actors.append(actor)
+    
+    def load(self, players, game_save: GameSave, prev_state: dict()):
+        import json
+        # print(json.dumps(prev_state, indent=4))
+        self.day = prev_state['day']
+        self.save = game_save
+        # self.actors = []
+        print("Loading game state")
+        for player in players:
+            role = self.class_for_name('roles', player['role'])
+            # Instantiate a Role class with :player and :role_settings <- Pulled from GameSave
+            actor = role(player, game_save.role_settings(player['role']))
+            self.actors.append(actor)
+        
+        
+         
+    def resolve(self):
+        self.generate_allies_and_possible_targets()
+        for actor in self.actors:
+            if not actor.targets: continue
+            print(f"{actor.alias}({actor.number}) is targetting {actor.targets}")
+        # print(json.dumps([actor.state for actor in self.actors], indent=4))
+    
     def dump(self):
-        # result = {}
-        # for actor in self.actors:
-            
         result = {
             "day": self.day,
             "players": [{
