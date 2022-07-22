@@ -44,23 +44,22 @@
 [generate_roles][INFO] Picking any_random: Citizen 	<--- FAILED!!!
 [create_game][INFO] Roles: ['Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Doctor', 'Citizen', 'Citizen', 'Mafioso', 'Consort', 'Citizen']
 [create_game][INFO] --- Allocating roles ---
-[create_game][INFO] 	--> Scrooge (Player 9):		Citizen
-[create_game][INFO] 	--> Dinkle (Player 7):		Citizen
-[create_game][INFO] 	--> Bertha (Player 10):		Citizen
-[create_game][INFO] 	--> Mick (Player 13):		Citizen
-[create_game][INFO] 	--> Gorden (Player 8):		Citizen
-[create_game][INFO] 	--> Brandon (Player 2):		Citizen
 [create_game][INFO] 	--> Car (Player 15):		Citizen
-[create_game][INFO] 	--> Brett (Player 11):		Mafioso
-[create_game][INFO] 	--> Muck (Player 12):		Consort
-[create_game][INFO] 	--> Rory (Player 5):		Doctor
-[create_game][INFO] 	--> Kody (Player 6):		Citizen
+[create_game][INFO] 	--> Scrooge (Player 9):		Citizen
+[create_game][INFO] 	--> Bertha (Player 10):		Citizen
 [create_game][INFO] 	--> Bronson (Player 3):		Citizen
-[create_game][INFO] 	--> Wesley (Player 4):		Citizen
 [create_game][INFO] 	--> Jackson (Player 1):		Citizen
+[create_game][INFO] 	--> Brandon (Player 2):		Citizen
 [create_game][INFO] 	--> Dog (Player 14):		Citizen
+[create_game][INFO] 	--> Muck (Player 12):		Citizen
+[create_game][INFO] 	--> Mick (Player 13):		Consort
+[create_game][INFO] 	--> Wesley (Player 4):		Mafioso
+[create_game][INFO] 	--> Rory (Player 5):		Citizen
+[create_game][INFO] 	--> Dinkle (Player 7):		Citizen
+[create_game][INFO] 	--> Kody (Player 6):		Citizen
+[create_game][INFO] 	--> Gorden (Player 8):		Doctor
+[create_game][INFO] 	--> Brett (Player 11):		Citizen
 [create_game][INFO] --- Generating initial GameState ---
-[__init__][INFO] 	Importing required roles and instantiating actors
 [test_create_game][INFO] Running Test: game_creation
 [create_game][INFO] --- Creating Game ---
 [create_game][INFO] Players: 15
@@ -107,35 +106,19 @@
 [generate_roles][INFO] Picking any_random: Citizen 	<--- FAILED!!!
 [create_game][INFO] Roles: ['Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Citizen', 'Doctor', 'Citizen', 'Citizen', 'Mafioso', 'Consort', 'Citizen']
 [create_game][INFO] --- Allocating roles ---
+[create_game][INFO] 	--> Bertha (Player 10):		Citizen
+[create_game][INFO] 	--> Dinkle (Player 7):		Citizen
 [create_game][INFO] 	--> Wesley (Player 4):		Citizen
 [create_game][INFO] 	--> Kody (Player 6):		Citizen
-[create_game][INFO] 	--> Jackson (Player 1):		Citizen
-[create_game][INFO] 	--> Dinkle (Player 7):		Citizen
-[create_game][INFO] 	--> Dog (Player 14):		Citizen
-[create_game][INFO] 	--> Bertha (Player 10):		Citizen
-[create_game][INFO] 	--> Brett (Player 11):		Citizen
 [create_game][INFO] 	--> Scrooge (Player 9):		Citizen
 [create_game][INFO] 	--> Muck (Player 12):		Citizen
-[create_game][INFO] 	--> Car (Player 15):		Citizen
+[create_game][INFO] 	--> Dog (Player 14):		Citizen
 [create_game][INFO] 	--> Bronson (Player 3):		Citizen
-[create_game][INFO] 	--> Gorden (Player 8):		Consort
-[create_game][INFO] 	--> Mick (Player 13):		Citizen
 [create_game][INFO] 	--> Brandon (Player 2):		Doctor
 [create_game][INFO] 	--> Rory (Player 5):		Mafioso
+[create_game][INFO] 	--> Mick (Player 13):		Consort
+[create_game][INFO] 	--> Car (Player 15):		Citizen
+[create_game][INFO] 	--> Gorden (Player 8):		Citizen
+[create_game][INFO] 	--> Jackson (Player 1):		Citizen
+[create_game][INFO] 	--> Brett (Player 11):		Citizen
 [create_game][INFO] --- Generating initial GameState ---
-[__init__][INFO] 	Importing required roles and instantiating actors
-[test_aliases][WARNING] Wesley
-[test_aliases][WARNING] Kody
-[test_aliases][WARNING] Jackson
-[test_aliases][WARNING] Dinkle
-[test_aliases][WARNING] Dog
-[test_aliases][WARNING] Bertha
-[test_aliases][WARNING] Brett
-[test_aliases][WARNING] Scrooge
-[test_aliases][WARNING] Muck
-[test_aliases][WARNING] Car
-[test_aliases][WARNING] Bronson
-[test_aliases][WARNING] Gorden
-[test_aliases][WARNING] Mick
-[test_aliases][WARNING] Brandon
-[test_aliases][WARNING] Rory

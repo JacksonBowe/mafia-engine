@@ -1,2 +1,3 @@
 [load_game][INFO] 	--- Loading Game ---
-[action][INFO] 	|Citizen| Bronson(11) used vest. 1 remaining
+[kill][INFO] 	|Mafioso| Rory(15) is attempting to kill |Citizen| Bronson(11)
+[die][INFO] 	|Citizen| Bronson(11) was killed, and then healed by |Doctor| Brandon(14)

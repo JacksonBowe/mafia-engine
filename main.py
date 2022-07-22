@@ -36,6 +36,8 @@ def main():
         
     game.resolve()
     
+    # print(json.dumps(game.dump(), indent=4))
+    
     pass
 
 

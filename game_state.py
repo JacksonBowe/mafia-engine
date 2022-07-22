@@ -69,7 +69,12 @@ class GameState():
                     if a.number == t:
                         targets.append(a)
             actor.action(targets)
-        # print(json.dumps([actor.state for actor in self.actors], indent=4))
+
+
+            
+        # print(json.dumps([actor.events for actor in self.actors], indent=4))
+        
+        
     
     def dump(self):
         result = {

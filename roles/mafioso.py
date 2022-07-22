@@ -1,10 +1,12 @@
+import logging
 from roles.actor import Actor
 
 class Mafioso(Actor):
     def __init__(self, player, settings):
+        super().__init__(player)
         self.role_name = "Mafioso"
         self.alignment = "mafia"
-        super().__init__(player)
+        self.kill_message = "You were killed by a member of the mafia"
         pass
     
     @property
@@ -35,5 +37,14 @@ class Mafioso(Actor):
             ])
             
     def action(self, actor_targets):
+        target = actor_targets[0]
+
+        # self.set_house(target.number)
+        # # TODO: If target.bodyguards: self.die("You were killed by the bodyguard protecting your target", true_death=True), target.bodyguards.pop(0)
+        # success, reason = target.die(self)
+        # if not success:
+        #     print("Kill failed: " + reason)
+        #     self.events.append("Kill failed: " + reason)
         
-        print(actor_targets)
+        self.kill(target)
+        
