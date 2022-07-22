@@ -2,16 +2,6 @@
     "day": 1,
     "players": [
         {
-            "number": 15,
-            "name": "Rory",
-            "alive": true
-        },
-        {
-            "number": 10,
-            "name": "Car",
-            "alive": true
-        },
-        {
             "number": 12,
             "name": "Gorden",
             "alive": true
@@ -62,11 +52,6 @@
             "alive": true
         },
         {
-            "number": 14,
-            "name": "Brandon",
-            "alive": true
-        },
-        {
             "number": 8,
             "name": "Scrooge",
             "alive": true
@@ -74,6 +59,21 @@
         {
             "number": 11,
             "name": "Bronson",
+            "alive": true
+        },
+        {
+            "number": 14,
+            "name": "Brandon",
+            "alive": true
+        },
+        {
+            "number": 15,
+            "name": "Rory",
+            "alive": true
+        },
+        {
+            "number": 10,
+            "name": "Car",
             "alive": true
         }
     ],

@@ -31,7 +31,8 @@ class Actor:
             'possible_targets': self.possible_targets,
             'targets': self.targets,
             'allies': self.allies,
-            'alias': self.alias
+            'alias': self.alias,
+            'events': self.events
         }}
     
     def find_allies(self, actors):
@@ -63,6 +64,9 @@ class Actor:
         logging.info(f"{self} is attempting to kill {target}")
         self.visit(target)
         
+        if not target.alive:
+            return True, ""
+        
         if target.night_immune:
             self.events.append(f"Failed to kill {target}: Target is Night Immune")
             target.events.append(f"You were attacked but managed to survive")
@@ -79,6 +83,7 @@ class Actor:
             self.events.append("You were killed, and then revived by a G.O.A.T'ed medic")
         else:
             logging.info(f"{self} was killed")
+            self.events.append("You were killed")
             self.alive = False
         
         # # returns -> success, reason

@@ -36,6 +36,13 @@ def main():
         
     game.resolve()
     
+    with open('resolve-test-actors-output.json', 'w') as f:
+        f.write(json.dumps([actor.state for actor in game.actors], indent=4))   
+        
+        # log("Saving GameState to file 'output-game-state.json'...")
+    with open('resolve-test-game-state-output.json', 'w') as f:
+        f.write(json.dumps(game.dump(), indent=4))
+    
     # print(json.dumps(game.dump(), indent=4))
     
     pass

@@ -1,3 +1,6 @@
 [load_game][INFO] 	--- Loading Game ---
+[action][INFO] 	|Citizen| Bronson(11) used vest. 1 remaining
 [kill][INFO] 	|Mafioso| Rory(15) is attempting to kill |Citizen| Bronson(11)
-[die][INFO] 	|Citizen| Bronson(11) was killed, and then healed by |Doctor| Brandon(14)
+[kill][INFO] 	|Mafioso| Rory(15) failed to kill |Citizen| Bronson(11): Target is Night Immune
+[kill][INFO] 	|Mafioso| Car(10) is attempting to kill |Citizen| Bronson(11)
+[kill][INFO] 	|Mafioso| Car(10) failed to kill |Citizen| Bronson(11): Target is Night Immune
