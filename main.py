@@ -74,7 +74,7 @@ def main():
                 if not player['possible_targets'][0]: continue
 
                 # 50/50 if the citizen will target itself
-                if random.choice(([False] * 0) + ([True]*state['day'])): 
+                if random.choice(([False] * 5) + ([True]*state['day'])): 
                     target = [random.choice(player['possible_targets'][0])]
                     player['targets'] = target
 
@@ -89,10 +89,15 @@ def main():
 
         game = MafiaController().load_game(players, save, state)
         game.resolve()
+        
 
         players = [actor.state for actor in game.actors]
         # print(json.dumps(players, indent=4))
         state = game.dump()
+
+        if game.check_for_win():
+            print("GAME FINISHED")
+            break
 
 
         print()

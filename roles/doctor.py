@@ -8,6 +8,8 @@ class Doctor(Actor):
         self.alignment = "Town"
         self.night_immune = False
         pass
+
+    # def find
     
     
     def action(self, actor_targets):

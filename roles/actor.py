@@ -36,9 +36,11 @@ class Actor:
         }}
     
     def find_allies(self, actors):
+        self.allies = []
         pass
     
     def find_possible_targets(self, actors):
+        self.possible_targets = []
         pass
         
     def set_number_and_house(self, number):

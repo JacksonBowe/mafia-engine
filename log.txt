@@ -1,48 +1,81 @@
 [load_game][INFO] 	--- Loading Game ---
 [load][INFO] 	Day: 1
-[action][INFO] 	|Citizen| Kody(8) used vest. 1 remaining
-[action][INFO] 	|Citizen| Rory(7) used vest. 1 remaining
-[action][INFO] 	|Citizen| Car(1) used vest. 1 remaining
-[action][INFO] 	|Citizen| Brandon(15) used vest. 1 remaining
 [action][INFO] 	|Citizen| Dinkle(11) used vest. 1 remaining
 [action][INFO] 	|Citizen| Mick(10) used vest. 1 remaining
 [action][INFO] 	|Citizen| Scrooge(5) used vest. 1 remaining
-[action][INFO] 	|Citizen| Dog(14) used vest. 1 remaining
-[action][INFO] 	|Citizen| Bertha(4) used vest. 1 remaining
-[action][INFO] 	|Citizen| Gorden(12) used vest. 1 remaining
-[action][INFO] 	|Citizen| Muck(3) used vest. 1 remaining
-[action][INFO] 	|Citizen| Bronson(2) used vest. 1 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Muck(3)
-[kill][INFO] 	|Mafioso| Jackson(6) failed to kill |Citizen| Muck(3): Target is Night Immune
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Bertha(4)
+[die][INFO] 	|Citizen| Bertha(4) was killed
 [load_game][INFO] 	--- Loading Game ---
 [load][INFO] 	Day: 2
-[action][INFO] 	|Citizen| Brandon(15) used vest. 0 remaining
-[action][INFO] 	|Citizen| Car(1) used vest. 0 remaining
-[action][INFO] 	|Citizen| Dinkle(11) used vest. 0 remaining
-[action][INFO] 	|Citizen| Rory(7) used vest. 0 remaining
-[action][INFO] 	|Citizen| Dog(14) used vest. 0 remaining
-[action][INFO] 	|Citizen| Bronson(2) used vest. 0 remaining
-[action][INFO] 	|Citizen| Gorden(12) used vest. 0 remaining
-[action][INFO] 	|Citizen| Muck(3) used vest. 0 remaining
-[action][INFO] 	|Citizen| Kody(8) used vest. 0 remaining
-[action][INFO] 	|Citizen| Mick(10) used vest. 0 remaining
-[action][INFO] 	|Citizen| Scrooge(5) used vest. 0 remaining
-[action][INFO] 	|Citizen| Bertha(4) used vest. 0 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Muck(3)
-[kill][INFO] 	|Mafioso| Jackson(6) failed to kill |Citizen| Muck(3): Target is Night Immune
+[action][INFO] 	|Citizen| Kody(8) used vest. 1 remaining
+[action][INFO] 	|Citizen| Brandon(15) used vest. 1 remaining
+[action][INFO] 	|Citizen| Gorden(12) used vest. 1 remaining
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Kody(8)
+[kill][INFO] 	|Mafioso| Jackson(6) failed to kill |Citizen| Kody(8): Target is Night Immune
 [load_game][INFO] 	--- Loading Game ---
 [load][INFO] 	Day: 3
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Car(1)
-[die][INFO] 	|Citizen| Car(1) was killed
+[action][INFO] 	|Citizen| Mick(10) used vest. 0 remaining
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Scrooge(5)
+[die][INFO] 	|Citizen| Scrooge(5) was killed
 [load_game][INFO] 	--- Loading Game ---
 [load][INFO] 	Day: 4
+[action][INFO] 	|Citizen| Dog(14) used vest. 1 remaining
+[action][INFO] 	|Citizen| Muck(3) used vest. 1 remaining
+[action][INFO] 	|Citizen| Scrooge(5) used vest. 0 remaining
+[action][INFO] 	|Citizen| Gorden(12) used vest. 0 remaining
 [kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Kody(8)
 [die][INFO] 	|Citizen| Kody(8) was killed
 [load_game][INFO] 	--- Loading Game ---
 [load][INFO] 	Day: 5
+[action][INFO] 	|Citizen| Bronson(2) used vest. 1 remaining
+[action][INFO] 	|Citizen| Rory(7) used vest. 1 remaining
+[action][INFO] 	|Citizen| Muck(3) used vest. 0 remaining
+[action][INFO] 	|Citizen| Car(1) used vest. 1 remaining
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Car(1)
+[kill][INFO] 	|Mafioso| Jackson(6) failed to kill |Citizen| Car(1): Target is Night Immune
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 6
+[action][INFO] 	|Citizen| Dinkle(11) used vest. 0 remaining
+[action][INFO] 	|Citizen| Rory(7) used vest. 0 remaining
+[action][INFO] 	|Citizen| Bronson(2) used vest. 0 remaining
+[action][INFO] 	|Citizen| Car(1) used vest. 0 remaining
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Gorden(12)
+[die][INFO] 	|Citizen| Gorden(12) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 7
+[action][INFO] 	|Citizen| Dog(14) used vest. 0 remaining
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Mick(10)
+[die][INFO] 	|Citizen| Mick(10) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 8
+[action][INFO] 	|Citizen| Brandon(15) used vest. 0 remaining
 [kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Muck(3)
 [die][INFO] 	|Citizen| Muck(3) was killed
 [load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 6
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Bertha(4)
-[die][INFO] 	|Citizen| Bertha(4) was killed
+[load][INFO] 	Day: 9
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Car(1)
+[die][INFO] 	|Citizen| Car(1) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 10
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Dinkle(11)
+[die][INFO] 	|Citizen| Dinkle(11) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 11
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Bronson(2)
+[die][INFO] 	|Citizen| Bronson(2) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 12
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Rory(7)
+[die][INFO] 	|Citizen| Rory(7) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 13
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Dog(14)
+[die][INFO] 	|Citizen| Dog(14) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 14
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Brett(9)
+[die][INFO] 	|Doctor| Brett(9) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 15
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Brandon(15)
+[die][INFO] 	|Citizen| Brandon(15) was killed

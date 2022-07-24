@@ -72,14 +72,14 @@ class GameState():
                         targets.append(a)
             actor.action(targets)
 
-        self.generate_allies_and_possible_targets()
-
-
-            
-        # print(json.dumps([actor.events for actor in self.actors], indent=4))
-        
+        self.generate_allies_and_possible_targets()       
         
     
+    def check_for_win(self):
+        town_members = [actor for actor in self.actors if actor.alive and actor.alignment == "Town"]
+        print("Town members", town_members)
+        if not town_members: return "mafia_win"
+
     def dump(self):
         result = {
             "day": self.day,
