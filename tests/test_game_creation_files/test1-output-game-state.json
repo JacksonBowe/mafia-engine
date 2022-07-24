@@ -8,72 +8,72 @@
         },
         {
             "number": 2,
-            "name": "Kody",
-            "alive": true
-        },
-        {
-            "number": 3,
-            "name": "Jackson",
-            "alive": true
-        },
-        {
-            "number": 4,
-            "name": "Dinkle",
-            "alive": true
-        },
-        {
-            "number": 5,
-            "name": "Dog",
-            "alive": true
-        },
-        {
-            "number": 6,
-            "name": "Bertha",
-            "alive": true
-        },
-        {
-            "number": 7,
-            "name": "Brett",
-            "alive": true
-        },
-        {
-            "number": 8,
-            "name": "Scrooge",
-            "alive": true
-        },
-        {
-            "number": 9,
-            "name": "Muck",
-            "alive": true
-        },
-        {
-            "number": 10,
-            "name": "Car",
-            "alive": true
-        },
-        {
-            "number": 11,
-            "name": "Bronson",
-            "alive": true
-        },
-        {
-            "number": 12,
-            "name": "Gorden",
-            "alive": true
-        },
-        {
-            "number": 13,
-            "name": "Mick",
-            "alive": true
-        },
-        {
-            "number": 14,
             "name": "Brandon",
             "alive": true
         },
         {
-            "number": 15,
+            "number": 3,
+            "name": "Scrooge",
+            "alive": true
+        },
+        {
+            "number": 4,
+            "name": "Gorden",
+            "alive": true
+        },
+        {
+            "number": 5,
+            "name": "Muck",
+            "alive": true
+        },
+        {
+            "number": 6,
+            "name": "Dog",
+            "alive": true
+        },
+        {
+            "number": 7,
+            "name": "Dinkle",
+            "alive": true
+        },
+        {
+            "number": 8,
+            "name": "Brett",
+            "alive": true
+        },
+        {
+            "number": 9,
             "name": "Rory",
+            "alive": true
+        },
+        {
+            "number": 10,
+            "name": "Jackson",
+            "alive": true
+        },
+        {
+            "number": 11,
+            "name": "Kody",
+            "alive": true
+        },
+        {
+            "number": 12,
+            "name": "Bronson",
+            "alive": true
+        },
+        {
+            "number": 13,
+            "name": "Car",
+            "alive": true
+        },
+        {
+            "number": 14,
+            "name": "Bertha",
+            "alive": true
+        },
+        {
+            "number": 15,
+            "name": "Mick",
             "alive": true
         }
     ],

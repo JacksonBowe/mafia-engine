@@ -41,10 +41,10 @@ class GameState():
             self.actors.append(actor)
     
     def load(self, players, game_save: GameSave, prev_state: dict()):
-        import json
         # print(json.dumps(prev_state, indent=4))
         self.day = prev_state['day']
         self.save = game_save
+        logging.info(f"Day: {self.day}") # TODO add number of alive players?
         # self.actors = []
         print("Loading game state")
         for player in players:
@@ -56,7 +56,9 @@ class GameState():
         
          
     def resolve(self):
+        self.day += 1
         self.generate_allies_and_possible_targets()
+
         # sort the actors based on TURN_ORDER
         self.actors.sort(key=lambda actor: TURN_ORDER.index(actor.role_name))
         
@@ -69,6 +71,8 @@ class GameState():
                     if a.number == t:
                         targets.append(a)
             actor.action(targets)
+
+        self.generate_allies_and_possible_targets()
 
 
             

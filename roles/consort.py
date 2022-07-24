@@ -25,7 +25,7 @@ class Consort(Actor):
     def find_possible_targets(self, actors):
         # Number of targets
         num_targets = 1
-        
+        self.possible_targets = []
         for i in range(num_targets):
             self.possible_targets.append([
                 actor.number for actor in actors

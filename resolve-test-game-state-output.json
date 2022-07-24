@@ -7,16 +7,6 @@
             "alive": true
         },
         {
-            "number": 4,
-            "name": "Dinkle",
-            "alive": true
-        },
-        {
-            "number": 1,
-            "name": "Wesley",
-            "alive": true
-        },
-        {
             "number": 7,
             "name": "Brett",
             "alive": true
@@ -27,13 +17,8 @@
             "alive": true
         },
         {
-            "number": 5,
-            "name": "Dog",
-            "alive": true
-        },
-        {
-            "number": 3,
-            "name": "Jackson",
+            "number": 4,
+            "name": "Dinkle",
             "alive": true
         },
         {
@@ -42,8 +27,18 @@
             "alive": true
         },
         {
+            "number": 3,
+            "name": "Jackson",
+            "alive": true
+        },
+        {
             "number": 6,
             "name": "Bertha",
+            "alive": true
+        },
+        {
+            "number": 1,
+            "name": "Wesley",
             "alive": true
         },
         {
@@ -54,6 +49,11 @@
         {
             "number": 8,
             "name": "Scrooge",
+            "alive": true
+        },
+        {
+            "number": 5,
+            "name": "Dog",
             "alive": true
         },
         {

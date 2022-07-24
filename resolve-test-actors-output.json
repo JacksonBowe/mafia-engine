@@ -5,17 +5,17 @@
         "alive": true,
         "possible_targets": [
             [
-                4,
-                1,
                 7,
                 2,
-                5,
-                3,
+                4,
                 9,
+                3,
                 6,
-                13,
                 14,
+                1,
+                13,
                 8,
+                5,
                 11
             ]
         ],
@@ -47,38 +47,6 @@
         "id": "8",
         "name": "Player 8",
         "role": "Consort",
-        "events": []
-    },
-    {
-        "remainingVests": 2,
-        "number": 4,
-        "house": 4,
-        "alive": true,
-        "possible_targets": [
-            4
-        ],
-        "targets": [],
-        "allies": [],
-        "alias": "Dinkle",
-        "id": "7",
-        "name": "Player 7",
-        "role": "Citizen",
-        "events": []
-    },
-    {
-        "remainingVests": 2,
-        "number": 1,
-        "house": 1,
-        "alive": true,
-        "possible_targets": [
-            1
-        ],
-        "targets": [],
-        "allies": [],
-        "alias": "Wesley",
-        "id": "4",
-        "name": "Player 4",
-        "role": "Citizen",
         "events": []
     },
     {
@@ -115,33 +83,17 @@
     },
     {
         "remainingVests": 2,
-        "number": 5,
-        "house": 5,
+        "number": 4,
+        "house": 4,
         "alive": true,
         "possible_targets": [
-            5
+            4
         ],
         "targets": [],
         "allies": [],
-        "alias": "Dog",
-        "id": "14",
-        "name": "Player 14",
-        "role": "Citizen",
-        "events": []
-    },
-    {
-        "remainingVests": 2,
-        "number": 3,
-        "house": 3,
-        "alive": true,
-        "possible_targets": [
-            3
-        ],
-        "targets": [],
-        "allies": [],
-        "alias": "Jackson",
-        "id": "1",
-        "name": "Player 1",
+        "alias": "Dinkle",
+        "id": "7",
+        "name": "Player 7",
         "role": "Citizen",
         "events": []
     },
@@ -163,6 +115,22 @@
     },
     {
         "remainingVests": 2,
+        "number": 3,
+        "house": 3,
+        "alive": true,
+        "possible_targets": [
+            3
+        ],
+        "targets": [],
+        "allies": [],
+        "alias": "Jackson",
+        "id": "1",
+        "name": "Player 1",
+        "role": "Citizen",
+        "events": []
+    },
+    {
+        "remainingVests": 2,
         "number": 6,
         "house": 6,
         "alive": true,
@@ -174,6 +142,22 @@
         "alias": "Bertha",
         "id": "10",
         "name": "Player 10",
+        "role": "Citizen",
+        "events": []
+    },
+    {
+        "remainingVests": 2,
+        "number": 1,
+        "house": 1,
+        "alive": true,
+        "possible_targets": [
+            1
+        ],
+        "targets": [],
+        "allies": [],
+        "alias": "Wesley",
+        "id": "4",
+        "name": "Player 4",
         "role": "Citizen",
         "events": []
     },
@@ -206,6 +190,22 @@
         "alias": "Scrooge",
         "id": "9",
         "name": "Player 9",
+        "role": "Citizen",
+        "events": []
+    },
+    {
+        "remainingVests": 2,
+        "number": 5,
+        "house": 5,
+        "alive": true,
+        "possible_targets": [
+            5
+        ],
+        "targets": [],
+        "allies": [],
+        "alias": "Dog",
+        "id": "14",
+        "name": "Player 14",
         "role": "Citizen",
         "events": []
     },
@@ -252,17 +252,17 @@
         "alive": true,
         "possible_targets": [
             [
-                4,
-                1,
                 7,
                 2,
-                5,
-                3,
+                4,
                 9,
+                3,
                 6,
-                13,
                 14,
+                1,
+                13,
                 8,
+                5,
                 11
             ]
         ],
@@ -307,17 +307,17 @@
         "alive": true,
         "possible_targets": [
             [
-                4,
-                1,
                 7,
                 2,
-                5,
-                3,
+                4,
                 9,
+                3,
                 6,
-                13,
                 14,
+                1,
+                13,
                 8,
+                5,
                 11
             ]
         ],

@@ -36,7 +36,8 @@ class MafiaController():
             
         # Generate GameState
         logging.info("--- Generating initial GameState ---")
-        self.game_state = GameState(players, self.game_save)
+        self.game_state = GameState()
+        self.game_state.new(players, self.game_save)
         self.game_state.generate_allies_and_possible_targets()
         
         return self.game_state
