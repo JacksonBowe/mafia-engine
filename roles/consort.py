@@ -33,3 +33,5 @@ class Consort(Actor):
                 and actor.alignment != self.alignment
                 and actor.number != self.number
             ])
+
+    

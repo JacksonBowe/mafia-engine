@@ -18,11 +18,11 @@ class Mafioso(Actor):
         
     def find_allies(self, actors):
         self.allies = [{
-            actor.number: {
             "alias": actor.alias,
+            "number": actor.number,
             "role": actor.role_name,
             "alive": actor.alive
-            }} for actor in actors if actor.alignment == self.alignment]
+            } for actor in actors if actor.alignment == self.alignment]
         
     def find_possible_targets(self, actors):
         # Number of targets

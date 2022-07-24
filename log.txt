@@ -1,81 +1,154 @@
 [load_game][INFO] 	--- Loading Game ---
 [load][INFO] 	Day: 1
-[action][INFO] 	|Citizen| Dinkle(11) used vest. 1 remaining
-[action][INFO] 	|Citizen| Mick(10) used vest. 1 remaining
-[action][INFO] 	|Citizen| Scrooge(5) used vest. 1 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Bertha(4)
-[die][INFO] 	|Citizen| Bertha(4) was killed
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Doctor| Scrooge(5)
+[action][INFO] 	|Doctor| Bronson(2) is attemping to heal |Doctor| Bronson(2)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Doctor| Rory(7)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Doctor| Car(1)
+[action][INFO] 	|Doctor| Muck(3) is attemping to heal |Doctor| Muck(3)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Doctor| Bertha(4)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Rory(7)
+[die][INFO] 	|Doctor| Rory(7) was killed, and then healed by |Doctor| Rory(7)
 [load_game][INFO] 	--- Loading Game ---
 [load][INFO] 	Day: 2
-[action][INFO] 	|Citizen| Kody(8) used vest. 1 remaining
-[action][INFO] 	|Citizen| Brandon(15) used vest. 1 remaining
-[action][INFO] 	|Citizen| Gorden(12) used vest. 1 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Kody(8)
-[kill][INFO] 	|Mafioso| Jackson(6) failed to kill |Citizen| Kody(8): Target is Night Immune
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 3
-[action][INFO] 	|Citizen| Mick(10) used vest. 0 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Scrooge(5)
-[die][INFO] 	|Citizen| Scrooge(5) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 4
-[action][INFO] 	|Citizen| Dog(14) used vest. 1 remaining
-[action][INFO] 	|Citizen| Muck(3) used vest. 1 remaining
-[action][INFO] 	|Citizen| Scrooge(5) used vest. 0 remaining
-[action][INFO] 	|Citizen| Gorden(12) used vest. 0 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Kody(8)
-[die][INFO] 	|Citizen| Kody(8) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 5
-[action][INFO] 	|Citizen| Bronson(2) used vest. 1 remaining
-[action][INFO] 	|Citizen| Rory(7) used vest. 1 remaining
-[action][INFO] 	|Citizen| Muck(3) used vest. 0 remaining
-[action][INFO] 	|Citizen| Car(1) used vest. 1 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Car(1)
-[kill][INFO] 	|Mafioso| Jackson(6) failed to kill |Citizen| Car(1): Target is Night Immune
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 6
-[action][INFO] 	|Citizen| Dinkle(11) used vest. 0 remaining
-[action][INFO] 	|Citizen| Rory(7) used vest. 0 remaining
-[action][INFO] 	|Citizen| Bronson(2) used vest. 0 remaining
-[action][INFO] 	|Citizen| Car(1) used vest. 0 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Gorden(12)
-[die][INFO] 	|Citizen| Gorden(12) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 7
-[action][INFO] 	|Citizen| Dog(14) used vest. 0 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Mick(10)
-[die][INFO] 	|Citizen| Mick(10) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 8
-[action][INFO] 	|Citizen| Brandon(15) used vest. 0 remaining
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Muck(3)
-[die][INFO] 	|Citizen| Muck(3) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 9
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Car(1)
-[die][INFO] 	|Citizen| Car(1) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 10
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Dinkle(11)
-[die][INFO] 	|Citizen| Dinkle(11) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 11
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Bronson(2)
-[die][INFO] 	|Citizen| Bronson(2) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 12
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Rory(7)
-[die][INFO] 	|Citizen| Rory(7) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 13
-[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Dog(14)
-[die][INFO] 	|Citizen| Dog(14) was killed
-[load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 14
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Citizen| Brandon(15)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Doctor| Car(1)
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Citizen| Brandon(15)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Escort| Dinkle(11)
+[action][INFO] 	|Doctor| Muck(3) is attemping to heal |Doctor| Bronson(2)
+[action][INFO] 	|Doctor| Brett(9) is attemping to heal |Doctor| Muck(3)
+[action][INFO] 	|Doctor| Bronson(2) is attemping to heal |Citizen| Brandon(15)
 [kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Brett(9)
 [die][INFO] 	|Doctor| Brett(9) was killed
 [load_game][INFO] 	--- Loading Game ---
-[load][INFO] 	Day: 15
+[load][INFO] 	Day: 3
+[action][INFO] 	|Doctor| Bronson(2) is attemping to heal |Bodyguard| Mick(10)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Muck(3) is attemping to heal |Doctor| Bertha(4)
+[action][INFO] 	|Doctor| Brett(9) is attemping to heal |Doctor| Bronson(2)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Doctor| Bronson(2)
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Citizen| Brandon(15)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Escort| Gorden(12)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Bodyguard| Kody(8)
+[die][INFO] 	|Bodyguard| Kody(8) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 4
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Bodyguard| Crab Woman(14)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Bodyguard| Mick(10)
+[action][INFO] 	|Doctor| Muck(3) is attemping to heal |Doctor| Scrooge(5)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Escort| Dinkle(11)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Bronson(2) is attemping to heal |Citizen| Brandon(15)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Bronson(2)
+[die][INFO] 	|Doctor| Bronson(2) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 5
+[action][INFO] 	|Citizen| Brandon(15) used vest. 1 remaining
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Bodyguard| Mick(10)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Escort| Dinkle(11)
+[action][INFO] 	|Doctor| Bronson(2) is attemping to heal |Escort| Dinkle(11)
+[action][INFO] 	|Doctor| Muck(3) is attemping to heal |Doctor| Bertha(4)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Consort| Wesley(13)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Muck(3)
+[die][INFO] 	|Doctor| Muck(3) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 6
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Bodyguard| Crab Woman(14)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Bodyguard| Crab Woman(14)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Muck(3) is attemping to heal |Consort| Wesley(13)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Escort| Gorden(12)
+[die][INFO] 	|Escort| Gorden(12) was killed, and then healed by |Doctor| Bertha(4)
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 7
+[action][INFO] 	|Citizen| Brandon(15) used vest. 0 remaining
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Citizen| Brandon(15)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Doctor| Scrooge(5)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Escort| Dinkle(11)
+[die][INFO] 	|Escort| Dinkle(11) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 8
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Doctor| Rory(7)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Bodyguard| Mick(10)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Mafioso| Jackson(6)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Bodyguard| Crab Woman(14)
+[die][INFO] 	|Bodyguard| Crab Woman(14) was killed good
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 9
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Doctor| Bertha(4)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Doctor| Scrooge(5)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Escort| Gorden(12)
 [kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Citizen| Brandon(15)
 [die][INFO] 	|Citizen| Brandon(15) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 10
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Bodyguard| Mick(10)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Doctor| Bertha(4)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Scrooge(5)
+[die][INFO] 	|Doctor| Scrooge(5) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 11
+[action][INFO] 	|Doctor| Scrooge(5) is attemping to heal |Bodyguard| Mick(10)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Bodyguard| Mick(10)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Mafioso| Jackson(6)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Bodyguard| Mick(10)
+[die][INFO] 	|Bodyguard| Mick(10) was killed, and then healed by |Doctor| Scrooge(5)
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 12
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Bodyguard| Mick(10)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Escort| Gorden(12)
+[die][INFO] 	|Escort| Gorden(12) was killed, and then healed by |Doctor| Car(1)
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 13
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Mafioso| Jackson(6)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Doctor| Bertha(4)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Escort| Gorden(12)
+[die][INFO] 	|Escort| Gorden(12) was killed, and then healed by |Doctor| Rory(7)
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 14
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Consort| Wesley(13)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Consort| Wesley(13)
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Doctor| Rory(7)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Rory(7)
+[die][INFO] 	|Doctor| Rory(7) was killed, and then healed by |Doctor| Car(1)
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 15
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Escort| Gorden(12)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Car(1)
+[die][INFO] 	|Doctor| Car(1) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 16
+[action][INFO] 	|Doctor| Car(1) is attemping to heal |Consort| Wesley(13)
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Consort| Wesley(13)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Rory(7)
+[die][INFO] 	|Doctor| Rory(7) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 17
+[action][INFO] 	|Doctor| Rory(7) is attemping to heal |Escort| Gorden(12)
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Escort| Gorden(12)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Bodyguard| Mick(10)
+[die][INFO] 	|Bodyguard| Mick(10) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 18
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Consort| Wesley(13)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Escort| Gorden(12)
+[die][INFO] 	|Escort| Gorden(12) was killed
+[load_game][INFO] 	--- Loading Game ---
+[load][INFO] 	Day: 19
+[action][INFO] 	|Doctor| Bertha(4) is attemping to heal |Mafioso| Jackson(6)
+[kill][INFO] 	|Mafioso| Jackson(6) is attempting to kill |Doctor| Bertha(4)
+[die][INFO] 	|Doctor| Bertha(4) was killed

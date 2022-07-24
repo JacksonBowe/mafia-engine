@@ -43,7 +43,4 @@ def test_aliases(test_create_game):
     # TODO: Not sure if this is correct
     game, _ = test_create_game
     for actor in game.actors:
-        try:
-            assert actor.alias is not None
-        except Exception as e:
-            logging.critical(str(e))
+            assert actor.alias is not None, f"All actors should have an alias, but '{actor.number}' does not"

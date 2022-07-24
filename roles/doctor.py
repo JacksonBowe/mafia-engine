@@ -1,3 +1,4 @@
+import logging
 from roles.actor import Actor
 
 class Doctor(Actor):
@@ -9,13 +10,21 @@ class Doctor(Actor):
         self.night_immune = False
         pass
 
-    # def find
+    def find_possible_targets(self, actors):
+        num_targets = 1
+        self.possible_targets = []
+        for i in range(num_targets):
+            self.possible_targets.insert(i, [
+                actor.number for actor in actors
+                if actor.alive
+                and actor.number != self.number
+            ])
     
     
     def action(self, actor_targets):
         if not actor_targets: return
         target = actor_targets[0]
-        
+        logging.info(f"{self} is attemping to heal {target}")
         target.doctors.append(self) # Add self into the list of doctors protecting this target
     
     

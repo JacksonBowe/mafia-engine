@@ -4,8 +4,8 @@ ROLE_TAGS = {
     "Citizen"       : ["any_random", "town_random", "town_government"],
     # "Mayor"         : ["any_random", "town_random", "town_government"],
     "Doctor"        : ["any_random", "town_random", "town_protective"],
-    # "Bodyguard"     : ["any_random", "town_random", "town_protective", "town_killing"],
-    # "Escort"        : ["any_random", "town_random", "town_protective", "town_power"],
+    "Bodyguard"     : ["any_random", "town_random", "town_protective", "town_killing"],
+    "Escort"        : ["any_random", "town_random", "town_protective", "town_power"],
     # "Sheriff"       : ["any_random", "town_random", "town_investigative"],
     # "Investigator"  : ["any_random", "town_random", "town_investigative"],
     # MAFIA
@@ -23,10 +23,12 @@ ROLE_TAGS = {
 TURN_ORDER = [
     # Roleblocking
     "Consort",
+    "Escort",
     # Self Protecting
     "Citizen",
     # Target Protecting
     "Doctor",
+    "Bodyguard",
     # Killing
     "Mafioso"
 ]

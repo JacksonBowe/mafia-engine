@@ -6,11 +6,7 @@
         "role": "Doctor",
         "number": 1,
         "alive": true,
-        "possible_targets": [
-            [
-                1
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -23,11 +19,7 @@
         "role": "Doctor",
         "number": 2,
         "alive": true,
-        "possible_targets": [
-            [
-                2
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -40,11 +32,7 @@
         "role": "Doctor",
         "number": 3,
         "alive": true,
-        "possible_targets": [
-            [
-                3
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -57,11 +45,7 @@
         "role": "Doctor",
         "number": 4,
         "alive": true,
-        "possible_targets": [
-            [
-                4
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -74,11 +58,7 @@
         "role": "Doctor",
         "number": 5,
         "alive": true,
-        "possible_targets": [
-            [
-                5
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -91,40 +71,9 @@
         "role": "Mafioso",
         "number": 6,
         "alive": true,
-        "possible_targets": [
-            [
-                1,
-                2,
-                3,
-                4,
-                5,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                14,
-                15
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
-        "allies": [
-            {
-                "6": {
-                    "alias": "Jackson",
-                    "role": "Mafioso",
-                    "alive": true
-                }
-            },
-            {
-                "13": {
-                    "alias": "Wesley",
-                    "role": "Consort",
-                    "alive": true
-                }
-            }
-        ],
+        "allies": [],
         "events": []
     },
     {
@@ -134,11 +83,7 @@
         "role": "Doctor",
         "number": 7,
         "alive": true,
-        "possible_targets": [
-            [
-                7
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -151,11 +96,7 @@
         "role": "Bodyguard",
         "number": 8,
         "alive": true,
-        "possible_targets": [
-            [
-                8
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -180,11 +121,7 @@
         "role": "Bodyguard",
         "number": 10,
         "alive": true,
-        "possible_targets": [
-            [
-                10
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -197,11 +134,7 @@
         "role": "Escort",
         "number": 11,
         "alive": true,
-        "possible_targets": [
-            [
-                11
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -214,11 +147,7 @@
         "role": "Escort",
         "number": 12,
         "alive": true,
-        "possible_targets": [
-            [
-                12
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -231,40 +160,9 @@
         "role": "Consort",
         "number": 13,
         "alive": true,
-        "possible_targets": [
-            [
-                1,
-                2,
-                3,
-                4,
-                5,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                14,
-                15
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
-        "allies": [
-            {
-                "6": {
-                    "alias": "Jackson",
-                    "role": "Mafioso",
-                    "alive": true
-                }
-            },
-            {
-                "13": {
-                    "alias": "Wesley",
-                    "role": "Consort",
-                    "alive": true
-                }
-            }
-        ],
+        "allies": [],
         "events": []
     },
     {
@@ -274,11 +172,7 @@
         "role": "Bodyguard",
         "number": 14,
         "alive": true,
-        "possible_targets": [
-            [
-                14
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],
@@ -291,11 +185,7 @@
         "role": "Citizen",
         "number": 15,
         "alive": true,
-        "possible_targets": [
-            [
-                15
-            ]
-        ],
+        "possible_targets": [],
         "targets": [],
         "allies": [],
         "events": [],

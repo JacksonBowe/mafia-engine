@@ -78,7 +78,7 @@ def main():
                     target = [random.choice(player['possible_targets'][0])]
                     player['targets'] = target
 
-            elif player['role'] == "Mafioso":
+            else:
                 # Pick a random target and target them
                 targets = list()
                 for i, possible_targets in enumerate(player["possible_targets"]):
@@ -101,7 +101,7 @@ def main():
 
 
         print()
-        input("Enter for next turn")
+        # input("Enter for next turn")
 
 
 
