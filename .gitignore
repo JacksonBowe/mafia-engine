@@ -1,1 +1,4 @@
 /.venv
+
+pytest-log.txt
+log.txt
