@@ -2,3 +2,4 @@
 
 pytest-log.txt
 log.txt
+.coverage
