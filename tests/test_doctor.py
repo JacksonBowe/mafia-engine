@@ -37,5 +37,19 @@ def test_doctor_find_possible_targets():
     # The 'doctor' should NOT be in it's own list of possible targets
     assert doctor not in doctor.possible_targets[0], f"{doctor} inside own list of possible targets, means they can heal themselves. Bad"
     logging.info("Test Passed\n")
+
+def test_doctor_heal_victim():
+    logging.info("Running test: doctor_heal_victim")
+    citizen = Citizen({"alias": "test_citizen", "number": "1"})
+    doctor = Doctor({"alias": "test_doctor", "number": "2"})
+    mafioso = Mafioso({"alias": "test_mafioso", "number": "3"})
+
+    doctor.action([citizen])
+    mafioso.action([citizen])
+    # TODO
+
+    
+    logging.info("Test Passed\n")
+
     
     
