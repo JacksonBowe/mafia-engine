@@ -2,7 +2,7 @@ from roles.actor import Actor
 import logging
 
 class Citizen(Actor):
-    def __init__(self, player, settings):
+    def __init__(self, player: dict=dict(), settings: dict=dict()):
         super().__init__(player)
         self.role_name = "Citizen"
         self.alignment = "Town"
@@ -25,13 +25,13 @@ class Citizen(Actor):
             self.possible_targets = [[self.number]]
     
       
-    def action(self, actor_targets):
+    def action(self, targets):
         if not self.remaining_vests > 0:
             logging.critical(f"{self} tried to use vest but has 0 remaining")
             return
-        target = actor_targets[0]
+        target = targets[0]
         if target != self: 
-            logging.warning(f"{self.alias}({self.number}) invalid target ({actor_targets[0].number}). {self.role_name} can only target self)")
+            logging.warning(f"{self.alias}({self.number}) invalid target ({targets[0].number}). {self.role_name} can only target self)")
             return
         self.remaining_vests -= 1
         self.night_immune = True
