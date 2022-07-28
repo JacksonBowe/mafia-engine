@@ -18,9 +18,9 @@ def test_mafioso_find_allies():
     
     # Check that self and mafioso_2 are in the allies list
     assert mafioso in mafioso.allies, f"{mafioso} should be his own ally, but not in the allies list"
-    assert mafioso_2 in mafioso.allies, f"{mafioso_2} should be his own ally, but not in the allies list"
+    assert mafioso_2 in mafioso.allies, f"{mafioso_2} should be an ally of {mafioso}, but not in the allies list"
 
-    logging.info("Test Complete\n")
+    logging.info("Test Passed\n")
     
 def test_mafioso_find_possible_targets():
     logging.info("Running test: mafioso_find_possible_targets")
@@ -42,7 +42,7 @@ def test_mafioso_find_possible_targets():
     assert citizen in mafioso.possible_targets[0], f"{citizen} not in {mafioso} possible targets list"
     assert citizen_2 in mafioso.possible_targets[0], f"{citizen_2} not in {mafioso} possible targets list"
     
-    logging.info("Text Complete\n")
+    logging.info("Text Passed\n")
 
 def test_mafioso_action_basic():
     logging.info("Running test: mafioso_action_basic")
@@ -58,10 +58,10 @@ def test_mafioso_action_basic():
     # Check that Mafioso is at targets house
     assert mafioso in citizen.house, f"Mafioso action should place them at the targets house, but this hasn't happened"
        
-    logging.info("Test Complete\n") 
+    logging.info("Test Passed\n") 
     
 def test_mafioso_action_night_immune():
-    logging.info("Running test: mafioso_action_basic")
+    logging.info("Running test: mafioso_action_night_immune")
     
     citizen = Citizen()
     mafioso = Mafioso()
@@ -73,4 +73,4 @@ def test_mafioso_action_night_immune():
     mafioso.action(targets=[citizen])
     
     assert citizen.alive == True
-    logging.info("Test Complete\n")
+    logging.info("Test Passed\n")

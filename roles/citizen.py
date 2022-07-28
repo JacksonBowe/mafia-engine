@@ -6,8 +6,8 @@ class Citizen(Actor):
         super().__init__(player)
         self.role_name = "Citizen"
         self.alignment = "Town"
-        self.maxVests = settings.get('maxVests', 2)
-        self.remaining_vests = player.get('remainingVests', self.maxVests)
+        self.max_vests = settings.get('maxVests', 2)
+        self.remaining_vests = player.get('remainingVests', self.max_vests)
     
     @property
     def state(self):
@@ -22,7 +22,7 @@ class Citizen(Actor):
     def find_possible_targets(self, actors):
         self.possible_targets = []
         if self.remaining_vests > 0:
-            self.possible_targets = [[self.number]]
+            self.possible_targets = [[self]]
     
       
     def action(self, targets):

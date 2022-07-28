@@ -17,12 +17,6 @@ class Mafioso(Actor):
         }, **super().state}
         
     def _find_allies(self, actors):
-        # self.allies = [{
-        #     "alias": actor.alias,
-        #     "number": actor.number,
-        #     "role": actor.role_name,
-        #     "alive": actor.alive
-        #     } for actor in actors if actor.alignment == self.alignment]
         self.allies = [actor for actor in actors if actor.alignment == self.alignment]
         
     def _find_possible_targets(self, actors):

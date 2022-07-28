@@ -1,6 +1,5 @@
 import os
 import json
-import pytest
 import logging
 
 from controller import MafiaController

@@ -2,7 +2,7 @@ import logging
 from roles.actor import Actor
 
 class Doctor(Actor):
-    def __init__(self, player, settings):
+    def __init__(self, player: dict=dict(), settings: dict=dict()):
         super().__init__(player)
         
         self.role_name = "Doctor"
@@ -15,7 +15,7 @@ class Doctor(Actor):
         self.possible_targets = []
         for i in range(num_targets):
             self.possible_targets.insert(i, [
-                actor.number for actor in actors
+                actor for actor in actors
                 if actor.alive
                 and actor.number != self.number
             ])
