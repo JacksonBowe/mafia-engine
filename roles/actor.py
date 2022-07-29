@@ -1,4 +1,9 @@
 import logging
+from events import (
+    EVENTS,
+    GameEvent,
+    ActorEvent
+)
 
 class Actor:
 
@@ -83,13 +88,26 @@ class Actor:
         if not target.alive:
             return
         
-        if target.night_immune:
+        elif target.night_immune:
             self.events.append(f"Failed to kill {target}: Target is Night Immune")
             target.events.append(f"You were attacked but managed to survive")
             logging.info(f"{self} failed to kill {target}: Target is Night Immune")
             return False, "Target is Night Immune"
         
+        
         target.die(self.death_reason)
+        if target.alive:
+            EVENTS.append(GameEvent(
+                event_id="mafia_kill_fail",
+                targets=['*'],
+                message=""
+            )) 
+        else:
+            EVENTS.append(GameEvent(
+                event_id="mafia_kill_fail",
+                targets=['*'],
+                message=self.event_message
+            ))   
         return
 
     def die(self, reason) -> None:

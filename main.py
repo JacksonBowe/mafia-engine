@@ -120,9 +120,9 @@ def main3():
     
     game_state.resolve()
     
-    print(json.dumps([actor.state for actor in game_state.actors], indent=4))
+    # print(json.dumps([actor.state for actor in game_state.actors], indent=4))
     
-    print(json.dumps(game_state.dump(), indent=4))
+    # print(json.dumps(game_state.dump(), indent=4))
         
     
 

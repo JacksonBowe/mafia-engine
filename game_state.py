@@ -1,8 +1,11 @@
 from game_save import GameSave
 from consts import TURN_ORDER
+from events import EVENTS
 import importlib
 import logging
 import json
+
+
 class GameState():
 
     def __init__(self):
@@ -75,7 +78,9 @@ class GameState():
             actor.action(targets)
 
         # Regenerate possible targets
-        self.generate_allies_and_possible_targets()       
+        self.generate_allies_and_possible_targets()  
+        
+        print(EVENTS)     
         
     
     def check_for_win(self):
