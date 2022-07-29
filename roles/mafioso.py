@@ -7,6 +7,7 @@ class Mafioso(Actor):
         self.role_name = "Mafioso"
         self.alignment = "mafia"
         self.kill_message = "You were killed by a member of the mafia"
+        self.death_reason = "They were found riddled with bullets"
         pass
     
     @property

@@ -6,7 +6,10 @@ import json
 import logging
 import random
 from controller import MafiaController
-
+from game_state import GameState
+from roles.citizen import Citizen
+from roles.doctor import Doctor
+from roles.mafioso import Mafioso
 
 
 def main2():
@@ -104,12 +107,28 @@ def main():
         # input("Enter for next turn")
 
 
+def main3():
+    """Testing the GameEvent system"""
+    citizen = Citizen({"alias": "test_citizen", "number": 1, "id": "1111"})
+    doctor = Doctor({"alias": "test_doctor", "number": 2, "id": "2232"})
+    mafioso = Mafioso({"alias": "test_mafioso", "number": 3, "id": "3333"})
+    
+    game_state = GameState()
+    game_state.actors = [citizen, doctor, mafioso]
 
-
+    mafioso.action([citizen])
+    
+    game_state.resolve()
+    
+    print(json.dumps([actor.state for actor in game_state.actors], indent=4))
+    
+    print(json.dumps(game_state.dump(), indent=4))
+        
+    
 
 
 if __name__ == "__main__":
-    main()
+    main3()
 
 
 

@@ -47,6 +47,8 @@ def test_doctor_heal_victim():
     doctor.action([citizen])
     mafioso.action([citizen])
     # TODO
+    
+    assert citizen.alive == True, f"{citizen} should have been healed by doctor"
 
     
     logging.info("Test Passed\n")

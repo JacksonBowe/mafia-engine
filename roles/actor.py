@@ -22,6 +22,7 @@ class Actor:
         
     @property
     def state(self):
+        print(self)
         # Returns the base player used to construct the Actor, and some actor fields
         return {**self.player,**{
             'number': self.number,
@@ -75,12 +76,12 @@ class Actor:
     def visit(self, target) -> None:
         target.house.append(self)
     
-    def kill(self, target, true_death=False) -> tuple():
+    def kill(self, target, true_death=False) -> None:
         logging.info(f"{self} is attempting to kill {target}")
         self.visit(target)
         
         if not target.alive:
-            return True, ""
+            return
         
         if target.night_immune:
             self.events.append(f"Failed to kill {target}: Target is Night Immune")
@@ -88,10 +89,10 @@ class Actor:
             logging.info(f"{self} failed to kill {target}: Target is Night Immune")
             return False, "Target is Night Immune"
         
-        target.die()
-        return True, ""
+        target.die(self.death_reason)
+        return
 
-    def die(self) -> None:
+    def die(self, reason) -> None:
         if self.doctors:
             doctor = self.doctors.pop(0)
             logging.info(f"{self} was killed, and then healed by {doctor}")
@@ -99,6 +100,7 @@ class Actor:
         else:
             logging.info(f"{self} was killed")
             self.events.append("You were killed")
+            self.death_reason = reason
             self.alive = False
         
         # # returns -> success, reason

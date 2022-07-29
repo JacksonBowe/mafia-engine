@@ -6,7 +6,7 @@ import json
 class GameState():
 
     def __init__(self):
-        self.day = None
+        self.day = 1
         self.actors = []
         self.save = None
         pass
@@ -57,6 +57,7 @@ class GameState():
          
     def resolve(self):
         self.day += 1
+        # Generate possible targets. This shouldn't be nessessary
         self.generate_allies_and_possible_targets()
 
         # sort the actors based on TURN_ORDER
@@ -67,11 +68,13 @@ class GameState():
             print(f"|{actor.role_name}| {actor.alias}({actor.number}) is targetting {actor.targets}")
             targets = []
             for t in actor.targets:
+                # Convert the targetted numbers into actor; eg. [[4]] -> [[actor where actor.number == 4]]
                 for a in self.actors:
                     if a.number == t:
                         targets.append(a)
             actor.action(targets)
 
+        # Regenerate possible targets
         self.generate_allies_and_possible_targets()       
         
     
@@ -92,7 +95,7 @@ class GameState():
             "graveyard": [{
                 "number": actor.number,
                 "name": actor.alias,
-                "death_reason": actor.death_reason
+                "deathReason": actor.death_reason
             } for actor in self.actors if not actor.alive]
         }
         # result = [actor.dump() for actor in self.actors]
