@@ -1,14 +1,17 @@
 import logging
 from roles.actor import Actor
+from events import GameEvent, GameEventGroup
 
 class Mafioso(Actor):
     def __init__(self, player: dict=dict(), settings: dict=dict()):
         super().__init__(player)
         self.role_name = "Mafioso"
         self.alignment = "mafia"
-        self.event_message = "You hear sounds of shots in the streets"
         self.kill_message = "You were killed by a member of the mafia"
-        self.death_reason = "They were found riddled with bullets"
+        self.event_message = "You hear sounds of shots in the streets"
+        self.kill_success_game_event = GameEvent(event_id="mafia_kill_success", targets=['*'], message=self.event_message)
+        self.kill_fail_game_event = GameEvent(event_id="mafia_kill_fail", targets=['*'], message=None)
+        self.death_reason = "They were found riddled with bullets."
         pass
     
     @property
@@ -45,4 +48,25 @@ class Mafioso(Actor):
         #     self.events.append("Kill failed: " + reason)
         
         self.kill(target)
+
+    def kill_success(self, target):
+        event_group = GameEventGroup()
+        # Inform all players that a mafia kill has succeeded
+        event_group.new_event(
+            GameEvent(
+                event_id='mafia_kill_success',
+                targets=['*'],
+                message="You hear sounds of shots in the streets"
+            )
+        )
+        # Inform the target player that they have been killed
+        event_group.new_event(
+            GameEvent(
+                event_id="killed_by_mafia",
+                targets=[target.player['id']],
+                message='You were killed by a member of the mafia'
+            )
+        )
+        return event_group
+
         

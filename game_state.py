@@ -78,9 +78,7 @@ class GameState():
             actor.action(targets)
 
         # Regenerate possible targets
-        self.generate_allies_and_possible_targets()  
-        
-        print(EVENTS)     
+        self.generate_allies_and_possible_targets()    
         
     
     def check_for_win(self):
@@ -96,12 +94,12 @@ class GameState():
                 "name": actor.alias,
                 "alive": actor.alive
             } for actor in self.actors],
-            "events": [],
+            "events": [event.dump() for event in EVENTS],
             "graveyard": [{
                 "number": actor.number,
                 "name": actor.alias,
                 "deathReason": actor.death_reason
             } for actor in self.actors if not actor.alive]
         }
-        # result = [actor.dump() for actor in self.actors]
+
         return result

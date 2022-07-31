@@ -11,6 +11,10 @@ from roles.citizen import Citizen
 from roles.doctor import Doctor
 from roles.mafioso import Mafioso
 
+logging.basicConfig(filename="log.txt",
+        level=logging.DEBUG, 
+        format="[%(funcName)s][%(levelname)s] \t%(message)s",
+        filemode="w")
 
 def main2():
     logging.basicConfig(filename="log.txt",
@@ -109,6 +113,7 @@ def main():
 
 def main3():
     """Testing the GameEvent system"""
+
     citizen = Citizen({"alias": "test_citizen", "number": 1, "id": "1111"})
     doctor = Doctor({"alias": "test_doctor", "number": 2, "id": "2232"})
     mafioso = Mafioso({"alias": "test_mafioso", "number": 3, "id": "3333"})
@@ -119,10 +124,12 @@ def main3():
     mafioso.action([citizen])
     
     game_state.resolve()
+
+
     
-    # print(json.dumps([actor.state for actor in game_state.actors], indent=4))
+    # logging.info(json.dumps([actor.state for actor in game_state.actors], indent=4))
     
-    # print(json.dumps(game_state.dump(), indent=4))
+    logging.info(json.dumps(game_state.dump(), indent=4))
         
     
 
