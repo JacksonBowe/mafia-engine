@@ -1,6 +1,8 @@
 import logging
 from events import (
     EVENTS,
+    GameEvent,
+    GameEventGroup,
 )
 
 class Actor:
@@ -15,9 +17,11 @@ class Actor:
         self.alive = player.get('alive', True)
         self.allies = []
         self.doctors = []
+        self.events = []
         self.possible_targets = []
         self.targets = player.get('targets', [])
-        self.events = []
+        self.action_events = GameEventGroup()
+        
         
     def __repr__(self) -> str:
         return f"|{self.role_name}| {self.alias}({self.number})"
@@ -70,35 +74,53 @@ class Actor:
     def set_house(self, house) -> None:
         self.house = house
         
-    def action(self, targets: list=[]) -> None:
+    def action(self, targets: list=[]) -> GameEventGroup:
+        # What are all the events that occur becuase of this action?
+        event_group = GameEventGroup()
+        # TODO check if has attribute _self._action . If not then return None
         try:
-            self._action(targets)
-        except AttributeError:
-            pass
+            self._action(event_group, targets)
+        except AttributeError as e:
+            print(e)
+            return None
+        
+        print("Returning event group", event_group)
+        return event_group
     
     def visit(self, target) -> None:
         target.house.append(self)
+        # If target.is_allert: target.kill_intruder(self) -> self.die() lmao
     
-    def kill(self, target, true_death=False) -> None:
+    def kill(self, event_group: GameEventGroup, target, true_death: bool=False) -> None:
         logging.info(f"{self} is attempting to kill {target}")
+        # event_group = EVENTS[-1]
         self.visit(target)
         
+        if not self.alive: return
+        
         if target.night_immune:
-            self.events.append(f"Failed to kill {target}: Target is Night Immune")
-            target.events.append(f"You were attacked but managed to survive")
-            logging.info(f"{self} failed to kill {target}: Target is Night Immune")
-            EVENTS.append(self.kill_fail(target))
-            return False, "Target is Night Immune"
+            # EVENTS.new_event(self.kill_fail_game_event)
+            # self.events.append(f"Failed to kill {target}: Target was Night Immune")
+            # target.events.append(f"You were attacked but managed to survive")
+            logging.info(f"{self} failed to kill {target}: Target was Night Immune")
+            
+            # EVENTS.append(self.action_fail(target))
+            # return False, "Target is Night Immune"
         # elif target.bodyguards:
             # Process Bodyguard stuff
         else:
-            EVENTS.append(self.kill_success(target))
-            target.die(self.death_reason)
+            print("Current event group", event_group)
+            print("Adding to event group", self.action_success_game_event)
+            event_group.new_event(self.action_success_game_event)
+            print("Resulting event group", event_group)
+            
+            # self.action_success(target)
+            target.die(event_group, self.death_reason)
         
 
         return
 
-    def die(self, reason) -> None:
+    def die(self, event_group: GameEventGroup, reason: str) -> None:
         if self.doctors:
             doctor = self.doctors.pop(0)
             logging.info(f"{self} was killed, and then healed by {doctor}")

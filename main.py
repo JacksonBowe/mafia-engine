@@ -121,7 +121,8 @@ def main3():
     game_state = GameState()
     game_state.actors = [citizen, doctor, mafioso]
 
-    mafioso.action([citizen])
+    doctor.targets = [citizen.number]
+    mafioso.targets = [citizen.number]
     
     game_state.resolve()
 

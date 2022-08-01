@@ -1,7 +1,11 @@
 from dataclasses import dataclass, field, asdict
+from typing import (
+    List
+)
 import logging
 
 EVENTS = []
+
 
 @dataclass
 class GameEvent:
@@ -16,7 +20,7 @@ class GameEvent:
 @dataclass
 class GameEventGroup:
     ''' A Grouping of game events, eg. Broadcast event A to all players, and event B to select players'''
-    game_events: list[GameEvent] = field(default_factory=list)
+    game_events: List[GameEvent] = field(default_factory=list)
 
     def new_event(self, event: GameEvent):
         self.game_events.append(event)
@@ -24,6 +28,8 @@ class GameEventGroup:
 
     def dump(self):
         return [game_event.dump() for game_event in self.game_events]
+    
+ACTION_EVENTS = GameEventGroup()
 
 @dataclass
 class ActorEvent:
