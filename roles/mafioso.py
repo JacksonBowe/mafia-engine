@@ -42,21 +42,21 @@ class Mafioso(Actor):
         target = targets[0]
         # Inform self "You will attempt to kill {target.alias} tonight"
         print("Received game event group", event_group)
-        self.kill(event_group, target)
+        self.kill(target)
         
         # if success:
-        #     EVENTS.append(self._action_success(target))
-        # else:
-        #     EVENTS.append(self._action_fail(target))
+        #     self._action_success(target)
         
 
     def _action_success(self, target):
+        print("HEREHRERERE")
+        kill_event_group = GameEventGroup()
         # return
-        logging.info(EVENTS)
-        event_group = EVENTS[-1]
-        logging.info(event_group)
+        # logging.info(EVENTS)
+        # event_group = EVENTS[-1]
+        # logging.info(event_group)
         # Inform all players that a mafia kill has succeeded
-        event_group.new_event(
+        kill_event_group.new_event(
             GameEvent(
                 event_id='mafia_kill_success',
                 targets=['*'],
@@ -64,13 +64,14 @@ class Mafioso(Actor):
             )
         )
         # Inform the target player that they have been killed
-        event_group.new_event(
+        kill_event_group.new_event(
             GameEvent(
                 event_id="killed_by_mafia",
                 targets=[target.player['id']],
                 message='You were killed by a member of the mafia'
             )
         )
+        EVENTS.new_event_group(kill_event_group)
     
     # def _action_fail(self, target):
     #     event_group = GameEventGroup()

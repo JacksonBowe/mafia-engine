@@ -5,7 +5,7 @@ from typing import (
 )
 import logging
 
-EVENTS = []
+
 
 
 @dataclass
@@ -36,6 +36,7 @@ class GameEventGroup:
 
     
 ACTION_EVENTS = GameEventGroup()
+EVENTS = GameEventGroup()
 
 @dataclass
 class ActorEvent:

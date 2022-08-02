@@ -75,86 +75,60 @@ class Actor:
         self.house = house
         
     def action(self, targets: list=[]) -> GameEventGroup:
+        if not self.alive: return
         # What are all the events that occur becuase of this action?
         event_group = GameEventGroup()
         # TODO check if has attribute _self._action . If not then return None
         self._action(event_group, targets)
         
-        print("Returning event group", event_group)
         return event_group
     
     def visit(self, target) -> None:
         target.house.append(self)
         # If target.is_allert: target.kill_intruder(self) -> self.die() lmao
+        
+    def survive_attack(self) -> None:
+        # TODO
+        # Function that runs when an actor survives an attack for whatever reason
+        # Inform the player that they were attacked but survived.
+        
+        # Inform all doctors on target that they were not needed
+        pass
     
-    def kill(self, event_group: GameEventGroup, target, true_death: bool=False) -> None:
+    def kill(self, target, true_death: bool=False) -> None:
         logging.info(f"{self} is attempting to kill {target}")
+        
         # event_group = EVENTS[-1]
         self.visit(target)
         
         if not self.alive: return
         
         if target.night_immune:
-            # EVENTS.new_event(self.kill_fail_game_event)
-            # self.events.append(f"Failed to kill {target}: Target was Night Immune")
-            # target.events.append(f"You were attacked but managed to survive")
             logging.info(f"{self} failed to kill {target}: Target was Night Immune")
-            # TODO: Inform all doctors that target was attacked
-            
-            # EVENTS.append(self.action_fail(target))
-            # return False, "Target is Night Immune"
+            target.survive_attack() # TODO
         # elif target.bodyguards:
-            # Process Bodyguard stuff
+            # TODO: Process Bodyguard stuff, should come before night immune check
         else:
-            print("Current event group", event_group)
-            print("Adding to event group", self.action_success_game_event)
-            event_group.new_event(self.action_success_game_event)
-            print("Resulting event group", event_group)
+            # print("Current event group", event_group)
+            # print("Adding to event group", self.action_success_game_event)
+            # event_group.new_event(self.action_success_game_event)
+            # self.kill_success(target)
+            # print("Resulting event group", event_group)
             
-            # self.action_success(target)
-            target.die(event_group, self.death_reason)
+            self._action_success(target)
+            target.die(self.death_reason)
+            return True
         
 
-        return
+        return 
 
-    def die(self, event_group: GameEventGroup, reason: str) -> None:
+    def die(self, reason: str) -> None:
         if self.doctors:
             doctor = self.doctors.pop(0)
-            logging.info(f"{self} was killed, and then healed by {doctor}")
-            self.events.append("You were killed, and then revived by a G.O.A.T'ed medic")
-            # Notify self and doctor of revival
-            revive_event_group = GameEventGroup()
-            
-            # Inform the doctor that his revive was successfull
-            revive_event_group.new_event(
-                GameEvent(
-                    event_id="doctor_revive_target_success",
-                    targets=[doctor.player['id']],
-                    message='Your target was attacked last night, but you successfully revive them'
-                )
-            )
-            # Inform all the other doctors that they were not needed
-            revive_event_group.new_event(
-                GameEvent(
-                    event_id="doctor_revive_unneeded",
-                    targets=[doctor.player['id'] for doctor in self.doctors],
-                    message="Your target was attacked last night, but your services were not needed... That's pretty suss bro"
-                )
-            )
-            
-            # Inform the player that they were revived
-            revive_event_group.new_event(
-                GameEvent(
-                    event_id="doctor_revive",
-                    targets=[self.player['id']],
-                    message="As your vision fades to black, you hear the rustling of footsteps and then BOOM - REVIVED BY AN ABSOLUTELY G.O.A.T'ed DOCTOR"
-                )
-            )
-            
-            event_group.new_event_group(revive_event_group)
+            doctor.revive_target(self) # TODO Maybe change this to doctor.action_success(self) ????            
+
         else:
             logging.info(f"{self} was killed")
-            self.events.append("You were killed")
             self.death_reason = reason
             self.alive = False
         

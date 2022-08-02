@@ -115,13 +115,15 @@ def main3():
     """Testing the GameEvent system"""
 
     citizen = Citizen({"alias": "test_citizen", "number": 1, "id": "1111"})
-    doctor = Doctor({"alias": "test_doctor", "number": 2, "id": "2232"})
-    mafioso = Mafioso({"alias": "test_mafioso", "number": 3, "id": "3333"})
+    doctor = Doctor({"alias": "test_doctor", "number": 2, "id": "2222"})
+    doctor2 = Doctor({"alias": "test_doctor2", "number": 3, "id": "3333"})
+    mafioso = Mafioso({"alias": "test_mafioso", "number": 4, "id": "4444"})
     
     game_state = GameState()
-    game_state.actors = [citizen, doctor, mafioso]
+    game_state.actors = [citizen, doctor, doctor2, mafioso]
 
     doctor.targets = [citizen.number]
+    doctor2.targets = [citizen.number]
     mafioso.targets = [citizen.number]
     
     game_state.resolve()

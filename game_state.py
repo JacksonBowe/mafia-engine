@@ -101,7 +101,7 @@ class GameState():
                 "alive": actor.alive
             } for actor in self.actors],
             # "events": [event.dump() for event in EVENTS],
-            'events': ACTION_EVENTS.dump(),
+            'events': EVENTS.dump(),
             # "events": EVENTS,
             "graveyard": [{
                 "number": actor.number,

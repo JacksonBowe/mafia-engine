@@ -1,5 +1,5 @@
 import logging
-from events import GameEvent, GameEventGroup
+from events import EVENTS, GameEvent, GameEventGroup
 from roles.actor import Actor
 
 class Doctor(Actor):
@@ -29,16 +29,35 @@ class Doctor(Actor):
         logging.info(f"{self} is attemping to heal {target}")
         target.doctors.append(self) # Add self into the list of doctors protecting this target
     
-    @property
-    def action_success_game_event(self, target) -> GameEventGroup:
+    def revive_target(self, target):
+        logging.info(f"{target} was killed, and then healed by {self}")
+        target.events.append("You were killed, and then revived by a G.O.A.T'ed medic")
+        # Notify self and doctor of revival
         revive_event_group = GameEventGroup()
-
-        # Notify self of successful revive
-        notify_self_event = GameEvent(
-            event_id="doctor_revive_success",
-            targets=[self.player['id']],
-            message='Your target was attacked last night, but you successfully revive them'
-        )
-        revive_event_group.new_event(notify_self_event)
         
-        # Notify target of successful revive
+        # Inform the doctor that his revive was successfull
+        revive_event_group.new_event(
+            GameEvent(
+                event_id="doctor_revive_target_success",
+                targets=[self.player['id']],
+                message='Your target was attacked last night, but you successfully revive them'
+            )
+        )
+        # Inform all the other doctors that they were not needed
+        revive_event_group.new_event(
+            GameEvent(
+                event_id="doctor_revive_unneeded",
+                targets=[doctor.player['id'] for doctor in target.doctors],
+                message="Your target was attacked last night, but your services were not needed... That's pretty suss bro"
+            )
+        )
+        
+        # Inform the player that they were revived
+        revive_event_group.new_event(
+            GameEvent(
+                event_id="doctor_revive",
+                targets=[target.player['id']],
+                message="As your vision fades to black, you hear the rustling of footsteps and then BOOM - REVIVED BY AN ABSOLUTELY G.O.A.T'ed DOCTOR"
+            )
+        )
+        EVENTS.new_event_group(revive_event_group)
