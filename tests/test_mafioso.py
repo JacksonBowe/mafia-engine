@@ -1,5 +1,6 @@
+import json
 import logging
-
+from events import EVENTS, GameEventGroup
 from roles import Citizen
 from roles import Mafioso
 
@@ -46,9 +47,10 @@ def test_mafioso_find_possible_targets():
 
 def test_mafioso_action_basic():
     logging.info("Running test: mafioso_action_basic")
+    # EVENTS = GameEventGroup()
     
-    mafioso = Mafioso({'alias': 'test_mafioso', 'number': '1'})
-    citizen = Citizen({'alias': 'test_citizen', 'number': '2'})
+    mafioso = Mafioso({'alias': 'test_mafioso', 'number': '1', "id": "1111"})
+    citizen = Citizen({'alias': 'test_citizen', 'number': '2', "id": "2222"})
     
     mafioso.action(targets=[citizen])
     
@@ -57,6 +59,8 @@ def test_mafioso_action_basic():
     
     # Check that Mafioso is at targets house
     assert mafioso in citizen.house, f"Mafioso action should place them at the targets house, but this hasn't happened"
+    
+    logging.info(json.dumps(EVENTS.dump(), indent=4))
        
     logging.info("Test Passed\n") 
     

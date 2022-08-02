@@ -40,9 +40,9 @@ def test_doctor_find_possible_targets():
 
 def test_doctor_heal_victim():
     logging.info("Running test: doctor_heal_victim")
-    citizen = Citizen({"alias": "test_citizen", "number": "1"})
-    doctor = Doctor({"alias": "test_doctor", "number": "2"})
-    mafioso = Mafioso({"alias": "test_mafioso", "number": "3"})
+    citizen = Citizen({"alias": "test_citizen", "number": 1, "id": "1111"})
+    doctor = Doctor({"alias": "test_doctor", "number": 2, "id": "2222"})
+    mafioso = Mafioso({"alias": "test_mafioso", "number": 3, "id": "3333"})
 
     doctor.action([citizen])
     mafioso.action([citizen])
