@@ -1,4 +1,5 @@
 import logging
+from typing import List
 from roles.actor import Actor
 from events import EVENTS, GameEvent, GameEventGroup
 
@@ -37,24 +38,18 @@ class Mafioso(Actor):
                 and actor.number != self.number
             ])
             
-    def _action(self, event_group: GameEventGroup=None, targets: list()=[], ):
+    def _action(self, targets: List[Actor]=[], ):
         
-        target = targets[0]
+        self.target = targets[0]
         # Inform self "You will attempt to kill {target.alias} tonight"
-        print("Received game event group", event_group)
-        self.kill(target)
+        self.kill(self.target)
         
         # if success:
         #     self._action_success(target)
         
 
-    def _action_success(self, target):
-        print("HEREHRERERE")
+    def _action_success(self):
         kill_event_group = GameEventGroup()
-        # return
-        # logging.info(EVENTS)
-        # event_group = EVENTS[-1]
-        # logging.info(event_group)
         # Inform all players that a mafia kill has succeeded
         kill_event_group.new_event(
             GameEvent(
@@ -67,7 +62,7 @@ class Mafioso(Actor):
         kill_event_group.new_event(
             GameEvent(
                 event_id="killed_by_mafia",
-                targets=[target.player['id']],
+                targets=[self.target.player['id']],
                 message='You were killed by a member of the mafia'
             )
         )

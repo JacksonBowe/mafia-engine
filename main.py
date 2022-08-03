@@ -7,6 +7,7 @@ import logging
 import random
 from controller import MafiaController
 from game_state import GameState
+from roles.bodyguard import Bodyguard
 from roles.citizen import Citizen
 from roles.doctor import Doctor
 from roles.mafioso import Mafioso
@@ -118,12 +119,14 @@ def main3():
     doctor = Doctor({"alias": "test_doctor", "number": 2, "id": "2222"})
     doctor2 = Doctor({"alias": "test_doctor2", "number": 3, "id": "3333"})
     mafioso = Mafioso({"alias": "test_mafioso", "number": 4, "id": "4444"})
+    bodyguard = Bodyguard({"alias": "test_bodyguard", "number": 5, "id": "5555"})
     
     game_state = GameState()
-    game_state.actors = [citizen, doctor, doctor2, mafioso]
+    game_state.actors = [citizen, doctor, doctor2, mafioso, bodyguard]
 
     doctor.targets = [citizen.number]
     doctor2.targets = [citizen.number]
+    bodyguard.targets = [citizen.number]
     mafioso.targets = [citizen.number]
     
     game_state.resolve()

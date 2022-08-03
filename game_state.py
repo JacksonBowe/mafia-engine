@@ -79,7 +79,7 @@ class GameState():
             # Create a new GameEventGroup, this will get populated by all events generated from this actors action
             
             actor_events = actor.action(targets)
-            print(actor_events)
+            # print(actor_events)
             if actor_events:
                 ACTION_EVENTS.new_event_group(actor_events)
 

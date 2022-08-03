@@ -17,10 +17,11 @@ class Actor:
         self.alive = player.get('alive', True)
         self.allies = []
         self.doctors = []
+        self.bodyguards = []
         self.events = []
         self.possible_targets = []
         self.targets = player.get('targets', [])
-        self.action_events = GameEventGroup()
+        # self.action_events = GameEventGroup()
         
         
     def __repr__(self) -> str:
@@ -76,13 +77,13 @@ class Actor:
         
     def action(self, targets: list=[]) -> GameEventGroup:
         if not self.alive: return
-        # What are all the events that occur becuase of this action?
-        event_group = GameEventGroup()
         # TODO check if has attribute _self._action . If not then return None
-        self._action(event_group, targets)
+        self._action(targets)
+
+    def action_success(self):
+        # TODO check if has attribute self._action_success. If not then return
+        self._action_success()
         
-        return event_group
-    
     def visit(self, target) -> None:
         target.house.append(self)
         # If target.is_allert: target.kill_intruder(self) -> self.die() lmao
@@ -103,19 +104,19 @@ class Actor:
         
         if not self.alive: return
         
-        if target.night_immune:
+        if target.bodyguards:
+            # TODO: Process Bodyguard stuff
+            bodyguard = target.bodyguards.pop()
+            print(bodyguard)
+            bodyguard.shootout
+            pass
+
+        elif target.night_immune:
             logging.info(f"{self} failed to kill {target}: Target was Night Immune")
             target.survive_attack() # TODO
-        # elif target.bodyguards:
-            # TODO: Process Bodyguard stuff, should come before night immune check
-        else:
-            # print("Current event group", event_group)
-            # print("Adding to event group", self.action_success_game_event)
-            # event_group.new_event(self.action_success_game_event)
-            # self.kill_success(target)
-            # print("Resulting event group", event_group)
-            
-            self._action_success(target)
+
+        else:            
+            self._action_success()
             target.die(self.death_reason)
             return True
         
@@ -125,7 +126,7 @@ class Actor:
     def die(self, reason: str) -> None:
         if self.doctors:
             doctor = self.doctors.pop(0)
-            doctor.revive_target(self) # TODO Maybe change this to doctor.action_success(self) ????            
+            doctor.revive_target()          
 
         else:
             logging.info(f"{self} was killed")
