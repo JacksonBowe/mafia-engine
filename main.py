@@ -10,6 +10,7 @@ from game_state import GameState
 from roles.bodyguard import Bodyguard
 from roles.citizen import Citizen
 from roles.doctor import Doctor
+from roles.lookout import Lookout
 from roles.mafioso import Mafioso
 
 logging.basicConfig(filename="log.txt",
@@ -120,20 +121,22 @@ def main3():
     doctor2 = Doctor({"alias": "test_doctor2", "number": 3, "id": "3333"})
     mafioso = Mafioso({"alias": "test_mafioso", "number": 4, "id": "4444"})
     bodyguard = Bodyguard({"alias": "test_bodyguard", "number": 5, "id": "5555"})
+    lookout= Lookout({"alias": "test_lookout", "number": 6, "id": "6666"})
     
     game_state = GameState()
-    game_state.actors = [citizen, doctor, doctor2, mafioso, bodyguard]
+    game_state.actors = [citizen, doctor, doctor2, mafioso, bodyguard, lookout]
 
     doctor.targets = [mafioso.number]
     doctor2.targets = [bodyguard.number]
     bodyguard.targets = [citizen.number]
     mafioso.targets = [citizen.number]
+    lookout.targets= [citizen.number]
     
     game_state.resolve()
 
 
     
-    # logging.info(json.dumps([actor.state for actor in game_state.actors], indent=4))
+    logging.info(json.dumps([actor.state for actor in game_state.actors], indent=4))
     
     logging.info(json.dumps(game_state.dump(), indent=4))
         

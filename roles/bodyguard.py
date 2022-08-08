@@ -22,6 +22,7 @@ class Bodyguard(Actor):
     def _action(self, targets: List[Actor]=[]):
         if not targets: return
         self.target = targets[0]
+        self.visit(self.target)
         logging.info(f"{self} will protect {self.target} tonight")
         self.target.bodyguards.append(self)
         

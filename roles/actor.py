@@ -77,24 +77,15 @@ class Actor:
         
     def action(self, targets: list=[]) -> GameEventGroup:
         if not self.alive: return
-        # TODO check if has attribute _self._action . If not then return None
+        if not targets: return
+        if not (hasattr(self, '_action') and callable(self._action)): return
+        
         self._action(targets)
-
-    def action_success(self):
-        # TODO check if has attribute self._action_success. If not then return
-        self._action_success()
         
     def visit(self, target) -> None:
+        self.house.remove(self)
         target.house.append(self)
         # If target.is_allert: target.kill_intruder(self) -> self.die() lmao
-        
-    def survive_attack(self) -> None:
-        # TODO
-        # Function that runs when an actor survives an attack for whatever reason
-        # Inform the player that they were attacked but survived.
-        
-        # Inform all doctors on target that they were not needed
-        pass
     
     def kill(self, target, true_death: bool=False) -> None:
         logging.info(f"{self} is attempting to kill {target}")
@@ -130,32 +121,6 @@ class Actor:
             logging.info(f"{self} was killed")
             self.death_reason = reason
             self.alive = False
-        
-        # # returns -> success, reason
-        # print(self.role_name, self.night_immune)
-        # # TODO
-        # # if self.bodyguards:
-        # #     bodyguard = self.bodyguards.pop(0)
-        # #     killer.die(bodyguard)
-        # if self.night_immune:
-        #     self.events.append("You were attacked but managed to survive")
-        #     logging.info(f"|{self.role_name}| {self.alias}({self.number}): Attacked, but is Night Immune")
-        #     result = False, 'Target is Night Immune'
-        
-        # # elif self.jailed: # etc
-        
-        # else:
-        
-        #     logging.info(f"|{self.role_name}| {self.alias}({self.number}): {killer.kill_message}")
-        #     self.alive = False
-            
-        #     self.death_reason = killer.kill_message
-        #     result = True, ""
-            
-        # # Check if doctor healed
-        # # for doctor in self.doctors
-        
-        # return  result
 
     
     

@@ -26,6 +26,7 @@ class Doctor(Actor):
         if not targets: return
         self.target = targets[0]
         logging.info(f"{self} is attemping to heal { self.target}")
+        self.visit(self.target)
         self.target.doctors.append(self) # Add self into the list of doctors protecting this target
 
     def _action_success(self):

@@ -16,7 +16,7 @@ class Citizen(Actor):
             "remainingVests": self.remaining_vests
         }}
         
-    def find_allies(self, actors):
+    def _find_allies(self, actors):
         self.allies = []
         
     def find_possible_targets(self, actors):
