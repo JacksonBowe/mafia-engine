@@ -107,9 +107,7 @@ class Actor:
         if target.bodyguards:
             # TODO: Process Bodyguard stuff
             bodyguard = target.bodyguards.pop()
-            print(bodyguard)
-            bodyguard.shootout
-            pass
+            bodyguard.shootout(self)
 
         elif target.night_immune:
             logging.info(f"{self} failed to kill {target}: Target was Night Immune")

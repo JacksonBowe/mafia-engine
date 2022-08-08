@@ -45,14 +45,14 @@ class Doctor(Actor):
                 message='Your target was attacked last night, but you successfully revive them'
             )
         )
-        # Inform all the other doctors that they were not needed
-        revive_event_group.new_event(
-            GameEvent(
-                event_id="doctor_revive_unneeded",
-                targets=[doctor.player['id'] for doctor in self.target.doctors],
-                message="Your target was attacked last night, but your services were not needed... That's pretty suss bro"
-            )
-        )
+        # Inform all the other doctors that they were not needed TODO: should this occur?
+        # revive_event_group.new_event(
+        #     GameEvent(
+        #         event_id="doctor_revive_unneeded",
+        #         targets=[doctor.player['id'] for doctor in self.target.doctors],
+        #         message="Your target was attacked last night, but your services were not needed... That's pretty suss bro"
+        #     )
+        # )
         
         # Inform the player that they were revived
         revive_event_group.new_event(

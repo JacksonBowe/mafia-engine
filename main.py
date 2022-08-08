@@ -124,8 +124,8 @@ def main3():
     game_state = GameState()
     game_state.actors = [citizen, doctor, doctor2, mafioso, bodyguard]
 
-    doctor.targets = [citizen.number]
-    doctor2.targets = [citizen.number]
+    doctor.targets = [mafioso.number]
+    doctor2.targets = [bodyguard.number]
     bodyguard.targets = [citizen.number]
     mafioso.targets = [citizen.number]
     
