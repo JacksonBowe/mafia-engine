@@ -43,7 +43,7 @@ def test_mafioso_find_possible_targets():
     assert citizen in mafioso.possible_targets[0], f"{citizen} not in {mafioso} possible targets list"
     assert citizen_2 in mafioso.possible_targets[0], f"{citizen_2} not in {mafioso} possible targets list"
     
-    logging.info("Text Passed\n")
+    logging.info("Test Passed\n")
 
 def test_mafioso_action_basic():
     logging.info("Running test: mafioso_action_basic")
@@ -60,15 +60,13 @@ def test_mafioso_action_basic():
     # Check that Mafioso is at targets house
     assert mafioso in citizen.house, f"Mafioso action should place them at the targets house, but this hasn't happened"
     
-    logging.info(json.dumps(EVENTS.dump(), indent=4))
-       
     logging.info("Test Passed\n") 
     
 def test_mafioso_action_night_immune():
     logging.info("Running test: mafioso_action_night_immune")
     
-    citizen = Citizen()
-    mafioso = Mafioso()
+    mafioso = Mafioso({'alias': 'test_mafioso', 'number': '1', "id": "1111"})
+    citizen = Citizen({'alias': 'test_citizen', 'number': '2', "id": "2222"})
     
     # Citizen use vest
     citizen.action(targets=[citizen])

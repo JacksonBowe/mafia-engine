@@ -15,8 +15,10 @@ from roles.mafioso import Mafioso
 
 logging.basicConfig(filename="log.txt",
         level=logging.DEBUG, 
-        format="[%(funcName)s][%(levelname)s] \t%(message)s",
+        format="[%(funcName)-15s][%(levelname)-8s] %(message)s",
         filemode="w")
+
+
 
 def main2():
     logging.basicConfig(filename="log.txt",
@@ -57,7 +59,7 @@ def main2():
     
     pass
 
-def main():
+def main1():
     logging.basicConfig(filename="log.txt",
         level=logging.DEBUG, 
         format="[%(funcName)s][%(levelname)s] \t%(message)s",
@@ -139,12 +141,23 @@ def main3():
     logging.info(json.dumps([actor.state for actor in game_state.actors], indent=4))
     
     logging.info(json.dumps(game_state.dump(), indent=4))
-        
-    
+
+
+def main():
+    with open('sample_lobby.json', 'r') as f:
+        lobby = json.load(f)
+        new_game(lobby)
+
+
+
+def new_game(lobby: dict, save: dict):
+    game_state = GameState().new(lobby['players'])
+
+
 
 
 if __name__ == "__main__":
-    main3()
+    main()
 
 
 

@@ -102,12 +102,34 @@ class Actor:
 
         elif target.night_immune:
             logging.info(f"{self} failed to kill {target}: Target was Night Immune")
-            target.survive_attack() # TODO
+            # Killer fail event group
+            self._action_fail() # TODO
+
+            # Night Immunity event group
+            survive_event_group = GameEventGroup()
+
+            # Inform the attacker that their target is night immune
+            survive_event_group.new_event(
+                GameEvent(
+                    event_id="target_night_immune",
+                    targets=[self.player['id']],
+                    message="Target is Night Immune"
+                )
+            )
+
+            # Inform the target that they survived the attack
+            survive_event_group.new_event(
+                GameEvent(
+                    event_id="self_night_immune",
+                    targets=[target.player['id']],
+                    message="You were attacked tonight but surived due to Night Immunity"
+                )
+            )
+            EVENTS.new_event_group(survive_event_group)
 
         else:            
             self._action_success()
             target.die(self.death_reason)
-            return True
         
 
         return 
@@ -121,6 +143,7 @@ class Actor:
             logging.info(f"{self} was killed")
             self.death_reason = reason
             self.alive = False
+
 
     
     

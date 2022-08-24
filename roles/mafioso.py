@@ -9,9 +9,6 @@ class Mafioso(Actor):
         self.role_name = "Mafioso"
         self.alignment = "mafia"
         self.kill_message = "You were killed by a member of the Mafia"
-        self.event_message = "You hear sounds of shots in the streets"
-        self.action_success_game_event = GameEvent(event_id="mafia_kill_success", targets=['*'], message=self.event_message)
-        self.kill_fail_game_event = GameEvent(event_id="mafia_kill_fail", targets=['*'], message=None)
         self.death_reason = "They were found riddled with bullets."
         pass
     
@@ -67,6 +64,19 @@ class Mafioso(Actor):
             )
         )
         EVENTS.new_event_group(kill_event_group)
+
+    def _action_fail(self):
+        kill_fail_event_group = GameEventGroup()
+
+        kill_fail_event_group.new_event(
+            GameEvent(
+                event_id='mafia_kill_fail',
+                targets=['*'],
+                message=''
+            )
+        )
+
+        EVENTS.new_event_group(kill_fail_event_group)
     
     # def _action_fail(self, target):
     #     event_group = GameEventGroup()
