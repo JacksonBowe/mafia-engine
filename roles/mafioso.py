@@ -8,7 +8,7 @@ class Mafioso(Actor):
         super().__init__(player)
         self.role_name = "Mafioso"
         self.alignment = "mafia"
-        self.kill_message = "You were killed by a member of the Mafia"
+        self.kill_message = "You were killed by a member of the Mafia" 
         self.death_reason = "They were found riddled with bullets."
         pass
     
