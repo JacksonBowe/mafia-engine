@@ -7,7 +7,7 @@ ROLE_TAGS = {
     "Bodyguard"     : ["any_random", "town_random", "town_protective", "town_killing"],
     "Escort"        : ["any_random", "town_random", "town_protective", "town_power"],
     "Lookout"       : ["any_random", "town_random", "town_investigative"],
-    # "Sheriff"       : ["any_random", "town_random", "town_investigative"],
+    "Sheriff"       : ["any_random", "town_random", "town_investigative"],
     # "Investigator"  : ["any_random", "town_random", "town_investigative"],
     # MAFIA
     "Mafioso"       : ["any_random", "mafia_random", "mafia_killing"],
@@ -32,6 +32,6 @@ TURN_ORDER = [
     "Bodyguard",
     # Killing
     "Mafioso",
-    # Investivative
+    # Investigative
     "Lookout"
 ]
