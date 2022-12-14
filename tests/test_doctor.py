@@ -3,7 +3,7 @@ from roles.citizen import Citizen
 from roles.doctor import Doctor
 from roles.mafioso import Mafioso
 
-def test_citizen_find_allies():
+def test_doctor_find_allies():
     logging.info("Running test: doctor_find_allies")
     citizen = Citizen({"alias": "test_citizen", "number": "1"})
     doctor = Doctor({"alias": "test_doctor", "number": "2"})

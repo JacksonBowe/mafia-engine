@@ -1,4 +1,4 @@
-from api import create_game
+from api import create_game, load_game
 
 
 import logging

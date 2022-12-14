@@ -11,7 +11,7 @@ class Actor:
         self.alias = player.get('alias', None)
         self.player = player
         self.number = player.get('number', None)
-        self.house = [self]
+        self.house = [self] # TODO: A list of all Actors at this house?
         self.night_immune = False
         self.death_reason = player.get('deathReason', None)
         self.alive = player.get('alive', True)
@@ -30,7 +30,7 @@ class Actor:
         
     @property
     def state(self):
-        print(self)
+        # print(self)
         # Returns the base player used to construct the Actor, and some actor fields
         return {**self.player,**{
             'number': self.number,
@@ -73,6 +73,7 @@ class Actor:
 
 
     def set_house(self, house) -> None:
+        # TODO: This makes no sense
         self.house = house
         
     def action(self, targets: list=[]) -> GameEventGroup:

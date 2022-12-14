@@ -67,5 +67,7 @@ def create_game(players, save):
     
     return game
     
-def load_game():
-    pass
+def load_game(prev_game_state, actors, save):
+    game = Game().load(prev_game_state, actors, save)
+    
+    return game

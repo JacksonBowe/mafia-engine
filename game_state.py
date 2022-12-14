@@ -98,7 +98,7 @@ class GameState():
             "day": self.day,
             "players": [{
                 "number": actor.number,
-                "name": actor.alias,
+                "alias": actor.alias,
                 "alive": actor.alive
             } for actor in self.actors],
             # "events": [event.dump() for event in EVENTS],
@@ -106,7 +106,7 @@ class GameState():
             # "events": EVENTS,
             "graveyard": [{
                 "number": actor.number,
-                "name": actor.alias,
+                "alias": actor.alias,
                 "deathReason": actor.death_reason
             } for actor in self.actors if not actor.alive]
         }

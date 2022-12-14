@@ -3,17 +3,17 @@
     "players": [
         {
             "number": 1,
-            "name": "Dinkle",
+            "name": "Brett",
             "alive": true
         },
         {
             "number": 2,
-            "name": "Wesley",
+            "name": "Dinkle",
             "alive": true
         },
         {
             "number": 3,
-            "name": "Scrooge",
+            "name": "Bronson",
             "alive": true
         },
         {
@@ -23,60 +23,59 @@
         },
         {
             "number": 5,
-            "name": "Bertha",
-            "alive": true
-        },
-        {
-            "number": 6,
-            "name": "Brandon",
-            "alive": true
-        },
-        {
-            "number": 7,
-            "name": "Mick",
-            "alive": true
-        },
-        {
-            "number": 8,
-            "name": "Kody",
-            "alive": true
-        },
-        {
-            "number": 9,
-            "name": "Bronson",
-            "alive": true
-        },
-        {
-            "number": 10,
-            "name": "Dog",
-            "alive": true
-        },
-        {
-            "number": 11,
-            "name": "Brett",
-            "alive": true
-        },
-        {
-            "number": 12,
             "name": "Car",
             "alive": true
         },
         {
-            "number": 13,
-            "name": "Muck",
+            "number": 6,
+            "name": "Dog",
             "alive": true
         },
         {
-            "number": 14,
+            "number": 7,
+            "name": "Bertha",
+            "alive": true
+        },
+        {
+            "number": 8,
+            "name": "Mick",
+            "alive": true
+        },
+        {
+            "number": 9,
+            "name": "Gorden",
+            "alive": true
+        },
+        {
+            "number": 10,
             "name": "Jackson",
             "alive": true
         },
         {
+            "number": 11,
+            "name": "Kody",
+            "alive": true
+        },
+        {
+            "number": 12,
+            "name": "Muck",
+            "alive": true
+        },
+        {
+            "number": 13,
+            "name": "Scrooge",
+            "alive": true
+        },
+        {
+            "number": 14,
+            "name": "Wesley",
+            "alive": true
+        },
+        {
             "number": 15,
-            "name": "Gorden",
+            "name": "Brandon",
             "alive": true
         }
     ],
-    "events": [],
     "graveyard": []
 }
