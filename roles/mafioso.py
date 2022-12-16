@@ -1,7 +1,7 @@
 import logging
 from typing import List
 from roles.actor import Actor
-from events import EVENTS, GameEvent, GameEventGroup
+from events import EVENTS, ACTION_EVENTS, GameEvent, GameEventGroup
 
 class Mafioso(Actor):
     def __init__(self, player: dict=dict(), settings: dict=dict()):
@@ -39,10 +39,11 @@ class Mafioso(Actor):
         
         self.target = targets[0]
         # Inform self "You will attempt to kill {target.alias} tonight"
-        self.kill(self.target)
         
-        # if success:
-        #     self._action_success(target)
+        if self.kill(self.target):
+            self._action_success()
+        else:
+            self._action_fail()
         
 
     def _action_success(self):
@@ -63,7 +64,7 @@ class Mafioso(Actor):
                 message='You were killed by a member of the mafia'
             )
         )
-        EVENTS.new_event_group(kill_event_group)
+        ACTION_EVENTS.new_event_group(kill_event_group)
 
     def _action_fail(self):
         kill_fail_event_group = GameEventGroup()

@@ -5,6 +5,7 @@ from game_save2 import GameSave
 from game_state2 import GameState
 from consts import TURN_ORDER
 from events import GameEventGroup, EVENTS, ACTION_EVENTS
+from copy import deepcopy
 
 from logger import logger
 
@@ -79,17 +80,19 @@ class Game():
             # The targets are just numbers, need to find associated Actors
             targets = [self._state.get_actor_by_number(target) for target in actor.targets]
             
-            actor_events = actor.action(targets)
+            ACTION_EVENTS = GameEventGroup()
+            actor.action(targets)
             
-            print("actor_events", actor_events)
-            if actor_events:
-                print('here')
-                self._events.new_event_group(actor_events)
+            print("action_events", ACTION_EVENTS)
+            if ACTION_EVENTS.events:
+                print('hereeee')
+                # copy = 
+                self._events.new_event_group(deepcopy(ACTION_EVENTS))
                 
         # Regenerate possible targets
         self._state.generate_allies_and_possible_targets()
         
-        print('Events', json.dumps(EVENTS.dump(), indent=4))
+        print('Events', json.dumps(self._events.dump(), indent=4))
                 
     
     @property

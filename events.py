@@ -30,6 +30,9 @@ class GameEventGroup:
     def new_event_group(self, event_group: 'GameEventGroup'):
         self.events.append(event_group)
         return
+    
+    def reset(self):
+        self.events = []
 
     def dump(self):
         return [event.dump() for event in self.events]

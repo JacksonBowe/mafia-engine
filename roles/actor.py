@@ -1,6 +1,7 @@
 import logging
 from events import (
     EVENTS,
+    ACTION_EVENTS,
     GameEvent,
     GameEventGroup,
 )
@@ -81,7 +82,9 @@ class Actor:
         if not targets: return
         if not (hasattr(self, '_action') and callable(self._action)): return
         
-        self._action(targets)
+        action_events = self._action(targets)
+        print('sup', action_events)
+        
         
     def visit(self, target) -> None:
         self.house.remove(self)
@@ -89,9 +92,9 @@ class Actor:
         # If target.is_allert: target.kill_intruder(self) -> self.die() lmao
     
     def kill(self, target, true_death: bool=False) -> None:
+        # Returns True/False for Success/Fail
         logging.info(f"{self} is attempting to kill {target}")
         
-        # event_group = EVENTS[-1]
         self.visit(target)
         
         if not self.alive: return
@@ -103,8 +106,7 @@ class Actor:
 
         elif target.night_immune:
             logging.info(f"{self} failed to kill {target}: Target was Night Immune")
-            # Killer fail event group
-            self._action_fail() # TODO
+            
 
             # Night Immunity event group
             survive_event_group = GameEventGroup()
@@ -126,12 +128,12 @@ class Actor:
                     message="You were attacked tonight but surived due to Night Immunity"
                 )
             )
-            EVENTS.new_event_group(survive_event_group)
-
+            ACTION_EVENTS.new_event_group(survive_event_group)
+            
+            return False
         else:            
-            self._action_success()
             target.die(self.death_reason)
-        
+            return True
 
         return 
 
