@@ -14,7 +14,7 @@ class Game():
     def __init__(self) -> None:
         self._save: GameSave = None
         self.state: GameState = None
-        self.events: GameEventGroup = EVENTS
+        EVENTS.reset()
         pass
     
     def new(self, players: list, save: dict):
@@ -81,10 +81,10 @@ class Game():
         # Regenerate possible targets
         self.state.generate_allies_and_possible_targets()
         
-        print('State', json.dumps(self.dump_state(), indent=4))
-        print('Actors', json.dumps(self.dump_actors(), indent=4))
-        print('Events', json.dumps(self.dump_events(), indent=4))
-        print('Duration', EVENTS.total_duration)
+        # print('State', json.dumps(self.dump_state(), indent=4))
+        # print('Actors', json.dumps(self.dump_actors(), indent=4))
+        # print('Events', json.dumps(self.dump_events(), indent=4))
+        # print('Duration', EVENTS.total_duration)
         
     
     def dump_actors(self):
@@ -95,4 +95,8 @@ class Game():
         return self.state.dump()
     
     def dump_events(self):
-        return self.events.dump()
+        return EVENTS.dump()
+    
+    @property
+    def events(self):
+        return EVENTS.events

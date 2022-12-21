@@ -51,6 +51,10 @@ class GameEventGroup:
             if isinstance(event, GameEventGroup):
                 total += event.total_duration
         return total
+    
+    def reset(self):
+        self.events.clear()
+        return self
 
     def dump(self):
         # return [event.dump() for event in self.events]

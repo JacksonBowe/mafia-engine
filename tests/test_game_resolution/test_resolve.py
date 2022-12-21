@@ -34,8 +34,21 @@ def test_resolve():
         logger.debug("Wrote output game state to file: test-1/output/output-game-sate")
            
     # -------------- Check --------------
-    # Verify that all players start out as 'alive'
+
+    # Check that (1) died
+    assert game.state.get_actor_by_number(1).alive == False
+    
+    # Check that no one else died
+    for actor in game.state.actors:
+        if actor.number == 1: continue
+        assert actor.alive == True
         
-    # assert len(game.state['graveyard']) == 0
+    for event in game.events:
+        logger.debug(event)
+        
+    # Check that game events were created
+    assert len(game.events) == 1
+    assert game.events[0].group_id == 'mafioso_action_success'
+        
         
     
