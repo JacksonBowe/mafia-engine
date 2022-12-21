@@ -4,7 +4,7 @@ import json
 from game_save2 import GameSave
 from game_state2 import GameState
 from consts import TURN_ORDER
-from events import GameEventGroup, EVENTS, ACTION_EVENTS
+from events import GameEventGroup, EVENTS, DURATION
 from copy import deepcopy
 
 from logger import logger
@@ -15,7 +15,7 @@ class Game():
     def __init__(self) -> None:
         self._save: GameSave = None
         self._state: GameState = None
-        self._events: GameEventGroup = GameEventGroup()
+        self.events: GameEventGroup = EVENTS
         pass
     
     def new(self, players: list, save: dict):
@@ -79,20 +79,17 @@ class Game():
             
             # The targets are just numbers, need to find associated Actors
             targets = [self._state.get_actor_by_number(target) for target in actor.targets]
-            
-            ACTION_EVENTS = GameEventGroup()
+
             actor.action(targets)
             
-            print("action_events", ACTION_EVENTS)
-            if ACTION_EVENTS.events:
-                print('hereeee')
-                # copy = 
-                self._events.new_event_group(deepcopy(ACTION_EVENTS))
+            # if self.events.events:
+            #     print(self.events)
                 
         # Regenerate possible targets
         self._state.generate_allies_and_possible_targets()
         
-        print('Events', json.dumps(self._events.dump(), indent=4))
+        print('Events', json.dumps(self.events.dump(), indent=4))
+        print('Duration', EVENTS.total_duration)
                 
     
     @property

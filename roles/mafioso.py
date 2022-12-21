@@ -1,7 +1,7 @@
 import logging
 from typing import List
 from roles.actor import Actor
-from events import EVENTS, ACTION_EVENTS, GameEvent, GameEventGroup
+from events import EVENTS, DURATION, GameEvent, GameEventGroup
 
 class Mafioso(Actor):
     def __init__(self, player: dict=dict(), settings: dict=dict()):
@@ -39,21 +39,17 @@ class Mafioso(Actor):
         
         self.target = targets[0]
         # Inform self "You will attempt to kill {target.alias} tonight"
-        
-        if self.kill(self.target):
-            self._action_success()
-        else:
-            self._action_fail()
+        self.kill(self.target)
         
 
     def _action_success(self):
-        kill_event_group = GameEventGroup()
+        kill_event_group = GameEventGroup(group_id="mafioso_action_success", duration=3)
         # Inform all players that a mafia kill has succeeded
         kill_event_group.new_event(
             GameEvent(
                 event_id='mafia_kill_success',
                 targets=['*'],
-                message="There are sounds of shots in the streets"
+                message="There are sounds of shots in the streets",
             )
         )
         # Inform the target player that they have been killed
@@ -61,13 +57,15 @@ class Mafioso(Actor):
             GameEvent(
                 event_id="killed_by_mafia",
                 targets=[self.target.player['id']],
-                message='You were killed by a member of the mafia'
+                message='You were killed by a member of the Mafia'
             )
         )
-        ACTION_EVENTS.new_event_group(kill_event_group)
+        EVENTS.new_event_group(kill_event_group)
+        DURATION.add(5)
+        print('gfhfgh', DURATION)
 
     def _action_fail(self):
-        kill_fail_event_group = GameEventGroup()
+        kill_fail_event_group = GameEventGroup(group_id='mafioso_action_fail', duration=3)
 
         kill_fail_event_group.new_event(
             GameEvent(
@@ -78,6 +76,7 @@ class Mafioso(Actor):
         )
 
         EVENTS.new_event_group(kill_fail_event_group)
+        DURATION.add(5)
     
     # def _action_fail(self, target):
     #     event_group = GameEventGroup()
