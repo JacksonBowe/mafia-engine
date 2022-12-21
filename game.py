@@ -4,8 +4,7 @@ import json
 from game_save2 import GameSave
 from game_state2 import GameState
 from consts import TURN_ORDER
-from events import GameEventGroup, EVENTS, DURATION
-from copy import deepcopy
+from events import GameEventGroup, EVENTS
 
 from logger import logger
 
@@ -14,7 +13,7 @@ from logger import logger
 class Game():
     def __init__(self) -> None:
         self._save: GameSave = None
-        self._state: GameState = None
+        self.state: GameState = None
         self.events: GameEventGroup = EVENTS
         pass
     
@@ -39,7 +38,7 @@ class Game():
         
         # Generate GameState
         logger.info("--- Generating initial GameState ---")
-        self._state = GameState().from_lobby(players, self._save.roles_settings)
+        self.state = GameState().from_lobby(players, self._save.roles_settings)
         
         
         '''
@@ -55,30 +54,24 @@ class Game():
         logger.info("--- Loading Game ---")
         self._save = GameSave(save)
         
-        self._state = GameState().from_previous(prev_game_state, players, self._save.roles_settings)
+        self.state = GameState().from_previous(prev_game_state, players, self._save.roles_settings)
 
         return self
         
-        '''
-        load the previous state to get the day
-        load the players as actors
-        process the player actions
-        '''
-        
     def resolve_actions(self):
         logger.info("--- Resolving player actions ---")
-        self._state.day += 1
-        self._state.generate_allies_and_possible_targets()
+        self.state.day += 1
+        self.state.generate_allies_and_possible_targets()
 
         # sort the actors based on TURN_ORDER
-        self._state.actors.sort(key=lambda actor: TURN_ORDER.index(actor.role_name))
+        self.state.actors.sort(key=lambda actor: TURN_ORDER.index(actor.role_name))
         
-        for actor in self._state.actors:
+        for actor in self.state.actors:
             if not actor.targets: continue
             logger.info(f"|{actor.role_name}| {actor.alias}({actor.number}) is targetting {actor.targets}")
             
             # The targets are just numbers, need to find associated Actors
-            targets = [self._state.get_actor_by_number(target) for target in actor.targets]
+            targets = [self.state.get_actor_by_number(target) for target in actor.targets]
 
             actor.action(targets)
             
@@ -86,17 +79,20 @@ class Game():
             #     print(self.events)
                 
         # Regenerate possible targets
-        self._state.generate_allies_and_possible_targets()
+        self.state.generate_allies_and_possible_targets()
         
-        print('Events', json.dumps(self.events.dump(), indent=4))
+        print('State', json.dumps(self.dump_state(), indent=4))
+        print('Actors', json.dumps(self.dump_actors(), indent=4))
+        print('Events', json.dumps(self.dump_events(), indent=4))
         print('Duration', EVENTS.total_duration)
-                
-    
-    @property
-    def actors(self):
-        self._state.generate_allies_and_possible_targets()
-        return [actor.state for actor in self._state.actors]
         
-    @property
-    def state(self):
-        return self._state.dump()
+    
+    def dump_actors(self):
+        self.state.generate_allies_and_possible_targets()
+        return [actor.state for actor in self.state.actors]
+    
+    def dump_state(self):
+        return self.state.dump()
+    
+    def dump_events(self):
+        return self.events.dump()

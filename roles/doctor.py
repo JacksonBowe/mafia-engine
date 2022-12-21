@@ -1,4 +1,4 @@
-import logging
+from logger import logger
 from typing import List
 from events import EVENTS, GameEvent, GameEventGroup
 from roles.actor import Actor
@@ -25,7 +25,7 @@ class Doctor(Actor):
     def _action(self, targets: List[Actor]=[]):
         if not targets: return
         self.target = targets[0]
-        logging.info(f"{self} is attemping to heal { self.target}")
+        logger.info(f"{self} is attemping to heal { self.target}")
         self.visit(self.target)
         self.target.doctors.append(self) # Add self into the list of doctors protecting this target
 
@@ -33,10 +33,10 @@ class Doctor(Actor):
         self.revive_target()
     
     def revive_target(self):
-        logging.info(f"{self.target} was killed, and then healed by {self}")
+        logger.info(f"{self.target} was killed, and then healed by {self}")
         self.target.events.append("You were killed, and then revived by a G.O.A.T'ed medic")
         # Notify self and doctor of revival
-        revive_event_group = GameEventGroup()
+        revive_event_group = GameEventGroup(group_id='revive_event_group')
         
         # Inform the doctor that his revive was successfull
         revive_event_group.new_event(
@@ -46,21 +46,13 @@ class Doctor(Actor):
                 message='Your target was attacked last night, but you successfully revive them'
             )
         )
-        # Inform all the other doctors that they were not needed TODO: should this occur?
-        # revive_event_group.new_event(
-        #     GameEvent(
-        #         event_id="doctor_revive_unneeded",
-        #         targets=[doctor.player['id'] for doctor in self.target.doctors],
-        #         message="Your target was attacked last night, but your services were not needed... That's pretty suss bro"
-        #     )
-        # )
         
         # Inform the player that they were revived
         revive_event_group.new_event(
             GameEvent(
                 event_id="doctor_revive",
                 targets=[self.target.player['id']],
-                message="As your vision fades to black, you hear the rustling of footsteps and then BOOM - REVIVED BY AN ABSOLUTELY G.O.A.T'ed MEDIC"
+                message="Sike. A Doctor has revived you. Rock on"
             )
         )
 

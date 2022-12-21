@@ -1,0 +1,113 @@
+{
+    "tags": [
+        "town_government", 
+        "town_protective", 
+        "town_protective", 
+        "town_power", 
+        "town_investigative", 
+        "town_killing", 
+        "town_investigative", 
+        "town_random", 
+        "mafia_killing",
+        "mafia_deception",
+        "mafia_support",
+        "neutral_evil",
+        "neutral_benign",
+        "neutral_random",
+        "any_random"
+    ],
+    "settings": {},
+    "roles": {
+        "Citizen": {
+            "max": 1,
+            "weight": 1,
+            "settings": {
+                "maxVests": 2
+            }
+        },
+        "Mayor": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Doctor": {
+            "max": 1,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Bodyguard": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Escort": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Sheriff": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Investigator": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Mafioso": {
+            "max": 1,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Consort": {
+            "max": 1,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Janitor": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Survivor": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "SerialKiller": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        },
+        "Enforcer": {
+            "max": 0,
+            "weight": 1,
+            "settings": {
+
+            }
+        }
+    }
+}

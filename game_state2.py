@@ -29,7 +29,7 @@ class GameState():
         self.day = 1
         self.actors = []
         
-        logger.info("Importing required roles and instantiating actos")
+        logger.info("Importing required roles and instantiating actors")
         for index, player in enumerate(players):
             Role = self._class_for_name('roles', player['role'])
             # Instantiate a Role class with a :player and :roles_settings[role]

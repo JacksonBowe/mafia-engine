@@ -4,11 +4,18 @@ from typing import (
     List,
     Union
 )
-import logging
 from logger import logger
 
 
-
+@dataclass
+class Duration:
+    ZERO: int = 0
+    # Mafia actions
+    MAFIA_KILL: int = 3
+    # Town Actions
+    
+    # Neutral Actions
+    
 
 @dataclass
 class GameEvent:
@@ -24,8 +31,8 @@ class GameEvent:
 class GameEventGroup:
     ''' A Grouping of game events, eg. Broadcast event A to all players, and event B to select players'''
     group_id: str = None
+    duration: Duration = Duration.ZERO
     events: List[Union[GameEvent, GameEventGroup]] = field(default_factory=list)
-    duration: int = 0
 
     def new_event(self, event: GameEvent):
         self.events.append(event)
@@ -48,23 +55,9 @@ class GameEventGroup:
     def dump(self):
         # return [event.dump() for event in self.events]
         return asdict(self)['events']
-    
-@dataclass
-class Duration:
-    value: int = 0
-    
-    def add(self, v : int) -> None:
-        logger
-        self.value =+ v
 
-    
-ACTION_EVENTS = GameEventGroup()
+
+
+# Create a root event group. Bit silly but I want to use the methods
 EVENTS = GameEventGroup(group_id='root')
-DURATION = Duration()
-
-@dataclass
-class ActorEvent: # Feels like I may been this for coroner???
-    night: str
-    visited: list
-    visited_by: list
     

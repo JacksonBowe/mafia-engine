@@ -1,11 +1,51 @@
 [
     {
-        "id": "7",
-        "name": "Player 7",
-        "alias": "Dinkle",
+        "id": "3",
+        "name": "Player 3",
+        "alias": "Bronson",
+        "role": "Consort",
+        "number": 3,
+        "alive": true,
+        "possible_targets": [
+            [
+                2,
+                4,
+                5,
+                6,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14,
+                15,
+                10
+            ]
+        ],
+        "targets": [],
+        "allies": [
+            {
+                "alias": "Bronson",
+                "number": 3,
+                "role": "Consort",
+                "alive": true
+            },
+            {
+                "alias": "Bertha",
+                "number": 7,
+                "role": "Mafioso",
+                "alive": true
+            }
+        ],
+        "events": []
+    },
+    {
+        "id": "11",
+        "name": "Player 11",
+        "alias": "Brett",
         "role": "Citizen",
         "number": 1,
-        "alive": true,
+        "alive": false,
         "possible_targets": [
             [
                 1
@@ -17,44 +57,15 @@
         "remainingVests": 2
     },
     {
-        "id": "2",
-        "name": "Player 2",
-        "alias": "Brandon",
-        "role": "Doctor",
+        "id": "7",
+        "name": "Player 7",
+        "alias": "Dinkle",
+        "role": "Citizen",
         "number": 2,
         "alive": true,
         "possible_targets": [
             [
-                1,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15
-            ]
-        ],
-        "targets": [],
-        "allies": [],
-        "events": []
-    },
-    {
-        "id": "3",
-        "name": "Player 3",
-        "alias": "Bronson",
-        "role": "Citizen",
-        "number": 3,
-        "alive": true,
-        "possible_targets": [
-            [
-                3
+                2
             ]
         ],
         "targets": [],
@@ -63,9 +74,9 @@
         "remainingVests": 2
     },
     {
-        "id": "4",
-        "name": "Player 4",
-        "alias": "Wesley",
+        "id": "5",
+        "name": "Player 5",
+        "alias": "Rory",
         "role": "Citizen",
         "number": 4,
         "alive": true,
@@ -80,9 +91,9 @@
         "remainingVests": 2
     },
     {
-        "id": "14",
-        "name": "Player 14",
-        "alias": "Dog",
+        "id": "15",
+        "name": "Player 15",
+        "alias": "Car",
         "role": "Citizen",
         "number": 5,
         "alive": true,
@@ -97,9 +108,9 @@
         "remainingVests": 2
     },
     {
-        "id": "5",
-        "name": "Player 5",
-        "alias": "Rory",
+        "id": "14",
+        "name": "Player 14",
+        "alias": "Dog",
         "role": "Citizen",
         "number": 6,
         "alive": true,
@@ -114,26 +125,9 @@
         "remainingVests": 2
     },
     {
-        "id": "9",
-        "name": "Player 9",
-        "alias": "Scrooge",
-        "role": "Citizen",
-        "number": 7,
-        "alive": true,
-        "possible_targets": [
-            [
-                7
-            ]
-        ],
-        "targets": [],
-        "allies": [],
-        "events": [],
-        "remainingVests": 2
-    },
-    {
-        "id": "1",
-        "name": "Player 1",
-        "alias": "Jackson",
+        "id": "13",
+        "name": "Player 13",
+        "alias": "Mick",
         "role": "Citizen",
         "number": 8,
         "alive": true,
@@ -148,32 +142,15 @@
         "remainingVests": 2
     },
     {
-        "id": "13",
-        "name": "Player 13",
-        "alias": "Mick",
+        "id": "8",
+        "name": "Player 8",
+        "alias": "Gorden",
         "role": "Citizen",
         "number": 9,
         "alive": true,
         "possible_targets": [
             [
                 9
-            ]
-        ],
-        "targets": [],
-        "allies": [],
-        "events": [],
-        "remainingVests": 2
-    },
-    {
-        "id": "11",
-        "name": "Player 11",
-        "alias": "Brett",
-        "role": "Citizen",
-        "number": 10,
-        "alive": true,
-        "possible_targets": [
-            [
-                10
             ]
         ],
         "targets": [],
@@ -199,50 +176,26 @@
         "remainingVests": 2
     },
     {
-        "id": "10",
-        "name": "Player 10",
-        "alias": "Bertha",
-        "role": "Mafioso",
+        "id": "12",
+        "name": "Player 12",
+        "alias": "Muck",
+        "role": "Citizen",
         "number": 12,
         "alive": true,
         "possible_targets": [
             [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                13,
-                14
+                12
             ]
         ],
         "targets": [],
-        "allies": [
-            {
-                "alias": "Bertha",
-                "number": 12,
-                "role": "Mafioso",
-                "alive": true
-            },
-            {
-                "alias": "Gorden",
-                "number": 15,
-                "role": "Consort",
-                "alive": true
-            }
-        ],
-        "events": []
+        "allies": [],
+        "events": [],
+        "remainingVests": 2
     },
     {
-        "id": "12",
-        "name": "Player 12",
-        "alias": "Muck",
+        "id": "9",
+        "name": "Player 9",
+        "alias": "Scrooge",
         "role": "Citizen",
         "number": 13,
         "alive": true,
@@ -257,9 +210,9 @@
         "remainingVests": 2
     },
     {
-        "id": "15",
-        "name": "Player 15",
-        "alias": "Car",
+        "id": "4",
+        "name": "Player 4",
+        "alias": "Wesley",
         "role": "Citizen",
         "number": 14,
         "alive": true,
@@ -274,41 +227,87 @@
         "remainingVests": 2
     },
     {
-        "id": "8",
-        "name": "Player 8",
-        "alias": "Gorden",
-        "role": "Consort",
+        "id": "2",
+        "name": "Player 2",
+        "alias": "Brandon",
+        "role": "Citizen",
         "number": 15,
         "alive": true,
         "possible_targets": [
             [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                13,
-                14
+                15
             ]
         ],
         "targets": [],
+        "allies": [],
+        "events": [],
+        "remainingVests": 2
+    },
+    {
+        "id": "1",
+        "name": "Player 1",
+        "alias": "Jackson",
+        "role": "Doctor",
+        "number": 10,
+        "alive": true,
+        "possible_targets": [
+            [
+                3,
+                2,
+                4,
+                5,
+                6,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14,
+                15,
+                7
+            ]
+        ],
+        "targets": [],
+        "allies": [],
+        "events": []
+    },
+    {
+        "id": "10",
+        "name": "Player 10",
+        "alias": "Bertha",
+        "role": "Mafioso",
+        "number": 7,
+        "alive": true,
+        "possible_targets": [
+            [
+                2,
+                4,
+                5,
+                6,
+                8,
+                9,
+                11,
+                12,
+                13,
+                14,
+                15,
+                10
+            ]
+        ],
+        "targets": [
+            1
+        ],
         "allies": [
             {
-                "alias": "Bertha",
-                "number": 12,
-                "role": "Mafioso",
+                "alias": "Bronson",
+                "number": 3,
+                "role": "Consort",
                 "alive": true
             },
             {
-                "alias": "Gorden",
-                "number": 15,
-                "role": "Consort",
+                "alias": "Bertha",
+                "number": 7,
+                "role": "Mafioso",
                 "alive": true
             }
         ],

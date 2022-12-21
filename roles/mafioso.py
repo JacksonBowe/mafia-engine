@@ -1,7 +1,6 @@
-import logging
 from typing import List
 from roles.actor import Actor
-from events import EVENTS, DURATION, GameEvent, GameEventGroup
+from events import EVENTS, GameEvent, GameEventGroup, Duration
 
 class Mafioso(Actor):
     def __init__(self, player: dict=dict(), settings: dict=dict()):
@@ -43,7 +42,7 @@ class Mafioso(Actor):
         
 
     def _action_success(self):
-        kill_event_group = GameEventGroup(group_id="mafioso_action_success", duration=3)
+        kill_event_group = GameEventGroup(group_id="mafioso_action_success", duration=Duration.MAFIA_KILL)
         # Inform all players that a mafia kill has succeeded
         kill_event_group.new_event(
             GameEvent(
@@ -61,12 +60,11 @@ class Mafioso(Actor):
             )
         )
         EVENTS.new_event_group(kill_event_group)
-        DURATION.add(5)
-        print('gfhfgh', DURATION)
 
     def _action_fail(self):
         kill_fail_event_group = GameEventGroup(group_id='mafioso_action_fail', duration=3)
 
+        # Inform all players that a mafia kill has failed
         kill_fail_event_group.new_event(
             GameEvent(
                 event_id='mafia_kill_fail',
@@ -76,35 +74,5 @@ class Mafioso(Actor):
         )
 
         EVENTS.new_event_group(kill_fail_event_group)
-        DURATION.add(5)
-    
-    # def _action_fail(self, target):
-    #     event_group = GameEventGroup()
-    #     # Inform all players that a mafia kill has failed
-    #     event_group.new_event(
-    #         GameEvent(
-    #             event_id='mafia_kill_fail',
-    #             targets=['*'],
-    #             message=None
-    #         )
-    #     )
-        
-    #     # Inform the target of the failed attack
-    #     event_group.new_event(
-    #         GameEvent(
-    #             event_id="night_immune_hit_by_mafia",
-    #             targets=[target.player['id']],
-    #             message="You were attacked by the Mafia, but you managed to survive"
-    #         )
-    #     )
-        
-    #     # Inform the mafioso of the failed attack
-    #     event_group.new_event(
-    #         GameEvent(
-    #             event_id="target_night_immune",
-    #             targets=[self.player['id']],
-    #             message=f"Failed to kill {target.alias}: Target is Night Immune"
-    #         )
-    #     )
 
         

@@ -34,7 +34,7 @@ class Citizen(Actor):
         
         if target != self: # Tripple check target
             logger.critical(f"{self.alias}({self.number}) invalid target ({targets[0].number}). {self.role_name} can only target self")
-            super()._invalid_target(message="'{self.role_name}' can only target self")
+            super()._invalid_target(message=f"'{self.role_name}' can only target self")
             return
         
         self.remaining_vests -= 1

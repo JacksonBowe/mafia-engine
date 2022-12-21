@@ -1,6 +1,6 @@
 from game_save import GameSave
 from consts import TURN_ORDER
-from events import EVENTS, GameEventGroup, ACTION_EVENTS
+from events import EVENTS
 import importlib
 import logging
 import json
@@ -78,10 +78,7 @@ class GameState():
             
             # Create a new GameEventGroup, this will get populated by all events generated from this actors action
             
-            actor_events = actor.action(targets)
-            # print(actor_events)
-            if actor_events:
-                ACTION_EVENTS.new_event_group(actor_events)
+            actor.action(targets)
 
         # Regenerate possible targets
         self.generate_allies_and_possible_targets()    

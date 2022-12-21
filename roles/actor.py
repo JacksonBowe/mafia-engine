@@ -2,7 +2,6 @@ from __future__ import annotations
 from logger import logger
 from events import (
     EVENTS,
-    ACTION_EVENTS,
     GameEvent,
     GameEventGroup,
 )
@@ -23,7 +22,6 @@ class Actor:
         self.events = []
         self.possible_targets = []
         self.targets = player.get('targets', [])
-        # self.action_events = GameEventGroup()
         
         
     def __repr__(self) -> str:
@@ -59,7 +57,7 @@ class Actor:
             self.allies = []
             
     def _invalid_target(self, message: None):
-        invalid_target_event_group = GameEventGroup(group_id="invalid_target", duration=4)
+        invalid_target_event_group = GameEventGroup(group_id="invalid_target")
         invalid_target_event_group.new_event(
             GameEvent(
                 event_id="invalid_target",
