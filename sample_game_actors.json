@@ -11,7 +11,7 @@
                 1
             ]
         ],
-        "targets": [],
+        "targets": [1],
         "allies": [],
         "events": [],
         "remainingVests": 2

@@ -40,7 +40,7 @@ class GameState():
         self.generate_allies_and_possible_targets()
 
         return self
-    
+        
     def from_previous(self, prev_state: dict, players: list, roles_settings: dict()) -> GameState:
         self.day = prev_state['day']
         self.actors = []
