@@ -1,5 +1,6 @@
 import random
 import json
+from dataclasses import dataclass
 
 from game_save2 import GameSave
 from game_state2 import GameState
@@ -100,3 +101,8 @@ class Game():
     @property
     def events(self):
         return EVENTS.events
+    
+    
+@dataclass
+class Actors:
+    actors
