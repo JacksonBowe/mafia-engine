@@ -105,6 +105,16 @@ class GameState():
             
             # Create a new GameEventGroup. This will get p
             
+    def check_for_win(self):
+        # TODO: This needs some work
+        town_members = [actor for actor in self.actors if actor.alive and actor.alignment == "Town"]
+        print("Town members", town_members)
+        
+        
+        if not town_members: 
+            logger.info("MAFIA WIN")
+            return True
+            
     
     def dump(self) -> dict:
         return {

@@ -39,7 +39,7 @@ class Actor:
             'possible_targets': [ # self.possible_targets is a list of lists [[], []]. Need to loop through the internal lists and convert the actors to just their numbers
                 [ actor.number for actor in pos_targets_list]
                 for pos_targets_list in self.possible_targets],
-            'targets': self.targets,
+            'targets': [],
             'allies': [{
                 "alias": ally.alias,
                 "number": ally.number,
@@ -75,7 +75,7 @@ class Actor:
         
     def set_number_and_house(self, number):
         self.set_number(number),
-        self.set_house(number)
+        # self.set_house(house)
 
     def set_number(self, number) -> None:
         if number < 1 or number > 15:
@@ -85,7 +85,7 @@ class Actor:
 
     def set_house(self, house) -> None:
         # TODO: This makes no sense
-        self.house = house
+        house.append(self)
         
     def action(self, targets: list=[]) -> GameEventGroup:
         if not self.alive: return
@@ -97,6 +97,7 @@ class Actor:
         
         
     def visit(self, target) -> None:
+        print(self, self.house)
         self.house.remove(self)
         target.house.append(self)
         # If target.is_allert: target.kill_intruder(self) -> self.die() lmao
