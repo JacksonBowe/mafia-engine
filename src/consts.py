@@ -2,6 +2,8 @@
     CONSTANTS
 '''
 
+from enum import Enum
+
 ROLE_TAGS = {
     # TOWN
     "Citizen"       : ["any_random", "town_random", "town_government"],
@@ -38,3 +40,6 @@ TURN_ORDER = [
     # Investigative
     "Lookout"
 ]
+
+class Alignment(Enum):
+    TOWN = "Town"

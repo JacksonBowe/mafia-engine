@@ -1,10 +1,12 @@
 from __future__ import annotations
 from typing import List
 import random
+import json
 
 from src.utils.logger import logger
 
 from src.game_save import GameSave
+from src.game_state import GameState
 
 
 class Game:
@@ -30,6 +32,11 @@ class Game:
         for index, player in enumerate(players):
             player['role'] = self.save.roles[index]
             logger.info(f"  |-> {player['alias']} ({player['name']}):".ljust(40) + f" {player['role']}")
+        
+        # Generate GameState
+        logger.info("--- Generating initial GameState ---")
+        self.state = GameState().new(players, self.save.roles_settings)
+        
         
         return self
         

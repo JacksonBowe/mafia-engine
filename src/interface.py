@@ -8,10 +8,8 @@ from src.utils.logger import logger
 from src.game import Game
 
 
-def create_game(players, save):
+def create_game(players, save) -> Game:
     print('Creating a game yeet yeet')
     logger.info('Creating a game yeet yeet')
     
-    game = Game().new(players, save)
-    
-    print(game)
+    return Game().new(players, save)

@@ -113,7 +113,7 @@ def main():
                 }
             },
             "Doctor": {
-                "max": 1,
+                "max": 0,
                 "weight": 1,
                 "settings": {
 
@@ -148,14 +148,14 @@ def main():
                 }
             },
             "Mafioso": {
-                "max": 1,
+                "max": 0,
                 "weight": 1,
                 "settings": {
 
                 }
             },
             "Consort": {
-                "max": 1,
+                "max": 0,
                 "weight": 1,
                 "settings": {
 
@@ -192,7 +192,12 @@ def main():
         }
     }
     
-    Mafia.create_game(players, save)
+    game = Mafia.create_game(players, save)
+    
+    print('Game', game)
+    
+    print('GameState', game.state)
+    print('GameActors', game.state.actors)
 
 
 if __name__=='__main__':
