@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 import random
 
+from typing import Mapping, List
+
 from src.utils.logger import logger
 from src.consts import ROLE_TAGS
 
@@ -8,10 +10,10 @@ from src.consts import ROLE_TAGS
 @dataclass
 class GameSave():
     def __init__(self, config: dict):
-        self.config = config
-        self.settings = config['settings']
-        self.roles_settings = config['roles']
-        self.tags = config['tags']
+        self.config: dict = config
+        self.settings: dict = config['settings']
+        self.roles_settings: Mapping[str, dict] = config['roles']
+        self.tags: List[str] = config['tags']
         
     def generate_roles(self):
         logger.info("--- Generating roles ---")
@@ -44,13 +46,13 @@ class GameSave():
             # Update the blacklist
             for role in self.roles_settings:
                 if selected_roles.count(role) == self.roles_settings[role]['max'] and role not in blacklist:
-                    logger.info(f"\tMax reached for '{role}' -> adding to blacklist")
+                    logger.info(f"- Max reached for '{role}'".ljust(40) + " -> adding to blacklist")
                     blacklist.append(role)
                     # Remove the role from all remaining options
                     for option_index, role_option in enumerate(role_options):
                         for role_index, remaining_role in enumerate(role_option[1]):
                             if remaining_role[0] == role:
-                                logger.info("\t\tDeleting role '{}' from '{}'".format(role_options[option_index][1][role_index][0], role_options[option_index][0]))
+                                logger.info("-- Deleting role '{}' from '{}'".format(role_options[option_index][1][role_index][0], role_options[option_index][0]))
                                 del role_options[option_index][1][role_index]
                     
             # sort again
@@ -67,7 +69,7 @@ class GameSave():
             if len(available_roles) == 0:
                 # logger.info("\tUnable to select free role, failing to 'citizen'")
                 choice = "Citizen"
-                logger.warning(f"Picking {role_options[0][0]}: {choice} \t<--- FAILED!!!")
+                logger.warning(f"Picking {role_options[0][0]}: {choice}".ljust(40) + " <--- FAILED!!!")
                 failed_roles+=1
             else:
                 choice = random.choices(roles, weights=weights, k=1)[0]
