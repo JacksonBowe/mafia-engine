@@ -3,10 +3,10 @@ from typing import List
 import random
 import json
 
-from src.utils.logger import logger
+from engine.utils.logger import logger
 
-from src.game_save import GameSave
-from src.game_state import GameState
+from engine.game_save import GameSave
+from engine.game_state import GameState
 
 
 class Game:
@@ -39,4 +39,7 @@ class Game:
         
         
         return self
+    
+    def dump(self) -> dict:
+        return self.state.json()
         

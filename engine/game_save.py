@@ -3,8 +3,8 @@ import random
 
 from typing import Mapping, List
 
-from src.utils.logger import logger
-from src.consts import ROLE_TAGS
+from engine.utils.logger import logger
+from engine.consts import ROLE_TAGS
 
 
 @dataclass

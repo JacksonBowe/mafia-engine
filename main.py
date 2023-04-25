@@ -1,4 +1,5 @@
-import src.interface as Mafia
+import engine as Mafia
+import json
 
 def main():
     players = [
@@ -198,6 +199,9 @@ def main():
     
     print('GameState', game.state)
     print('GameActors', game.state.actors)
+
+    for actor in game.state.actors:
+        print(json.dumps(actor.state, indent=4))
 
 
 if __name__=='__main__':

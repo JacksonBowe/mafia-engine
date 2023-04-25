@@ -2,8 +2,8 @@ from __future__ import annotations
 from typing import List
 import importlib
 
-from src.utils.logger import logger
-from src.roles.actor import Actor
+from engine.utils.logger import logger
+from engine.roles.actor import Actor
 
 import json
 
@@ -65,7 +65,7 @@ class GameState:
         
         logger.info("Importing required roles and instantiating actors")
         for index, player in enumerate(players):
-            Role = self._class_for_name('src.roles', player['role'])
+            Role = self._class_for_name('engine.roles', player['role'])
             # Instantiate a Role class with a :player and :roles_settings[role]
             actor = Role(player, roles_settings[player['role']])
             actor.set_number_and_house(index+1)
