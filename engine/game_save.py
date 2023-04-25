@@ -18,7 +18,7 @@ class GameSave():
     def generate_roles(self):
         logger.info("--- Generating roles ---")
         logger.info("Tags: {}".format(self.tags))
-        failed_roles = 0
+        failed_roles = []
         
         # Construct a list of all possible options for each specified tag
         role_options = []
@@ -70,7 +70,7 @@ class GameSave():
                 # logger.info("\tUnable to select free role, failing to 'citizen'")
                 choice = "Citizen"
                 logger.warning(f"Picking {role_options[0][0]}: {choice}".ljust(40) + " <--- FAILED!!!")
-                failed_roles+=1
+                failed_roles.append(role_options[0][0])
             else:
                 choice = random.choices(roles, weights=weights, k=1)[0]
                 logger.info(f"Picking {role_options[0][0]}: {choice}")
@@ -82,7 +82,7 @@ class GameSave():
         
         self.roles = selected_roles
         self.failed_roles = failed_roles
-        if failed_roles > 0: logger.warning(f"Number of failures: {failed_roles}")
+        if len(failed_roles) > 0: logger.warning(f"Number of failures: {len(failed_roles)}")
         logger.info(f'Roles: {selected_roles}')
         return selected_roles, failed_roles
     

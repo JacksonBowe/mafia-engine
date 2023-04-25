@@ -193,7 +193,14 @@ def main():
         }
     }
     
-    game = Mafia.create_game(players, save)
+    # Generate the roles for the game
+    roles, failed_roles = Mafia.generate_roles()
+
+    # Assign roles to players
+    players = Mafia.assign_roles(players, roles)
+
+    # Build the initial game state
+    Mafia.
     
     print('Game', game)
     
