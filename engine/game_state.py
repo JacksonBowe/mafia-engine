@@ -1,4 +1,5 @@
 from __future__ import annotations
+from dataclasses import dataclass
 from typing import List
 import importlib
 
@@ -7,6 +8,7 @@ from engine.roles.actor import Actor
 
 import json
 
+@dataclass
 class GameState:
     day: int = 0
     actors: List[Actor] = None
@@ -17,7 +19,7 @@ class GameState:
     def __repr__(self) -> str:
         return json.dumps(self.json(), indent=4)
     
-    def json(self) -> str:
+    def json(self) -> dict:
         return {
             "day": self.day,
             "players": self.players,
@@ -70,15 +72,8 @@ class GameState:
             actor = Role(player, roles_settings[player['role']])
             actor.set_number_and_house(index+1)
             self.actors.append(actor)
-    
-        self.generate_allies_and_possible_targets()
         
         return self
-    
-    def generate_allies_and_possible_targets(self) -> None:
-        for actor in self.alive_actors:
-            actor.find_allies(self.actors)
-            actor.find_possible_targets(self.actors)
             
     
 

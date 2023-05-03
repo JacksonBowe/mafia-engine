@@ -40,6 +40,11 @@ class Game:
         
         return self
     
+    def generate_allies_and_possible_targets(self) -> None:
+        for actor in self.state.alive_actors:
+            actor.find_allies(self.state.actors)
+            actor.find_possible_targets(self.state.actors)
+    
     def dump(self) -> dict:
         return self.state.json()
         

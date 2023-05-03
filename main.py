@@ -79,7 +79,7 @@ def main():
             "alias": "Car"
         }
     ]
-    save = {
+    config = {
         "tags": [
             "town_government", 
             "town_protective", 
@@ -193,23 +193,24 @@ def main():
         }
     }
     
-    # Generate the roles for the game
-    roles, failed_roles = Mafia.generate_roles()
+    # # Generate the roles for the game
+    # roles, failed_roles = Mafia.generate_roles(save)
 
-    # Assign roles to players
-    players = Mafia.assign_roles(players, roles)
+    # # Assign roles to players
+    # players = Mafia.assign_roles(players, roles)
+    # print(players)
 
     # Build the initial game state
-    Mafia.
+    game = Mafia.new_game(players, config)
     
-    print('Game', game)
-    
-    print('GameState', game.state)
-    print('GameActors', game.state.actors)
-
+    # Message all players their roles
     for actor in game.state.actors:
-        print(json.dumps(actor.state, indent=4))
-
+        print(f"({actor.player['id']}) {actor.alias}, you have been assigned the role {actor.role_name}. {actor.state}")
+        
+    print('The starting game state saved to dynamo is', game.state)
+        
+    
+    
 
 if __name__=='__main__':
     main()
