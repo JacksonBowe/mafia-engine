@@ -8,6 +8,8 @@ from engine.utils.logger import logger
 from engine.game_save import GameSave
 from engine.game_state import GameState
 
+from engine.roles import Actor
+
 
 class Game:
     def __init__(self) -> None:
@@ -16,11 +18,15 @@ class Game:
         self.roles: list = None
         self.failed_roles: list = None
         
-    def new(self, players: List[dict], save: dict) -> Game:
+    @property
+    def actors(self) -> List[Actor]:
+        return [actor.state for actor in self.state.actors]
+        
+    def new(self, players: List[dict], config: dict) -> Game:
         logger.info('--- Creating a new Game ---')
         logger.info("Players: {}".format(players))
         
-        self.save = GameSave(config=save)
+        self.save = GameSave(config=config)
         self.roles, self.failed_roles =self.save.generate_roles()
         
         # Assign roles and numbers to players
@@ -37,13 +43,12 @@ class Game:
         logger.info("--- Generating initial GameState ---")
         self.state = GameState().new(players, self.save.roles_settings)
         
-        
         return self
     
-    def generate_allies_and_possible_targets(self) -> None:
-        for actor in self.state.alive_actors:
-            actor.find_allies(self.state.actors)
-            actor.find_possible_targets(self.state.actors)
+    def load(self, players, state, config) -> Game:
+        pass
+    
+    
     
     def dump(self) -> dict:
         return self.state.json()

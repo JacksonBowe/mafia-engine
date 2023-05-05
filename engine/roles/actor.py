@@ -10,7 +10,7 @@ class Actor:
         self.house = None
         self.alive = player.get('alive', True)
         self.visitors: List[Actor] = []
-        self.possible_targets: List[Actor] = []
+        self.possible_targets: List[List[Actor]] = []
         self.allies: List[Actor] = []
         self.death_reason = None
         

@@ -73,7 +73,13 @@ class GameState:
             actor.set_number_and_house(index+1)
             self.actors.append(actor)
         
+        self.generate_allies_and_possible_targets()
         return self
+    
+    def generate_allies_and_possible_targets(self) -> None:
+        for actor in self.alive_actors:
+            actor.find_allies(self.actors)
+            actor.find_possible_targets(self.actors)
             
     
 
