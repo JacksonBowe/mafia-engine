@@ -27,6 +27,6 @@ from engine.game import Game
 def new_game(players: List[dict], config: dict):
     return Game().new(players, config)
 
-def load_game(state, save):
+def load_game(players: List[dict], state: dict, save: dict):
     return Game().load(players, state, save)
 

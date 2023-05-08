@@ -21,7 +21,7 @@ class Game:
     @property
     def actors(self) -> List[Actor]:
         return [actor.state for actor in self.state.actors]
-        
+          
     def new(self, players: List[dict], config: dict) -> Game:
         logger.info('--- Creating a new Game ---')
         logger.info("Players: {}".format(players))
@@ -46,10 +46,17 @@ class Game:
         return self
     
     def load(self, players, state, config) -> Game:
-        pass
+        logger.info('--- Loading Game ---')
+        logger.info("Players: {}".format(players))
+        logger.info("GameState: {}".format(state))
+        
+        self.save = GameSave(config=config)
+        
+        # Generate GameState
+        self.state = GameState().load(players, state, self.save.roles_settings)
+        
+        return self
     
-    
-    
-    def dump(self) -> dict:
+    def dump_state(self) -> dict:
         return self.state.json()
         

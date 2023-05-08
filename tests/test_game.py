@@ -1,7 +1,25 @@
-import engine as Mafia
+import os
+import logging
 import json
+import pytest
 
-def create():
+import engine as Mafia
+
+
+'''
+    Tests:
+        - Can we successfully create a new game
+        - Are all the players assigned roles?
+        - Are the roles in the game correct 
+'''
+
+@pytest.fixture(scope="session")
+def test_new_game() -> Mafia.Game:
+    logging.info("----------------------")
+    logging.info("--- TEST: New game ---")
+    
+    print(os.getcwd(), __file__, os.path)
+    
     players = [
         {
             "id":  "1",
@@ -79,7 +97,8 @@ def create():
             "alias": "Car"
         }
     ]
-    config = {
+        
+    save = {
         "tags": [
             "town_government", 
             "town_protective", 
@@ -156,7 +175,7 @@ def create():
                 }
             },
             "Consort": {
-                "max": 0,
+                "max": 1,
                 "weight": 1,
                 "settings": {
 
@@ -192,26 +211,31 @@ def create():
             }
         }
     }
+        
+    game = Mafia.new_game(players, save)
+    
+    assert game is not None
+    return game
 
-    # Build the initial game state
-    game = Mafia.new_game(players, config)
+def test_new_actors(test_new_game: Mafia.Game):
+    logging.info("-----------------------------")
+    logging.info("--- TEST: New Game actors ---")
     
-    # Message all players their roles
-    for actor in game.actors:
-        print(actor)
-        # print(f"({actor.player['id']}) {actor.alias}, you have been assigned the role {actor.role_name}. {actor.state}")
-        
-    print(game.actors)
+    game = test_new_game
     
-    with open('t.json', 'w') as f:
-        json.dump(game.actors, f)
-        
-    with open('t2.json', 'w') as f:
-        json.dump(game.dump_state(), f)
-        
-    print('The starting game state saved to dynamo is', game.state.json())
+    assert len(game.state.graveyard) == 0
+    assert len(game.state.actors) == 15 and len(game.actors) == 15
     
-def load():
+    for actor in game.state.actors:
+        assert actor.alive == True
+        assert actor.role_name == 'Citizen'
+        assert actor.number is not None
+      
+pytest.fixture(scope="session")  
+def test_load_game() -> Mafia.Game:
+    logging.info("-----------------------")
+    logging.info("--- TEST: Load game ---")
+    
     players = [
         # {
         #     "id": "2",
@@ -642,8 +666,14 @@ def load():
     
     game = Mafia.load_game(players, state, config)
     
-    print(game.dump_state())
+    assert game is not None
+    assert len(game.state.alive_actors) == 14
+    assert len(game.state.graveyard) == 1
+    
+    return game
+    
+    
+    
     
 
-if __name__=='__main__':
-    load()
+    

@@ -1,5 +1,5 @@
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 import importlib
 
@@ -12,6 +12,7 @@ import json
 class GameState:
     day: int = 0
     actors: List[Actor] = None
+    _graveyard: List[dict] = field(default_factory=list)
     
     def __init__(self) -> None:
         pass
@@ -49,13 +50,13 @@ class GameState:
     def players(self) -> List[Actor]:
         return [{
             "number": actor.number,
-            "name": actor.alias,
+            "alias": actor.alias,
             "alive": actor.alive
         } for actor in self.actors]
     
     @property
     def graveyard(self) -> List[Actor]:
-        return [{
+        return self._graveyard + [{
             "number": actor.number,
             "alias": actor.alias,
             "deathReason": actor.death_reason
@@ -64,6 +65,7 @@ class GameState:
     def new(self, players: List[dict], roles_settings: dict) -> GameState:
         self.day = 1
         self.actors = []
+        self._graveyard = []
         
         logger.info("Importing required roles and instantiating actors")
         for index, player in enumerate(players):
@@ -71,6 +73,20 @@ class GameState:
             # Instantiate a Role class with a :player and :roles_settings[role]
             actor = Role(player, roles_settings[player['role']])
             actor.set_number_and_house(index+1)
+            self.actors.append(actor)
+        
+        self.generate_allies_and_possible_targets()
+        return self
+    
+    def load(self, players: List[dict], previous_state: dict, roles_settings: dict) -> GameState:
+        self.day = previous_state['day'] + 1 # TODO: Should this be in load() or resolve()?
+        self._graveyard = previous_state['graveyard']
+        self.actors = []
+        
+        logger.info("Importing required roles and instantiating actors")
+        for player in players:
+            Role = self._class_for_name('engine.roles', player['role'])
+            actor = Role(player, roles_settings[player['role']])
             self.actors.append(actor)
         
         self.generate_allies_and_possible_targets()

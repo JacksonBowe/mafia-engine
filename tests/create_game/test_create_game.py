@@ -1,11 +1,21 @@
 import os
 import logging
 import json
+import pytest
 
-import engine.interface as Mafia
+import engine as Mafia
+
+'''
+    Tests:
+        - Can we successfully create a new game
+        - Are all the players assigned roles?
+        - Are the roles in the game correct 
+'''
 
 
-def test_create_game():
+
+def test_new_game():
+    return
     ''' 
         Create a new game and verify the following in the output:
             1. 
@@ -20,15 +30,14 @@ def test_create_game():
     with open(f'{os.path.dirname(__file__)}\\save.json', 'r') as save:
         save = json.load(save)
         
-    game = Mafia.create_game(players, save)
+    game = Mafia.new_game(players, save)
 
-    output = game.
+    return game
 
-    # A game has been created. Now need to verify the following
-    # 1. Have all players been created successfully
-    #   - Do they each have a role
+
 
 
     
 if __name__=='__main__':
-    test_create_game()
+    # test_create_game()
+    pass
