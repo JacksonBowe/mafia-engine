@@ -79,7 +79,7 @@ class GameState:
         return self
     
     def load(self, players: List[dict], previous_state: dict, roles_settings: dict) -> GameState:
-        self.day = previous_state['day'] + 1 # TODO: Should this be in load() or resolve()?
+        self.day = previous_state['day']
         self._graveyard = previous_state['graveyard']
         self.actors = []
         

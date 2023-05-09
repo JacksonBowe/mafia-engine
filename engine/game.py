@@ -27,7 +27,7 @@ class Game:
         logger.info("Players: {}".format(players))
         
         self.save = GameSave(config=config)
-        self.roles, self.failed_roles =self.save.generate_roles()
+        self.roles, self.failed_roles = self.save.generate_roles()
         
         # Assign roles and numbers to players
         random.shuffle(players)
@@ -56,6 +56,10 @@ class Game:
         self.state = GameState().load(players, state, self.save.roles_settings)
         
         return self
+    
+    def resolve(self):
+        ''' Resolve all player actions'''
+        
     
     def dump_state(self) -> dict:
         return self.state.json()
