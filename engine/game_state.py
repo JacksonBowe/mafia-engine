@@ -85,10 +85,14 @@ class GameState:
         
         logger.info("Importing required roles and instantiating actors")
         for player in players:
+            if not player['alive']: continue
             Role = self._class_for_name('engine.roles', player['role'])
             actor = Role(player, roles_settings[player['role']])
+            
             self.actors.append(actor)
-        
+            
+        print(self.actors)
+
         self.generate_allies_and_possible_targets()
         return self
     
@@ -96,6 +100,9 @@ class GameState:
         for actor in self.alive_actors:
             actor.find_allies(self.actors)
             actor.find_possible_targets(self.actors)
+            
+    def get_actor_by_number(self, number: int) -> Actor:
+        return [actor for actor in self.actors if actor.number == number][0]
             
     
 

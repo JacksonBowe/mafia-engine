@@ -10,6 +10,8 @@ from engine.game_state import GameState
 
 from engine.roles import Actor
 
+from engine.consts import TURN_ORDER
+
 
 class Game:
     def __init__(self) -> None:
@@ -19,7 +21,7 @@ class Game:
         self.failed_roles: list = None
         
     @property
-    def actors(self) -> List[Actor]:
+    def actors(self) -> dict:
         return [actor.state for actor in self.state.actors]
           
     def new(self, players: List[dict], config: dict) -> Game:
@@ -59,6 +61,27 @@ class Game:
     
     def resolve(self):
         ''' Resolve all player actions'''
+        logger.info("--- Resolving all player actions ---")
+        self.state.day += 1
+        
+        self.state.generate_allies_and_possible_targets()
+        
+        # sort the actors based on TURN_ORDER
+        self.state.actors.sort(key=lambda actor: TURN_ORDER.index(actor.role_name))
+        
+        for actor in self.state.actors:
+            if not actor.targets: continue
+            logger.info(f"|{actor.role_name}| {actor.alias}({actor.number}) is targetting {actor.targets}")
+            
+            # The targets are just numbers, need to find associated Actors
+            targets = [self.state.get_actor_by_number(target) for target in actor.targets]
+            
+            actor.action(targets)
+            
+            
+            
+    def check_for_win(self): # TODO
+        pass
         
     
     def dump_state(self) -> dict:

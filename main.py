@@ -646,34 +646,34 @@ def load():
     
 def resolve():
     players = [
-        # {
-        #     "id": "2",
-        #     "name": "Player 2",
-        #     "alias": "Brandon",
-        #     "role": "Citizen",
-        #     "number": 1,
-        #     "alive": False,
-        #     "possible_targets": [
-        #         [
-        #             1
-        #         ]
-        #     ],
-        #     "targets": [],
-        #     "allies": []
-        # },
+        {
+            "id": "2",
+            "name": "Player 2",
+            "alias": "Brandon",
+            "role": "Citizen",
+            "number": 1,
+            "alive": False,
+            "possible_targets": [
+                [
+                    1
+                ]
+            ],
+            "targets": [],
+            "allies": []
+        },
         {
             "id": "8",
             "name": "Player 8",
             "alias": "Gorden",
             "role": "Citizen",
             "number": 2,
-            "alive": True,
+            "alive": False,
             "possible_targets": [
                 [
                     2
                 ]
             ],
-            "targets": [],
+            "targets": [2],
             "allies": []
         },
         {
@@ -873,92 +873,92 @@ def resolve():
         }
     ]
     state = {
-    "day": 1,
-    "players": [
-        {
-            "number": 1,
-            "alias": "Brandon",
-            "alive": False
-        },
-        {
-            "number": 2,
-            "alias": "Gorden",
-            "alive": True
-        },
-        {
-            "number": 3,
-            "alias": "Dog",
-            "alive": True
-        },
-        {
-            "number": 4,
-            "alias": "Jackson",
-            "alive": True
-        },
-        {
-            "number": 5,
-            "alias": "Scrooge",
-            "alive": True
-        },
-        {
-            "number": 6,
-            "alias": "Rory",
-            "alive": True
-        },
-        {
-            "number": 7,
-            "alias": "Muck",
-            "alive": True
-        },
-        {
-            "number": 8,
-            "alias": "Dinkle",
-            "alive": True
-        },
-        {
-            "number": 9,
-            "alias": "Bertha",
-            "alive": True
-        },
-        {
-            "number": 10,
-            "alias": "Kody",
-            "alive": True
-        },
-        {
-            "number": 11,
-            "alias": "Car",
-            "alive": True
-        },
-        {
-            "number": 12,
-            "alias": "Mick",
-            "alive": True
-        },
-        {
-            "number": 13,
-            "alias": "Bronson",
-            "alive": True
-        },
-        {
-            "number": 14,
-            "alias": "Wesley",
-            "alive": True
-        },
-        {
-            "number": 15,
-            "alias": "Brett",
-            "alive": True
-        }
-    ],
-    "graveyard": [
-        {
-            "number": 1,
-            "alias": "Brandon",
-            "deathReason": 'Terminal Fiths'
-        },
-    ]
-}
+        "day": 1,
+        "players": [
+            {
+                "number": 1,
+                "alias": "Brandon",
+                "alive": False
+            },
+            {
+                "number": 2,
+                "alias": "Gorden",
+                "alive": True
+            },
+            {
+                "number": 3,
+                "alias": "Dog",
+                "alive": True
+            },
+            {
+                "number": 4,
+                "alias": "Jackson",
+                "alive": True
+            },
+            {
+                "number": 5,
+                "alias": "Scrooge",
+                "alive": True
+            },
+            {
+                "number": 6,
+                "alias": "Rory",
+                "alive": True
+            },
+            {
+                "number": 7,
+                "alias": "Muck",
+                "alive": True
+            },
+            {
+                "number": 8,
+                "alias": "Dinkle",
+                "alive": True
+            },
+            {
+                "number": 9,
+                "alias": "Bertha",
+                "alive": True
+            },
+            {
+                "number": 10,
+                "alias": "Kody",
+                "alive": True
+            },
+            {
+                "number": 11,
+                "alias": "Car",
+                "alive": True
+            },
+            {
+                "number": 12,
+                "alias": "Mick",
+                "alive": True
+            },
+            {
+                "number": 13,
+                "alias": "Bronson",
+                "alive": True
+            },
+            {
+                "number": 14,
+                "alias": "Wesley",
+                "alive": True
+            },
+            {
+                "number": 15,
+                "alias": "Brett",
+                "alive": True
+            }
+        ],
+        "graveyard": [
+            {
+                "number": 1,
+                "alias": "Brandon",
+                "deathReason": 'Terminal Fiths'
+            },
+        ]
+    }
     config = {
         "tags": [
             "town_government", 
@@ -1074,10 +1074,10 @@ def resolve():
     }
     
     game = Mafia.load_game(players, state, config)
-    
+
     game.resolve()
     
-    print(game.dump_state())
+    # print(game.dump_state())
     
 
 if __name__=='__main__':
