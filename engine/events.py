@@ -67,10 +67,7 @@ EVENTS = GameEventGroup(group_id='root')
 
 
 # ------- Shared Events ------- #
-def invalid_target_event(targets: List[str], message: str) -> GameEventGroup:
-    return GameEvent(
-        event_id='invalid_target',
-        targets=targets,
-        message=message
-    )
+@dataclass
+class Common:
+    INVALID_TARGET = "invalid_target"
     

@@ -3,7 +3,8 @@ from engine.utils.logger import logger
 from typing import List
 from engine.consts import Alignment
 
-from engine.events import GameEventGroup, GameEvent, EVENTS, Duration
+from engine.events import GameEventGroup, GameEvent, EVENTS
+import engine.events as events
 
 class Citizen(Actor):
     def __init__(self, player: dict, settings: dict):
@@ -26,8 +27,7 @@ class Citizen(Actor):
             self.possible_targets = [[self]]
             
     def action(self, targets: List[Actor]) -> None:
-        
-        citizen_event_group = GameEventGroup(group_id="citizen_action", duration=Duration.ZERO)
+        print(targets)
         if not self.remaining_vests > 0:
             logger.critical(f"{self} tried to use vest but has 0 remaining")
             return
@@ -35,5 +35,9 @@ class Citizen(Actor):
         target = targets[0]
         if target != self: # Tipple checking that Citizen is only targetting themselves
             logger.critical(f"{self.alias}({self.number}) invalid target ({targets[0].number}). {self.role_name} can only target self")
+            return
             
+        self.remaining_vests -= 1
+        self.night_immune = True
+        logger.info(f"|{self.role_name}| {self.alias}({self.number}) used vest. {self.remaining_vests} remaining")
         

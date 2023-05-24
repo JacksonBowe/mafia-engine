@@ -688,7 +688,7 @@ def resolve():
                     3
                 ]
             ],
-            "targets": [],
+            "targets": [3],
             "allies": []
         },
         {
@@ -955,7 +955,9 @@ def resolve():
             {
                 "number": 1,
                 "alias": "Brandon",
-                "deathReason": 'Terminal Fiths'
+                "deathReason": 'Terminal Fiths',
+                "role": "Citizen",
+                "will": "And I oop"
             },
         ]
     }

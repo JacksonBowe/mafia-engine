@@ -59,7 +59,9 @@ class GameState:
         return self._graveyard + [{
             "number": actor.number,
             "alias": actor.alias,
-            "deathReason": actor.death_reason
+            "deathReason": actor.death_reason,
+            "role": actor.role_name,
+            "will": actor.will
         } for actor in self.dead_actors]
     
     def new(self, players: List[dict], roles_settings: dict) -> GameState:

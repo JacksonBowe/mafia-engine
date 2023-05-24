@@ -10,11 +10,13 @@ class Actor(ABC):
         self.role_name: str = 'Actor'
         self.house: int = None
         self.alive: bool = player.get('alive', True)
+        self.night_immune: bool = False
         self.visitors: List[Actor] = []
         self.possible_targets: List[List[Actor]] = []
         self.allies: List[Actor] = []
         self.death_reason: str = None
         self.targets: List = player.get('targets', [])
+        self.will: str = player.get('will', None)
         
     def __repr__(self) -> str:
         return f"|{self.role_name}| {self.alias}({self.number})"
