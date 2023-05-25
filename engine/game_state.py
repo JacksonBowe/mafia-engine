@@ -1,17 +1,18 @@
 from __future__ import annotations
+
+import importlib
+import json
 from dataclasses import dataclass, field
 from typing import List
-import importlib
 
+import engine.roles as roles
 from engine.utils.logger import logger
-from engine.roles.actor import Actor
 
-import json
 
 @dataclass
 class GameState:
     day: int = 0
-    actors: List[Actor] = None
+    actors: List[roles.Actor] = None
     _graveyard: List[dict] = field(default_factory=list)
     
     def __init__(self) -> None:
@@ -27,7 +28,7 @@ class GameState:
             "graveyard": self.graveyard
         }
     
-    def _class_for_name(self, module_name, class_name) -> Actor:
+    def _class_for_name(self, module_name, class_name) -> roles.Actor:
         '''Imports a class based on a provided string 
         i.e ->
               :module_name = roles
@@ -39,15 +40,15 @@ class GameState:
         return c
     
     @property
-    def alive_actors(self) -> List[Actor]:
+    def alive_actors(self) -> List[roles.Actor]:
         return [actor for actor in self.actors if actor.alive]
     
     @property
-    def dead_actors(self) -> List[Actor]:
+    def dead_actors(self) -> List[roles.Actor]:
         return [actor for actor in self.actors if not actor.alive]
     
     @property
-    def players(self) -> List[Actor]:
+    def players(self) -> List[roles.Actor]:
         return [{
             "number": actor.number,
             "alias": actor.alias,
@@ -55,7 +56,7 @@ class GameState:
         } for actor in self.actors]
     
     @property
-    def graveyard(self) -> List[Actor]:
+    def graveyard(self) -> List[roles.Actor]:
         return self._graveyard + [{
             "number": actor.number,
             "alias": actor.alias,
@@ -103,7 +104,7 @@ class GameState:
             actor.find_allies(self.actors)
             actor.find_possible_targets(self.actors)
             
-    def get_actor_by_number(self, number: int) -> Actor:
+    def get_actor_by_number(self, number: int) -> roles.Actor:
         return [actor for actor in self.actors if actor.number == number][0]
             
     

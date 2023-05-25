@@ -1,16 +1,14 @@
-from engine.roles.actor import Actor
-from engine.utils.logger import logger
 from typing import List
-from engine.consts import Alignment
 
-from engine.events import GameEventGroup, GameEvent, EVENTS
-import engine.events as events
+import engine.roles as roles
+from engine.utils.logger import logger
 
-class Citizen(Actor):
+
+class Citizen(roles.Actor):
     def __init__(self, player: dict, settings: dict):
         super().__init__(player)
         self.role_name = "Citizen"
-        self.alignment = Alignment.TOWN
+        self.alignment = roles.Alignment.TOWN
         self.max_vests = settings.get('maxVests', 2)
         self.remaining_vests = settings.get('remainingVests', self.max_vests)
         
@@ -21,12 +19,12 @@ class Citizen(Actor):
             "remainingVests": self.remaining_vests
         }}
 
-    def find_possible_targets(self, actors: List[Actor]=None) -> None:
+    def find_possible_targets(self, actors: List[roles.Actor]=None) -> None:
         self.possible_targets = []
         if self.remaining_vests > 0:
             self.possible_targets = [[self]]
             
-    def action(self, targets: List[Actor]) -> None:
+    def action(self, targets: List[roles.Actor]) -> None:
         print(targets)
         if not self.remaining_vests > 0:
             logger.critical(f"{self} tried to use vest but has 0 remaining")

@@ -8,9 +8,7 @@ from engine.utils.logger import logger
 from engine.game_save import GameSave
 from engine.game_state import GameState
 
-from engine.roles import Actor
-
-from engine.consts import TURN_ORDER
+import engine.roles as roles
 
 
 class Game:
@@ -67,7 +65,7 @@ class Game:
         self.state.generate_allies_and_possible_targets()
         
         # sort the actors based on TURN_ORDER
-        self.state.actors.sort(key=lambda actor: TURN_ORDER.index(actor.role_name))
+        self.state.actors.sort(key=lambda actor: roles.TURN_ORDER.index(actor.role_name))
         
         for actor in self.state.actors:
             if not actor.targets: continue

@@ -650,15 +650,15 @@ def resolve():
             "id": "2",
             "name": "Player 2",
             "alias": "Brandon",
-            "role": "Citizen",
+            "role": "Mafioso",
             "number": 1,
-            "alive": False,
+            "alive": True,
             "possible_targets": [
                 [
-                    1
+                    3
                 ]
             ],
-            "targets": [],
+            "targets": [3],
             "allies": []
         },
         {

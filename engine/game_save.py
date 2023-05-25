@@ -4,7 +4,7 @@ import random
 from typing import Mapping, List
 
 from engine.utils.logger import logger
-from engine.consts import ROLE_TAGS
+from engine.roles import ROLE_TAGS
 
 
 @dataclass

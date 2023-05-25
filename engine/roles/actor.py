@@ -1,14 +1,20 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Callable
+
+from engine.utils.logger import logger
+import engine.roles as roles
+import engine.events as events
 
 class Actor(ABC):
     def __init__(self, player: dict):
         self.alias: str = player.get('alias', None)
         self.player: dict = player
         self.number: int = player.get('number', None)
+        self.alignment: str = roles.Alignment.TOWN
         self.role_name: str = 'Actor'
         self.house: int = None
+        self.home: bool = True
         self.alive: bool = player.get('alive', True)
         self.night_immune: bool = False
         self.visitors: List[Actor] = []
@@ -57,6 +63,41 @@ class Actor(ABC):
     @abstractmethod
     def action(self, targets):
         pass
+    
+    def visit(self, target: roles.Actor) -> None:
+        logger.info(f"{self} is visiting {target}'s house")
+        self.home = False
+        target.visitors.append(self)
+        return
+    
+    def kill(self, target: roles.Actor, success: Callable[[None],None], fail: Callable[[None],None], true_death: bool=False) -> bool:
+        # Returns True if the target was killed, False otherwise
+        logger.info(f"{self} is attempting to kill {target}")
+        
+        self.visit(target)
+        
+        if not self.alive: return # FUTURE: Not entirely sure this should be here
+        
+        # if target.bodyguards:
+            # TODO: Add bodyguards
+        if target.night_immune:
+            logger.info(f"{self} failed to kill {target} because they are night-immune")
+            fail()
+        
+        else:
+            success()
+            target.die(reason=self.death_reason, true_death=true_death)
+            
+    def die(self, reason: str=None, true_death: bool=False) -> None:
+        self.alive = False
+        self.death_reason = reason
+        # TODO: Add doctors
+        logger.info(f"{self} died. Cause of death: {reason}")
+        
+        
+        
+        
+        
     
     
         
