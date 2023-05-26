@@ -72,10 +72,10 @@ class Game:
         
         for actor in self.state.actors:
             if not actor.targets: continue
-            logger.info(f"{actor} is targetting {actor}")
             
             # The targets are just numbers, need to find associated Actors
             targets = [self.state.get_actor_by_number(target) for target in actor.targets]
+            logger.info(f"{actor} is targetting {targets}")
             
             # Initialise the events group for this action
             ACTION_EVENTS.reset(new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action")

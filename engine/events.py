@@ -39,22 +39,9 @@ class GameEventGroup:
         return
     
     def new_event_group(self, event_group: GameEventGroup):
-        logger.debug(f"New event group '{event_group.group_id}'")
         self.duration += event_group.duration
         self.events.append(event_group)
         return
-    
-    # @property
-    # def total_duration(self):
-    #     # Calculate the duration for this event group + all contained event groups
-    #     total = self.duration
-
-    #     for event in self.events:
-    #         if isinstance(event, GameEventGroup):
-    #             total += event.duration
-
-        
-    #     return total
     
     def reset(self, new_id: str=None):
         self.events.clear()
@@ -67,7 +54,7 @@ class GameEventGroup:
 
 
 # Create a root event group. Bit silly but I want to use the methods
-EVENTS = GameEventGroup(group_id='root')
+# EVENTS = GameEventGroup(group_id='root')
 ACTION_EVENTS = GameEventGroup(group_id='action')
 
 

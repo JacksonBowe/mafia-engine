@@ -2,7 +2,7 @@
 from typing import List
 
 import engine.events as events
-from engine.events import EVENTS, ACTION_EVENTS
+from engine.events import ACTION_EVENTS
 import engine.roles as roles
 from engine.utils.logger import logger
 
@@ -15,20 +15,13 @@ class Mafioso(roles.Actor):
         self.kill_message = "You were killed by a member of the Mafia" # TODO
         self.death_reason = "They were found riddled with bullets" # TODO
         
-    @property
-    def state(self):
-        # Return 'self.state' merged with 'parent.state'
-        return {**super().state,**{
-            # Nothing for now
-        }}
-        
     def find_allies(self, actors: List[roles.Actor] = None) -> None:
         self.allies = [actor for actor in actors if actor.alignment == self.alignment]
         return
     
     def find_possible_targets(self, actors: List[roles.Actor] = None) -> None:
         # Number of targets
-        num_targets =1 
+        num_targets = 1 
         self.possible_targets = []
         for i in range(num_targets):
             self.possible_targets.insert(i, [

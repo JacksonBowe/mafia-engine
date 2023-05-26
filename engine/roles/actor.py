@@ -1,6 +1,6 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-from typing import List, Callable
+from typing import List
 
 from engine.utils.logger import logger
 import engine.roles as roles
@@ -19,6 +19,7 @@ class Actor(ABC):
         self.alive: bool = player.get('alive', True)
         self.night_immune: bool = False
         self.visitors: List[Actor] = []
+        self.doctors: List[roles.Doctor] = []
         self.possible_targets: List[List[Actor]] = []
         self.allies: List[Actor] = []
         self.death_reason: str = None
@@ -104,10 +105,14 @@ class Actor(ABC):
             target.die(reason=self.death_reason, true_death=true_death)
             
     def die(self, reason: str=None, true_death: bool=False) -> None:
-        self.alive = False
-        self.death_reason = reason
-        # TODO: Add doctors
-        logger.info(f"{self} died. Cause of death: {reason}")
+        self.doctors = [doctor for doctor in self.doctors if doctor.alive] # Remove any dead doctors
+        if self.doctors:
+            doctor = self.doctors.pop(0)
+            doctor.revive_target(self)
+        else:
+            self.alive = False
+            self.death_reason = reason
+            logger.info(f"{self} died. Cause of death: {reason}")
         
         
         

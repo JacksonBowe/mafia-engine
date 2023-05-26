@@ -3,6 +3,7 @@ from enum import Enum
 from engine.roles.actor import Actor
 from engine.roles.citizen import Citizen
 from engine.roles.mafioso import Mafioso
+from engine.roles.doctor import Doctor
 
 class Alignment(Enum):
     TOWN = "Town"

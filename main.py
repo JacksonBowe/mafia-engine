@@ -647,8 +647,8 @@ def load():
 def resolve():
     players = [
         {
-            "id": "2",
-            "name": "Player 2",
+            "id": "1",
+            "name": "Player 1",
             "alias": "Brandon",
             "role": "Mafioso",
             "number": 1,
@@ -662,8 +662,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "8",
-            "name": "Player 8",
+            "id": "2",
+            "name": "Player 2",
             "alias": "Gorden",
             "role": "Citizen",
             "number": 2,
@@ -677,8 +677,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "14",
-            "name": "Player 14",
+            "id": "3",
+            "name": "Player 3",
             "alias": "Dog",
             "role": "Citizen",
             "number": 3,
@@ -688,14 +688,14 @@ def resolve():
                     3
                 ]
             ],
-            "targets": [3],
+            "targets": [],
             "allies": []
         },
         {
-            "id": "1",
-            "name": "Player 1",
+            "id": "4",
+            "name": "Player 4",
             "alias": "Jackson",
-            "role": "Citizen",
+            "role": "Doctor",
             "number": 4,
             "alive": True,
             "possible_targets": [
@@ -703,12 +703,14 @@ def resolve():
                     4
                 ]
             ],
-            "targets": [],
+            "targets": [
+                3
+            ],
             "allies": []
         },
         {
-            "id": "9",
-            "name": "Player 9",
+            "id": "5",
+            "name": "Player 5",
             "alias": "Scrooge",
             "role": "Citizen",
             "number": 5,
@@ -722,8 +724,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "5",
-            "name": "Player 5",
+            "id": "6",
+            "name": "Player 6",
             "alias": "Rory",
             "role": "Citizen",
             "number": 6,
@@ -737,8 +739,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "12",
-            "name": "Player 12",
+            "id": "7",
+            "name": "Player 7",
             "alias": "Muck",
             "role": "Citizen",
             "number": 7,
@@ -752,8 +754,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "7",
-            "name": "Player 7",
+            "id": "8",
+            "name": "Player 8",
             "alias": "Dinkle",
             "role": "Citizen",
             "number": 8,
@@ -767,8 +769,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "10",
-            "name": "Player 10",
+            "id": "9",
+            "name": "Player 9",
             "alias": "Bertha",
             "role": "Citizen",
             "number": 9,
@@ -782,8 +784,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "6",
-            "name": "Player 6",
+            "id": "10",
+            "name": "Player 10",
             "alias": "Kody",
             "role": "Citizen",
             "number": 10,
@@ -797,8 +799,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "15",
-            "name": "Player 15",
+            "id": "11",
+            "name": "Player 11",
             "alias": "Car",
             "role": "Citizen",
             "number": 11,
@@ -812,8 +814,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "13",
-            "name": "Player 13",
+            "id": "12",
+            "name": "Player 12",
             "alias": "Mick",
             "role": "Citizen",
             "number": 12,
@@ -827,8 +829,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "3",
-            "name": "Player 3",
+            "id": "13",
+            "name": "Player 13",
             "alias": "Bronson",
             "role": "Citizen",
             "number": 13,
@@ -842,8 +844,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "4",
-            "name": "Player 4",
+            "id": "14",
+            "name": "Player 14",
             "alias": "Wesley",
             "role": "Citizen",
             "number": 14,
@@ -857,8 +859,8 @@ def resolve():
             "allies": []
         },
         {
-            "id": "11",
-            "name": "Player 11",
+            "id": "15",
+            "name": "Player 15",
             "alias": "Brett",
             "role": "Citizen",
             "number": 15,
