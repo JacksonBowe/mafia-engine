@@ -40,34 +40,42 @@ class GameEventGroup:
     
     def new_event_group(self, event_group: GameEventGroup):
         logger.debug(f"New event group '{event_group.group_id}'")
+        self.duration += event_group.duration
         self.events.append(event_group)
         return
     
-    @property
-    def total_duration(self):
-        # Calculate the duration for this event group + all contained event groups
-        total = self.duration
-        for event in self.events:
-            if isinstance(event, GameEventGroup):
-                total += event.total_duration
-        return total
+    # @property
+    # def total_duration(self):
+    #     # Calculate the duration for this event group + all contained event groups
+    #     total = self.duration
+
+    #     for event in self.events:
+    #         if isinstance(event, GameEventGroup):
+    #             total += event.duration
+
+        
+    #     return total
     
-    def reset(self):
+    def reset(self, new_id: str=None):
         self.events.clear()
         return self
 
     def dump(self):
         # return [event.dump() for event in self.events]
+        # self.duration = self.total_duration
+        # print('total duration', self.total_duration)
         return asdict(self)['events']
 
 
 
 # Create a root event group. Bit silly but I want to use the methods
 EVENTS = GameEventGroup(group_id='root')
+ACTION_EVENTS = GameEventGroup(group_id='action')
 
 
 # ------- Shared Events ------- #
 @dataclass
 class Common:
     INVALID_TARGET = "invalid_target"
+    KILLED_BY_MAFIA = "killed_by_mafia"
     

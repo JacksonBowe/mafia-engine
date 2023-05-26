@@ -2,6 +2,7 @@
 from typing import List
 
 import engine.events as events
+from engine.events import EVENTS, ACTION_EVENTS
 import engine.roles as roles
 from engine.utils.logger import logger
 
@@ -38,11 +39,33 @@ class Mafioso(roles.Actor):
             ])
             
     def action(self, targets: List[roles.Actor]=[]):
+        target = targets[0]
         def success():
             print('Target was killed')
+            kill_event_group = events.GameEventGroup(group_id='mafioso_action_success', duration=events.Duration.MAFIA_KILL)
+            
+            # Inform all players that a Mafia kill has succeeded
+            kill_event_group.new_event(
+                events.GameEvent(
+                    event_id="mafia_kill_success",
+                    targets=['*'],
+                    message="There are sounds of shots in the streets"
+                )
+            )
+            
+            # Inform the target player that they have been killed
+            kill_event_group.new_event(
+                events.GameEvent(
+                    event_id=events.Common.KILLED_BY_MAFIA,
+                    targets=[target.player['id']],
+                    message='You were killed by a member of the Mafia'
+                )
+            )
+            
+            ACTION_EVENTS.new_event_group(kill_event_group)
         
         def fail():
             print('Target survived')
         
-        target = targets[0]
+        
         self.kill(target, success, fail)

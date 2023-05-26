@@ -83,6 +83,8 @@ class Actor(ABC):
         if target.night_immune:
             logger.info(f"{self} failed to kill {target} because they are night-immune")
             fail()
+            
+            # Night Immunity event group
         
         else:
             success()

@@ -658,7 +658,7 @@ def resolve():
                     3
                 ]
             ],
-            "targets": [3],
+            "targets": [4],
             "allies": []
         },
         {
@@ -1078,6 +1078,11 @@ def resolve():
     game = Mafia.load_game(players, state, config)
 
     game.resolve()
+    
+    print(json.dumps(game.events.dump(), indent=4))
+    print('Total events duration:', game.events.duration)
+    
+    
     
     # print(game.dump_state())
     

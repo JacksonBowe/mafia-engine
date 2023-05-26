@@ -2,11 +2,13 @@ from __future__ import annotations
 from typing import List
 import random
 import json
+import copy
 
 from engine.utils.logger import logger
 
 from engine.game_save import GameSave
 from engine.game_state import GameState
+from engine.events import ACTION_EVENTS, GameEventGroup
 
 import engine.roles as roles
 
@@ -17,6 +19,7 @@ class Game:
         self.state = None
         self.roles: list = None
         self.failed_roles: list = None
+        self.events = GameEventGroup(group_id='root')
         
     @property
     def actors(self) -> dict:
@@ -69,13 +72,16 @@ class Game:
         
         for actor in self.state.actors:
             if not actor.targets: continue
-            logger.info(f"|{actor.role_name}| {actor.alias}({actor.number}) is targetting {actor.targets}")
+            logger.info(f"{actor} is targetting {actor}")
             
             # The targets are just numbers, need to find associated Actors
             targets = [self.state.get_actor_by_number(target) for target in actor.targets]
             
+            # Initialise the events group for this action
+            ACTION_EVENTS.reset(new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action")
             actor.action(targets)
-            
+            if ACTION_EVENTS.events:
+                self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
             
             
     def check_for_win(self): # TODO
