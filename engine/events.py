@@ -58,12 +58,10 @@ class GameEventGroup:
     
     def reset(self, new_id: str=None):
         self.events.clear()
+        if new_id: self.group_id = new_id
         return self
 
     def dump(self):
-        # return [event.dump() for event in self.events]
-        # self.duration = self.total_duration
-        # print('total duration', self.total_duration)
         return asdict(self)['events']
 
 
@@ -77,5 +75,6 @@ ACTION_EVENTS = GameEventGroup(group_id='action')
 @dataclass
 class Common:
     INVALID_TARGET = "invalid_target"
+    NIGHT_IMMUNE = "night_immune"
     KILLED_BY_MAFIA = "killed_by_mafia"
     

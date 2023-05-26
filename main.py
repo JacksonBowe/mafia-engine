@@ -658,7 +658,7 @@ def resolve():
                     3
                 ]
             ],
-            "targets": [4],
+            "targets": [3],
             "allies": []
         },
         {

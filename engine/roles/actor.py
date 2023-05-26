@@ -5,6 +5,7 @@ from typing import List, Callable
 from engine.utils.logger import logger
 import engine.roles as roles
 import engine.events as events
+from engine.events import ACTION_EVENTS
 
 class Actor(ABC):
     def __init__(self, player: dict):
@@ -85,6 +86,18 @@ class Actor(ABC):
             fail()
             
             # Night Immunity event group
+            survive_event_group = events.GameEventGroup(group_id=events.Common.NIGHT_IMMUNE)
+            
+            # Inform the target that they survived the attack
+            survive_event_group.new_event(
+                events.GameEvent(
+                    event_id=events.Common.NIGHT_IMMUNE,
+                    targets=[target.player['id']],
+                    message="You were attacked tonight but survived due to Night Immunity"
+                )
+            )
+            
+            ACTION_EVENTS.new_event_group(survive_event_group)
         
         else:
             success()
