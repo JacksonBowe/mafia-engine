@@ -7,7 +7,7 @@ import engine.roles as roles
 from engine.utils.logger import logger
 
 
-class Mafioso(roles.Actor):
+class Mafioso(roles.Mafia):
     def __init__(self, player: dict, settings: dict):
         super().__init__(player)
         self.role_name = 'Mafioso'
@@ -19,17 +19,17 @@ class Mafioso(roles.Actor):
         self.allies = [actor for actor in actors if actor.alignment == self.alignment]
         return
     
-    # def find_possible_targets(self, actors: List[roles.Actor] = None) -> None:
-    #     # Number of targets
-    #     num_targets = 1 
-    #     self.possible_targets = []
-    #     for i in range(num_targets):
-    #         self.possible_targets.insert(i, [
-    #             actor for actor in actors 
-    #             if actor.alive
-    #             and actor.alignment != self.alignment
-    #             and actor.number != self.number # Seems a bit redundant, but can't hurt
-    #         ])
+    def find_possible_targets(self, actors: List[roles.Actor] = None) -> None:
+        # Number of targets
+        num_targets = 1 
+        self.possible_targets = []
+        for i in range(num_targets):
+            self.possible_targets.insert(i, [
+                actor for actor in actors 
+                if actor.alive
+                and actor.alignment != self.alignment
+                and actor.number != self.number # Seems a bit redundant, but can't hurt
+            ])
             
     def action(self, targets: List[roles.Actor]=[]):
         target = targets[0]

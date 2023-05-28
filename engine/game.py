@@ -79,7 +79,6 @@ class Game:
                 if target in p_targets: continue
                 actor.targets = None
                 break
-        # TODO: For any teams that do voting night actions, tally the votes here
         
         # Resolve all actions for the day
         for actor in self.state.actors:
@@ -97,7 +96,7 @@ class Game:
             
             
     def check_for_win(self): # TODO
-        pass
+        return [actor for actor in self.state.actors if actor.check_for_win(self.state.alive_actors)]
         
     
     def dump_state(self) -> dict:

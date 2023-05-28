@@ -1,6 +1,6 @@
 from enum import Enum
 
-from engine.roles.actor import Actor
+from engine.roles.actor import Actor, Town, Mafia
 # TOWN
 from engine.roles.citizen import Citizen
 from engine.roles.doctor import Doctor

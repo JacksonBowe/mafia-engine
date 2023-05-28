@@ -114,6 +114,38 @@ class Actor(ABC):
             self.alive = False
             self.death_reason = reason
             logger.info(f"{self} died. Cause of death: {reason}")
+     
+    @abstractmethod       
+    def check_for_win(self, actors: List[Actor]) -> bool:
+        pass
+            
+class Town(Actor):
+    def __init__(self, player: dict):
+        super().__init__(player)
+        self.alignment = "Town"
+        
+    def check_for_win(self, actors: List[Actor]) -> bool:
+        return super().check_for_win(actors)
+        
+class Mafia(Actor):
+    def __init__(self, player: dict): # TODO: Add settings here?
+        super().__init__(player)
+        self.alignment = roles.Alignment.MAFIA
+        self.kill_message = "You were killed by a member of the Mafia" # TODO
+        self.death_reason = "They were found riddled with bullets" # TODO
+        
+    def find_allies(self, actors: List[roles.Actor] = None) -> None:
+        self.allies = [actor for actor in actors if actor.alignment == self.alignment]
+        return
+    
+    def check_for_win(self, actors: List[Actor]) -> bool:
+        enemies = [actor for actor in actors if actor not in self.allies]
+        wins_with = [''] # TODO: Not sure if this should be tags or explicily stating roles. Probably roles
+        
+        if enemies: return False
+        else: return True
+        
+        
         
         
         

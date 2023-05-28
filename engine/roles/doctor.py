@@ -5,11 +5,10 @@ import engine.events as events
 from engine.events import ACTION_EVENTS
 from engine.utils.logger import logger
 
-class Doctor(roles.Actor):
+class Doctor(roles.Town):
     def __init__(self, player: dict=dict(), settings: dict=dict()):
         super().__init__(player)
         self.role_name = "Doctor"
-        self.alignment = "Town"
         
     def find_possible_targets(self, actors):
         num_targets = 1
@@ -54,3 +53,4 @@ class Doctor(roles.Actor):
         )
         
         ACTION_EVENTS.new_event_group(revive_event_group)
+        print('Target revived')

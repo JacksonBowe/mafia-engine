@@ -4,13 +4,13 @@ import engine.roles as roles
 from engine.utils.logger import logger
 
 
-class Citizen(roles.Actor):
+class Citizen(roles.Town):
     def __init__(self, player: dict, settings: dict):
         super().__init__(player)
         self.role_name = "Citizen"
         self.alignment = roles.Alignment.TOWN
         self.max_vests = settings.get('maxVests', 2)
-        self.remaining_vests = settings.get('remainingVests', self.max_vests)
+        self.remaining_vests = player.get('remainingVests', self.max_vests)
         
     @property
     def state(self):
@@ -25,7 +25,6 @@ class Citizen(roles.Actor):
             self.possible_targets = [[self]]
             
     def action(self, targets: List[roles.Actor]) -> None:
-        print(targets)
         if not self.remaining_vests > 0:
             logger.critical(f"{self} tried to use vest but has 0 remaining")
             return

@@ -74,7 +74,7 @@ class GameState:
         for index, player in enumerate(players):
             Role = self._class_for_name('engine.roles', player['role'])
             # Instantiate a Role class with a :player and :roles_settings[role]
-            actor = Role(player, roles_settings[player['role']])
+            actor = Role(player, roles_settings[player['role']]['settings'])
             actor.set_number_and_house(index+1)
             self.actors.append(actor)
         
@@ -90,11 +90,8 @@ class GameState:
         for player in players:
             if not player['alive']: continue
             Role = self._class_for_name('engine.roles', player['role'])
-            actor = Role(player, roles_settings[player['role']])
-            
+            actor = Role(player, roles_settings[player['role']]['settings'])
             self.actors.append(actor)
-            
-        print(self.actors)
 
         self.generate_allies_and_possible_targets()
         return self
