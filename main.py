@@ -650,7 +650,7 @@ def resolve():
             "id": "1",
             "name": "Player 1",
             "alias": "Brandon",
-            "role": "Mafioso",
+            "role": "Godfather",
             "number": 1,
             "alive": True,
             "possible_targets": [
@@ -727,7 +727,7 @@ def resolve():
             "id": "6",
             "name": "Player 6",
             "alias": "Rory",
-            "role": "Citizen",
+            "role": "Mafioso",
             "number": 6,
             "alive": True,
             "possible_targets": [
@@ -1032,8 +1032,15 @@ def resolve():
 
                 }
             },
+            "Godfather": {
+                "max": 1,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
             "Mafioso": {
-                "max": 0,
+                "max": 3,
                 "weight": 1,
                 "settings": {
 

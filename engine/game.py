@@ -70,6 +70,18 @@ class Game:
         # sort the actors based on TURN_ORDER
         self.state.actors.sort(key=lambda actor: roles.TURN_ORDER.index(actor.role_name))
         
+        # Prelim check to ensure that players are only targetting valid options
+        # This needs to happen BEFORE resolution as Witch can then fuck with the targetting as intended
+        for actor in self.state.actors:
+            if not actor.targets or not actor.possible_targets: continue
+            for i, target in enumerate(actor.targets):
+                p_targets = [p_target.number for p_target in actor.possible_targets[i]]
+                if target in p_targets: continue
+                actor.targets = None
+                break
+        # TODO: For any teams that do voting night actions, tally the votes here
+        
+        # Resolve all actions for the day
         for actor in self.state.actors:
             if not actor.targets: continue
             

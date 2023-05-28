@@ -31,6 +31,7 @@ class Citizen(roles.Actor):
             return
         
         target = targets[0]
+        # TODO: Remove this check, Witch could theoretically make Cit target someone else
         if target != self: # Tipple checking that Citizen is only targetting themselves
             logger.critical(f"{self.alias}({self.number}) invalid target ({targets[0].number}). {self.role_name} can only target self")
             return

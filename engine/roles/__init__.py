@@ -1,9 +1,13 @@
 from enum import Enum
 
 from engine.roles.actor import Actor
+# TOWN
 from engine.roles.citizen import Citizen
-from engine.roles.mafioso import Mafioso
 from engine.roles.doctor import Doctor
+# Mafia
+from engine.roles.godfather import Godfather
+from engine.roles.mafioso import Mafioso
+
 
 class Alignment(Enum):
     TOWN = "Town"
@@ -20,6 +24,7 @@ ROLE_TAGS = {
     # "Sheriff"       : ["any_random", "town_random", "town_investigative"],
     # "Investigator"  : ["any_random", "town_random", "town_investigative"],
     # MAFIA
+    "Godfather"     : ["any_random", "mafia_random", "mafia_killing"],
     "Mafioso"       : ["any_random", "mafia_random", "mafia_killing"],
     # "Consort"       : ["any_random", "mafia_random", "mafia_support"],
     # "Janitor"       : ["any_random", "mafia_random", "mafia_deception"],
@@ -41,6 +46,7 @@ TURN_ORDER = [
     "Doctor",
     "Bodyguard",
     # Killing
+    "Godfather",
     "Mafioso",
     # Investigative
     "Lookout"

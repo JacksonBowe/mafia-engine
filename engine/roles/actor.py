@@ -1,6 +1,6 @@
 from __future__ import annotations
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Callable
 
 from engine.utils.logger import logger
 import engine.roles as roles
@@ -25,6 +25,7 @@ class Actor(ABC):
         self.death_reason: str = None
         self.targets: List = player.get('targets', [])
         self.will: str = player.get('will', None)
+        # TODO: self.witched, self.roleblocked
         
     def __repr__(self) -> str:
         return f"|{self.role_name}| {self.alias}({self.number})"

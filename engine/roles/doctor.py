@@ -38,7 +38,7 @@ class Doctor(roles.Actor):
             events.GameEvent(
                 event_id='doctor_revive_success',
                 targets=self.player['id'],
-                message='Your target was attached last night, but you successfully revived them'
+                message='Your target was attacked last night, but you successfully revived them'
             )
         )
         
