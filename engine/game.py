@@ -75,24 +75,28 @@ class Game:
         for actor in self.state.actors:
             if not actor.targets or not actor.possible_targets: continue
             for i, target in enumerate(actor.targets):
-                p_targets = [p_target.number for p_target in actor.possible_targets[i]]
+                # For each list of possible targets, check if contains selected target
+                p_targets = [p_target for p_target in actor.possible_targets[i]]
                 if target in p_targets: continue
                 actor.targets = None
+                logger.critical(f"{actor} invalid targets ({target})")
                 break
-        
+            
         # Resolve all actions for the day
         for actor in self.state.actors:
             if not actor.targets: continue
             
-            # The targets are just numbers, need to find associated Actors
-            targets = [self.state.get_actor_by_number(target) for target in actor.targets]
-            logger.info(f"{actor} is targetting {targets}")
+            logger.info(f"{actor} is targetting {actor.targets}")
             
             # Initialise the events group for this action
             ACTION_EVENTS.reset(new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action")
-            actor.do_action(targets)
+            actor.do_action()
             if ACTION_EVENTS.events:
                 self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
+                
+        # Action summary for all the investigative roles
+        for actor in self.state.alive_actors:
+            if not actor.targets: continue
             
             
     def check_for_win(self): # TODO

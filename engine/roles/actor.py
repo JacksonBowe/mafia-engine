@@ -65,12 +65,15 @@ class Actor(ABC):
         self.possible_targets = []
         return self.possible_targets
     
-    def do_action(self, targets: List[roles.Actor]=[]):
+    def set_targets(self, targets: List[roles.Actor]=[]):
+        self.targets = targets
+    
+    def do_action(self):
         self.action_done = True
-        self.action(targets)
+        self.action()
     
     @abstractmethod
-    def action(self, targets: List[roles.Actor]=[]):
+    def action(self):
         pass
     
     def visit(self, target: roles.Actor) -> None:

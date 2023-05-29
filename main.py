@@ -1542,10 +1542,11 @@ def simulate():
         game = Mafia.load_game(players, state, config)
         # game.state.generate_allies_and_possible_targets()
         for actor in game.state.actors:
+            
             targets = []
             for i, p_targets in enumerate(actor.possible_targets):
-                targets.insert(i, random.choice(p_targets).number)
-            actor.targets = targets
+                targets.insert(i, random.choice(p_targets))
+            actor.set_targets(targets)
         game.resolve()
         
         print('Graveyard', len(game.state.graveyard))

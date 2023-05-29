@@ -24,16 +24,12 @@ class Citizen(roles.Town):
         if self.remaining_vests > 0:
             self.possible_targets = [[self]]
             
-    def action(self, targets: List[roles.Actor]) -> None:
+    def action(self) -> None:
         if not self.remaining_vests > 0:
             logger.critical(f"{self} tried to use vest but has 0 remaining")
             return
         
-        target = targets[0]
-        # TODO: Remove this check, Witch could theoretically make Cit target someone else
-        if target != self: # Tipple checking that Citizen is only targetting themselves
-            logger.critical(f"{self.alias}({self.number}) invalid target ({targets[0].number}). {self.role_name} can only target self")
-            return
+        target = self.targets[0]
             
         self.remaining_vests -= 1
         self.night_immune = True

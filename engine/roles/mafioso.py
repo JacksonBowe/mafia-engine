@@ -31,8 +31,8 @@ class Mafioso(roles.Mafia):
                 and actor.number != self.number # Seems a bit redundant, but can't hurt
             ])
             
-    def action(self, targets: List[roles.Actor]=[]):
-        target = targets[0]
+    def action(self):
+        target = self.targets[0]
         def success():
             print('Target was killed')
             success_event_group = events.GameEventGroup(group_id='mafioso_action_success', duration=events.Duration.MAFIA_KILL)

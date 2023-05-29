@@ -20,8 +20,8 @@ class Doctor(roles.Town):
                 and actor.number != self.number
             ])
             
-    def action(self, targets: List[roles.Actor]) -> None:
-        target = targets[0]
+    def action(self) -> None:
+        target = self.targets[0]
         logger.info(f"{self} will attempt to heal {target}")
         self.visit(target)
         target.doctors.append(self) # Add self into the list of doctors protecting this target

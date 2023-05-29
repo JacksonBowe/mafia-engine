@@ -92,7 +92,11 @@ class GameState:
             Role = self._class_for_name('engine.roles', player['role'])
             actor = Role(player, roles_settings[player['role']]['settings'])
             self.actors.append(actor)
-
+            
+        for actor in self.actors:
+            # The targets are just numbers, need to find associated Actors
+            actor.set_targets([self.get_actor_by_number(target) for target in actor.player['targets']])
+            
         self.generate_allies_and_possible_targets()
         return self
     

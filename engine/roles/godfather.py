@@ -25,8 +25,8 @@ class Godfather(roles.Mafia):
                 and actor.number != self.number # Seems a bit redundant, but can't hurt
             ])
             
-    def action(self, targets: List[roles.Actor]=[]):
-        target = targets[0]
+    def action(self):
+        target = self.targets[0]
         def success():
             success_event_group = events.GameEventGroup(group_id='godfather_action_success', duration=events.Duration.MAFIA_KILL)
             
