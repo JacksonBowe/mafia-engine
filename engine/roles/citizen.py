@@ -5,7 +5,7 @@ from engine.utils.logger import logger
 
 
 class Citizen(roles.Town):
-    def __init__(self, player: dict, settings: dict):
+    def __init__(self, player: dict, settings: dict=dict()):
         super().__init__(player)
         self.role_name = "Citizen"
         self.alignment = roles.Alignment.TOWN
@@ -28,8 +28,6 @@ class Citizen(roles.Town):
         if not self.remaining_vests > 0:
             logger.critical(f"{self} tried to use vest but has 0 remaining")
             return
-        
-        target = self.targets[0]
             
         self.remaining_vests -= 1
         self.night_immune = True

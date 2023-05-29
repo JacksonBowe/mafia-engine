@@ -8,7 +8,7 @@ from engine.utils.logger import logger
 
 
 class Mafioso(roles.Mafia):
-    def __init__(self, player: dict, settings: dict):
+    def __init__(self, player: dict, settings: dict=dict()):
         super().__init__(player)
         self.role_name = 'Mafioso'
         self.alignment = roles.Alignment.MAFIA

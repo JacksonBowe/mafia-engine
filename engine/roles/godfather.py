@@ -9,7 +9,7 @@ from engine.utils.logger import logger
 
 
 class Godfather(roles.Mafia):
-    def __init__(self, player: dict, settings: dict):
+    def __init__(self, player: dict, settings: dict=dict()):
         super().__init__(player)
         self.role_name = 'Godfather'
     
