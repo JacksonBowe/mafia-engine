@@ -22,6 +22,7 @@ class Actor(ABC):
         self.visiting: Actor = None
         self.visitors: List[Actor] = []
         self.doctors: List[roles.Doctor] = []
+        self.bodyguards: List[roles.Bodyguard] = []
         self.possible_targets: List[List[Actor]] = []
         self.targets: List[Actor] = None
         self.allies: List[Actor] = []
@@ -95,9 +96,10 @@ class Actor(ABC):
         
         if not self.alive: return # TODO: Not entirely sure this should be here
         
-        # if target.bodyguards:
-            # TODO: Add bodyguards
-        if target.night_immune:
+        if target.bodyguards:
+            bodyguard = target.bodyguards.pop(0)
+            bodyguard.shootout(self)
+        elif target.night_immune:
             logger.info(f"{self} failed to kill {target} because they are night-immune")
             fail()
             

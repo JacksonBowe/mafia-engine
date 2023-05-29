@@ -13,7 +13,7 @@ class Duration:
     # Mafia actions
     MAFIA_KILL: int = 3
     # Town Actions
-    
+    SHOOTOUT: int=3
     # Neutral Actions
     
 
@@ -45,6 +45,7 @@ class GameEventGroup:
     
     def reset(self, new_id: str=None):
         self.events.clear()
+        self.duration = 0
         if new_id: self.group_id = new_id
         return self
 

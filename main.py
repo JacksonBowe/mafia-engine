@@ -705,7 +705,7 @@ def resolve():
                 ]
             ],
             "targets": [
-                3
+                8
             ],
             "allies": []
         },
@@ -758,7 +758,7 @@ def resolve():
             "id": "8",
             "name": "Player 8",
             "alias": "Dinkle",
-            "role": "Citizen",
+            "role": "Bodyguard",
             "number": 8,
             "alive": True,
             "possible_targets": [
@@ -766,7 +766,7 @@ def resolve():
                     8
                 ]
             ],
-            "targets": [],
+            "targets": [3],
             "allies": []
         },
         {
@@ -1570,4 +1570,4 @@ def simulate():
     
 
 if __name__=='__main__':
-    simulate()
+    resolve()

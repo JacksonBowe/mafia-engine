@@ -24,34 +24,52 @@ class Bodyguard(roles.Town):
         target = self.targets[0]
         logger.info(f"{self} will protect {target}")
         self.visit(target)
-        target.doctors.append(self) # Add self into the list of doctors protecting this target
+        target.bodyguards.append(self) # Add self into the list of bodyguards protecting this target
+        self.guarding = target
     
-    def shootout(self, target: roles.Actor) -> None:
-        logger.info(f"{self} defends {target}")
+    def shootout(self, attacker: roles.Actor) -> None:
+        logger.info(f"{self} defends their target from {attacker}")
+        shootout_event_group = events.GameEventGroup(group_id='shootout', duration=events.Duration.SHOOTOUT)
         
-        return
-        # Event group for the revival
-        revive_event_group = events.GameEventGroup(group_id='doctor_revive')
-        
-        # Inform the doctor that the target was revived
-        revive_event_group.new_event(
+        # Inform all players that a shootout has occured
+        shootout_event_group.new_event(
             events.GameEvent(
-                event_id='doctor_revive_success',
-                targets=self.player['id'],
-                message='Your target was attacked last night, but you successfully revived them'
+                event_id='bodyguard_shootout',
+                targets=['*'],
+                message="You hear sounds of a shootout"
+            ) 
+        )
+        
+        # TODO: Inform the other bodyguards?
+        
+        # Inform the player that they have been protected
+        shootout_event_group.new_event(
+            events.GameEvent(
+                event_id='bodyguard_protected',
+                targets=[self.guarding.player['id']],
+                message='You were protected by a bodyguard'
             )
         )
         
-        # TODO: Possibly inform all other doctos that the target was revived
-        
-        # Inform the player that they were revivied
-        revive_event_group.new_event(
+        # Inform the attacker that they have died in a shootout
+        shootout_event_group.new_event(
             events.GameEvent(
-                event_id='revive_by_doctor',
-                targets=[target.player['id']],
-                message='You were revived by a doctor. Rock on'
+                event_id='bodyguard_protected',
+                targets=[attacker.player['id']],
+                message='You were killed by the Bodyguard defending your target'
             )
         )
         
-        ACTION_EVENTS.new_event_group(revive_event_group)
-        print('Target revived')
+        # Inform self that you have died defending target
+        shootout_event_group.new_event(
+            events.GameEvent(
+                event_id='bodyguard_protected',
+                targets=[self.player['id']],
+                message='You died defending your target'
+            )
+        )
+        
+        ACTION_EVENTS.new_event_group(shootout_event_group)
+        
+        self.die('Died in a shootout')
+        attacker.die('Died in a shootout')
