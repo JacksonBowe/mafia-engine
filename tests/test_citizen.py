@@ -6,12 +6,6 @@ from typing import List, Tuple
 import engine as Mafia
 from engine import roles
 
-def test_citizen_create() -> roles.Citizen:
-    logging.info("Running test: new Citizen")
-    citizen = roles.Citizen({'alias': 'test_citizen_1', 'number': '1'})
-    
-    return citizen
-
 @pytest.fixture(scope="session")
 def test_citizen_boostrap() -> Tuple[roles.Citizen, List[roles.Actor]]:
     citizen_1 = roles.Citizen({'alias': 'test_citizen_1', 'number': 1, 'id': '1'})
