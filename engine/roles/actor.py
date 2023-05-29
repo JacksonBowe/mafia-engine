@@ -17,7 +17,9 @@ class Actor(ABC):
         self.house: int = None
         self.home: bool = True
         self.alive: bool = player.get('alive', True)
+        self.action_done: bool = False
         self.night_immune: bool = False
+        self.visiting: Actor = None
         self.visitors: List[Actor] = []
         self.doctors: List[roles.Doctor] = []
         self.possible_targets: List[List[Actor]] = []
@@ -63,13 +65,18 @@ class Actor(ABC):
         self.possible_targets = []
         return self.possible_targets
     
+    def do_action(self, targets: List[roles.Actor]=[]):
+        self.action_done = True
+        self.action(targets)
+    
     @abstractmethod
-    def action(self, targets):
+    def action(self, targets: List[roles.Actor]=[]):
         pass
     
     def visit(self, target: roles.Actor) -> None:
         logger.info(f"{self} is visiting {target}'s house")
         self.home = False
+        self.visiting = target
         target.visitors.append(self)
         return
     

@@ -90,7 +90,7 @@ class Game:
             
             # Initialise the events group for this action
             ACTION_EVENTS.reset(new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action")
-            actor.action(targets)
+            actor.do_action(targets)
             if ACTION_EVENTS.events:
                 self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
             
