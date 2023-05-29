@@ -95,8 +95,13 @@ class Game:
                 self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
                 
         # Action summary for all the investigative roles
+        ACTION_EVENTS.reset(new_id="post-resolve")
         for actor in self.state.alive_actors:
             if not actor.targets: continue
+            actor.investigate()
+            
+        if ACTION_EVENTS.events:
+                self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
             
             
     def check_for_win(self): # TODO

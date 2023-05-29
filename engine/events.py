@@ -64,4 +64,5 @@ class Common:
     INVALID_TARGET = "invalid_target"
     NIGHT_IMMUNE = "night_immune"
     KILLED_BY_MAFIA = "killed_by_mafia"
+    VISITED_BY = "visited_by"
     

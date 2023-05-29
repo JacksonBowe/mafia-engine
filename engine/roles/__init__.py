@@ -4,6 +4,7 @@ from engine.roles.actor import Actor, Town, Mafia
 # TOWN
 from engine.roles.citizen import Citizen
 from engine.roles.doctor import Doctor
+from engine.roles.detective import Detective
 # Mafia
 from engine.roles.godfather import Godfather
 from engine.roles.mafioso import Mafioso
@@ -23,6 +24,7 @@ ROLE_TAGS = {
     # "Lookout"       : ["any_random", "town_random", "town_investigative"],
     # "Sheriff"       : ["any_random", "town_random", "town_investigative"],
     # "Investigator"  : ["any_random", "town_random", "town_investigative"],
+    "Detective"     : ["any_random", "town_random", "town_investigative"],
     # MAFIA
     "Godfather"     : ["any_random", "mafia_random", "mafia_killing"],
     "Mafioso"       : ["any_random", "mafia_random", "mafia_killing"],

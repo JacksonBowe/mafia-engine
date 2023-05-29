@@ -743,15 +743,15 @@ def resolve():
             "id": "7",
             "name": "Player 7",
             "alias": "Muck",
-            "role": "Citizen",
+            "role": "Detective",
             "number": 7,
             "alive": True,
             "possible_targets": [
                 [
-                    7
+                    1
                 ]
             ],
-            "targets": [],
+            "targets": [6],
             "allies": []
         },
         {
@@ -1026,8 +1026,8 @@ def resolve():
 
                 }
             },
-            "Investigator": {
-                "max": 0,
+            "Detective": {
+                "max": 1,
                 "weight": 1,
                 "settings": {
 
@@ -1570,4 +1570,4 @@ def simulate():
     
 
 if __name__=='__main__':
-    simulate()
+    resolve()

@@ -23,9 +23,10 @@ class Actor(ABC):
         self.visitors: List[Actor] = []
         self.doctors: List[roles.Doctor] = []
         self.possible_targets: List[List[Actor]] = []
+        self.targets: List[Actor] = None
         self.allies: List[Actor] = []
         self.death_reason: str = None
-        self.targets: List = player.get('targets', [])
+        # self.targets: List = player.get('targets', [])
         self.will: str = player.get('will', None)
         # TODO: self.witched, self.roleblocked
         
@@ -76,6 +77,9 @@ class Actor(ABC):
     def action(self):
         pass
     
+    def investigate(self):
+        pass
+    
     def visit(self, target: roles.Actor) -> None:
         logger.info(f"{self} is visiting {target}'s house")
         self.home = False
@@ -83,13 +87,13 @@ class Actor(ABC):
         target.visitors.append(self)
         return
     
-    def kill(self, target: roles.Actor, success: Callable[[None],None], fail: Callable[[None],None], true_death: bool=False) -> bool:
-        # Returns True if the target was killed, False otherwise
+    def kill(self, target: roles.Actor, success: Callable[[None],None], fail: Callable[[None],None], true_death: bool=False) -> None:
+        # Triggers success/fail callback
         logger.info(f"{self} is attempting to kill {target}")
         
         self.visit(target)
         
-        if not self.alive: return # FUTURE: Not entirely sure this should be here
+        if not self.alive: return # TODO: Not entirely sure this should be here
         
         # if target.bodyguards:
             # TODO: Add bodyguards
