@@ -650,7 +650,7 @@ def resolve():
         {
             "id": "1",
             "name": "Player 1",
-            "alias": "Brandon",
+            "alias": "BDogs",
             "role": "Godfather",
             "number": 1,
             "alive": True,
@@ -695,7 +695,7 @@ def resolve():
         {
             "id": "4",
             "name": "Player 4",
-            "alias": "Jackson",
+            "alias": "Jyackson",
             "role": "Doctor",
             "number": 4,
             "alive": True,
@@ -727,7 +727,7 @@ def resolve():
         {
             "id": "6",
             "name": "Player 6",
-            "alias": "Rory",
+            "alias": "Guff",
             "role": "Mafioso",
             "number": 6,
             "alive": True,
@@ -787,7 +787,7 @@ def resolve():
         {
             "id": "10",
             "name": "Player 10",
-            "alias": "Kody",
+            "alias": "Kod",
             "role": "Citizen",
             "number": 10,
             "alive": True,
@@ -832,7 +832,7 @@ def resolve():
         {
             "id": "13",
             "name": "Player 13",
-            "alias": "Bronson",
+            "alias": "Girthy",
             "role": "Citizen",
             "number": 13,
             "alive": True,
@@ -847,7 +847,7 @@ def resolve():
         {
             "id": "14",
             "name": "Player 14",
-            "alias": "Wesley",
+            "alias": "Imp",
             "role": "Citizen",
             "number": 14,
             "alive": True,
@@ -880,7 +880,7 @@ def resolve():
         "players": [
             {
                 "number": 1,
-                "alias": "Brandon",
+                "alias": "BDogs",
                 "alive": False
             },
             {
@@ -895,7 +895,7 @@ def resolve():
             },
             {
                 "number": 4,
-                "alias": "Jackson",
+                "alias": "Jyackson",
                 "alive": True
             },
             {
@@ -905,7 +905,7 @@ def resolve():
             },
             {
                 "number": 6,
-                "alias": "Rory",
+                "alias": "Guff",
                 "alive": True
             },
             {
@@ -925,7 +925,7 @@ def resolve():
             },
             {
                 "number": 10,
-                "alias": "Kody",
+                "alias": "Kod",
                 "alive": True
             },
             {
@@ -940,12 +940,12 @@ def resolve():
             },
             {
                 "number": 13,
-                "alias": "Bronson",
+                "alias": "Girthy",
                 "alive": True
             },
             {
                 "number": 14,
-                "alias": "Wesley",
+                "alias": "Imp",
                 "alive": True
             },
             {

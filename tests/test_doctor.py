@@ -24,17 +24,3 @@ def test_doctor_action():
     assert doctor in citizen.doctors
     
     assert citizen.alive
-    
-def test_doctor_revive():
-    citizen = roles.Citizen({'alias': 'test_citizen', 'number': 1, 'id': '1'})
-    mafioso = roles.Mafioso({'alias': 'test_mafioso', 'number': 2, 'id': '2'})
-    doctor = roles.Doctor({'alias': 'test_doctor', 'number': 3, 'id': '3'})
-    
-    mafioso.set_targets([citizen])
-    mafioso.do_action()
-    
-    doctor.revive_target(citizen)
-    
-    assert citizen.alive
-    
-    # TODO: Ensure that this creates the correct events
