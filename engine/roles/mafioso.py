@@ -11,13 +11,6 @@ class Mafioso(roles.Mafia):
     def __init__(self, player: dict, settings: dict=dict()):
         super().__init__(player)
         self.role_name = 'Mafioso'
-        self.alignment = roles.Alignment.MAFIA
-        self.kill_message = "You were killed by a member of the Mafia" # TODO
-        self.death_reason = "They were found riddled with bullets" # TODO
-        
-    def find_allies(self, actors: List[roles.Actor] = None) -> None:
-        self.allies = [actor for actor in actors if actor.alignment == self.alignment]
-        return
     
     def find_possible_targets(self, actors: List[roles.Actor] = None) -> None:
         # Number of targets

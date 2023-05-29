@@ -8,7 +8,7 @@ from engine.utils.logger import logger
 class Bodyguard(roles.Town):
     def __init__(self, player: dict=dict(), settings: dict=dict()):
         super().__init__(player)
-        self.role_name = "Doctor"
+        self.role_name = "Bodyguard"
         
     def find_possible_targets(self, actors):
         num_targets = 1

@@ -101,7 +101,7 @@ class Game:
             actor.investigate()
             
         if ACTION_EVENTS.events:
-                self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
+            self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
             
             
     def check_for_win(self): # TODO

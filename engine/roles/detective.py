@@ -28,7 +28,6 @@ class Detective(roles.Town):
     def investigate(self):
         target = self.targets[0]
         if not target.visiting: return
-        print('yoyoyo')
         ACTION_EVENTS.new_event(
             events.GameEvent(
                 event_id=events.Common.VISITED_BY,

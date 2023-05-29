@@ -48,6 +48,11 @@ class GameEventGroup:
         self.duration = 0
         if new_id: self.group_id = new_id
         return self
+    
+    def get_by_id(self, id):
+        for event in self.events:
+            if isinstance(event, GameEventGroup) and event.group_id == id: return event
+            elif isinstance(event, GameEvent) and event.event_id == id: return event
 
     def dump(self):
         return asdict(self)['events']
