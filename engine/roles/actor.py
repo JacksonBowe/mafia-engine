@@ -122,12 +122,12 @@ class Actor(ABC):
             target.die(reason=self.death_reason, true_death=true_death)
             
     def die(self, reason: str=None, true_death: bool=False) -> None:
+        self.alive = False
         self.doctors = [doctor for doctor in self.doctors if doctor.alive] # Remove any dead doctors
         if self.doctors:
             doctor = self.doctors.pop(0)
             doctor.revive_target(self)
         else:
-            self.alive = False
             self.death_reason = reason
             logger.info(f"{self} died. Cause of death: {reason}")
      

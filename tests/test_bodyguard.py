@@ -21,7 +21,7 @@ def test_bodyguard_action():
     bodyguard.set_targets([citizen])
     bodyguard.do_action()
     
-    assert bodyguard in citizen.bodyguards
+    assert bodyguard in citizen.visitors
     assert bodyguard.visiting == citizen
     assert bodyguard in citizen.bodyguards
     

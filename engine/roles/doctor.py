@@ -53,4 +53,3 @@ class Doctor(roles.Town):
         )
         
         ACTION_EVENTS.new_event_group(revive_event_group)
-        print('Target revived')
