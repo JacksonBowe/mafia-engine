@@ -115,82 +115,87 @@ def create():
                 }
             },
             "Doctor": {
-                "max": 0,
+                "max": 1,
                 "weight": 1,
                 "settings": {
 
                 }
+            },
+            "Detective": {
+                "max": 1,
+                "weight": 1,
+                "settings": {}
             },
             "Bodyguard": {
-                "max": 0,
+                "max": 1,
                 "weight": 1,
                 "settings": {
 
                 }
             },
-            "Escort": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            # "Escort": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Sheriff": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "Sheriff": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Investigator": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "Investigator": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
+            #     }
+            # },
             "Mafioso": {
-                "max": 0,
+                "max": 1,
                 "weight": 1,
                 "settings": {
 
                 }
             },
-            "Consort": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            # "Consort": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Janitor": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "Janitor": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Survivor": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "Survivor": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "SerialKiller": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "SerialKiller": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Enforcer": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "Enforcer": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            }
+            #     }
+            # }
         }
     }
 
@@ -1570,4 +1575,4 @@ def simulate():
     
 
 if __name__=='__main__':
-    resolve()
+    create()
