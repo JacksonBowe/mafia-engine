@@ -20,7 +20,7 @@ The secondary codebase(this one) is responsible for all the game logic. My inten
 
 ## How it works
 
-> <span style="color: red">**Warning: Nerd shit ahead**</span>
+> **Warning: Nerd shit ahead**
 
 There are 3 primary functions that can be executed:
 
@@ -68,7 +68,7 @@ If the engine cannot determine a valid role the default is Citizen.
 
 The result looks like this:
 
-```py
+```
 # log.txt
 --- Creating a new Game ---
 Players: [{'id': '1', 'name': 'Player 1', 'alias': 'Jackson'}, ...
@@ -99,7 +99,7 @@ state = game.state.json
 
 ### Loading games
 
-Not as interesting as creating a new Game. Take in a new list of players (with whatever actions they've taken) and the _previous game state_.
+Not as interesting as creating a new Game. Takes in a new list of players (with whatever actions they've taken) and the _previous game state_.
 
 ### Resolving actions
 
@@ -137,9 +137,6 @@ An example of the following scenario:
 |Doctor| Jyackson(4) is targetting [|Bodyguard| Dinkle(8)]
 |Doctor| Jyackson(4) will attempt to heal |Bodyguard| Dinkle(8)
 |Doctor| Jyackson(4) is visiting |Bodyguard| Dinkle(8)'s house
-|Doctor| Muck(7) is targetting [|Mafioso| Guff(6)]
-|Doctor| Muck(7) will track |Mafioso| Guff(6)
-|Doctor| Muck(7) is visiting |Mafioso| Guff(6)'s house
 |Bodyguard| Dinkle(8) is targetting [|Citizen| Dog(3)]
 |Bodyguard| Dinkle(8) will protect |Citizen| Dog(3)
 |Bodyguard| Dinkle(8) is visiting |Citizen| Dog(3)'s house
@@ -153,8 +150,8 @@ An example of the following scenario:
 |Mafioso| Guff(6) died. Cause of death: Died in a shootout
 ```
 
-```json
-// Events
+```python
+# Events
 [
     {
         "group_id": "godfather_action",
@@ -178,37 +175,37 @@ An example of the following scenario:
     },
     {
         "group_id": "mafioso_action",
-        "duration": 3,
+        "duration": 3, # Group duration is the sum of it's children
         "events": [
             {
                 "group_id": "shootout",
-                "duration": 3,
+                "duration": 3, # This action will take 3 seconds, play a sound file for that long...
                 "events": [
                     {
                         "event_id": "bodyguard_shootout",
                         "targets": [
-                            "*"
+                            "*" # Inform all players
                         ],
                         "message": "You hear sounds of a shootout"
                     },
                     {
                         "event_id": "bodyguard_protected",
                         "targets": [
-                            "3"
+                            "3" # Inform player with id=3
                         ],
                         "message": "You were protected by a bodyguard"
                     },
                     {
                         "event_id": "bodyguard_protected",
                         "targets": [
-                            "6"
+                            "6" # Inform player with id=6
                         ],
                         "message": "You were killed by the Bodyguard defending your target"
                     },
                     {
                         "event_id": "bodyguard_protected",
                         "targets": [
-                            "8"
+                            "8" # Inform player with id=8
                         ],
                         "message": "You died defending your target"
                     }
