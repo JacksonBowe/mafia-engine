@@ -208,12 +208,6 @@ def create():
         # print(f"({actor.player['id']}) {actor.alias}, you have been assigned the role {actor.role_name}. {actor.state}")
         
     print(game.actors)
-    
-    with open('t.json', 'w') as f:
-        json.dump(game.actors, f)
-        
-    with open('t2.json', 'w') as f:
-        json.dump(game.dump_state(), f)
         
     print('The starting game state saved to dynamo is', game.state.json())
     
@@ -1575,4 +1569,4 @@ def simulate():
     
 
 if __name__=='__main__':
-    create()
+    resolve()
