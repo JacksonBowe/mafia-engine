@@ -213,21 +213,6 @@ def create():
     
 def load():
     players = [
-        # {
-        #     "id": "2",
-        #     "name": "Player 2",
-        #     "alias": "Brandon",
-        #     "role": "Citizen",
-        #     "number": 1,
-        #     "alive": False,
-        #     "possible_targets": [
-        #         [
-        #             1
-        #         ]
-        #     ],
-        #     "targets": [],
-        #     "allies": []
-        # },
         {
             "id": "8",
             "name": "Player 8",

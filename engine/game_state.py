@@ -56,7 +56,7 @@ class GameState:
         } for actor in self.actors]
     
     @property
-    def graveyard(self) -> List[roles.Actor]:
+    def graveyard(self) -> dict:
         return self._graveyard + [{
             "number": actor.number,
             "alias": actor.alias,

@@ -27,7 +27,6 @@ class Mafioso(roles.Mafia):
     def action(self):
         target = self.targets[0]
         def success():
-            print('Target was killed')
             success_event_group = events.GameEventGroup(group_id='mafioso_action_success', duration=events.Duration.MAFIA_KILL)
             
             # Inform all players that a Mafia kill has succeeded
@@ -51,7 +50,6 @@ class Mafioso(roles.Mafia):
             ACTION_EVENTS.new_event_group(success_event_group)
         
         def fail():
-            print('Target survived')
             fail_event_group = events.GameEventGroup(group_id="mafioso_action_fail", duration=events.Duration.MAFIA_KILL)
             
             # Inform all players that a Mafia kill has failed

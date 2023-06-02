@@ -18,6 +18,10 @@ The secondary codebase(this one) is responsible for all the game logic. My inten
 | Mafia   | Godfather, Mafioso                    |
 | Neutral | None                                  |
 
+## To run locally
+Clone the repo, install the requirements, run `main.py`.  
+There's a 
+
 ## How it works
 
 > **Warning: Nerd shit ahead**

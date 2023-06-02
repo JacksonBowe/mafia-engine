@@ -52,5 +52,6 @@ TURN_ORDER = [
     "Godfather",
     "Mafioso",
     # Investigative
-    "Lookout"
+    "Lookout",
+    "Detective"
 ]
