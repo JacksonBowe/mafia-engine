@@ -20,7 +20,13 @@ The secondary codebase(this one) is responsible for all the game logic. My inten
 
 ## To run locally
 Clone the repo, install the requirements, run `main.py`.  
-There's a 
+There's a few examples ready to go: 
+```sh
+python examples/new.py
+python examples/load.py
+python examples/resolve.py
+python examples/simulate.py
+```
 
 ## How it works
 
