@@ -1,16 +1,24 @@
 from typing import List
+from dataclasses import dataclass
 
 import engine.roles as roles
 from engine.utils.logger import logger
+
+@dataclass
+class CitizenSettings:
+    max_vests: int = 2
+    
+    def __init__(self, settings: dict=dict()) -> None:
+        self.max_vests = settings.get('maxVests', self.max_vests)
+        pass
 
 
 class Citizen(roles.Town):
     def __init__(self, player: dict, settings: dict=dict()):
         super().__init__(player)
         self.role_name = "Citizen"
-        self.alignment = roles.Alignment.TOWN
-        self.max_vests = settings.get('maxVests', 2)
-        self.remaining_vests = player.get('remainingVests', self.max_vests)
+        self.settings = CitizenSettings(settings)
+        self.remaining_vests = player.get('remainingVests', self.settings.max_vests)
         
     @property
     def state(self):

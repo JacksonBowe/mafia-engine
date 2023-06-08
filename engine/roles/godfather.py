@@ -1,5 +1,6 @@
 
 from typing import List
+from dataclasses import dataclass
 import random
 
 import engine.events as events
@@ -8,10 +9,19 @@ import engine.roles as roles
 from engine.utils.logger import logger
 
 
+@dataclass
+class GodfatherSettings:
+    night_immune: bool = True
+    
+    def __init__(self, settings: dict=dict()) -> None:
+        self.night_immune = settings.get('nightImmune', self.night_immune)
+
 class Godfather(roles.Mafia):
     def __init__(self, player: dict, settings: dict=dict()):
         super().__init__(player)
         self.role_name = 'Godfather'
+        self.settings = GodfatherSettings(settings)
+        self.night_immune = self.settings.night_immune
     
     def find_possible_targets(self, actors: List[roles.Actor] = None) -> None:
         # Number of targets
