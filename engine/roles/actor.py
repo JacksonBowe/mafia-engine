@@ -141,7 +141,10 @@ class Town(Actor):
         self.alignment = "Town"
         
     def check_for_win(self, actors: List[Actor]) -> bool:
-        return super().check_for_win(actors)
+        enemies = []
+        enemies.extend([actor for actor in actors if actor.alignment in [roles.Alignment.MAFIA]])
+        if enemies: return False
+        else: return True
         
 class Mafia(Actor):
     def __init__(self, player: dict): # TODO: Add settings here?

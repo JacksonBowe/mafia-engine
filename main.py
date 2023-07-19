@@ -1077,7 +1077,9 @@ def resolve():
     print('Total events duration:', game.events.duration)
     
     
-    
+    state = game.dump_state()
+
+    print(len(state['players']))
     # print(game.dump_state())
 def simulate():
     players = [
@@ -1551,7 +1553,94 @@ def simulate():
     # print('Total events duration:', game.events.duration)
     # print('Graveyard', len(game.state.graveyard))
     # print("Alive", game.state.alive_actors)
+
+def test():
+    players = [{'id': '297e2488-a011-70d3-37fe-7726fc204909', 'createdAt': 1689715773448, 'name': 'UncleGenghi', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'UncleGenghi', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 1, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 2', 'role': 'Doctor', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}]
+    state = {'day': 1, 'players': [{'number': 1, 'alias': 'UncleGenghi', 'alive': True}, {'number': 2, 'alias': 'User 2', 'alive': True}], 'graveyard': []}
+    config = {
+        "tags": [
+            "town_government", 
+            "town_protective", 
+            "town_protective", 
+            "town_power", 
+            "town_investigative", 
+            "town_killing", 
+            "town_investigative", 
+            "town_random", 
+            "mafia_killing",
+            "mafia_deception",
+            "mafia_support",
+            "neutral_evil",
+            "neutral_benign",
+            "neutral_random",
+            "any_random"
+        ],
+        "settings": {},
+        "roles": {
+            "Citizen": {
+                "max": 1,
+                "weight": 1,
+                "settings": {
+                    "maxVests": 2
+                }
+            },
+            "Doctor": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Bodyguard": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Escort": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Sheriff": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Investigator": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Godfather": {
+                "max": 1,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Mafioso": {
+                "max": 3,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+        }
+    }
     
+    game = Mafia.load_game(players, state, config)
+    
+    winners = game.check_for_win()
+
+    print(winners)
 
 if __name__=='__main__':
-    resolve()
+    test()
