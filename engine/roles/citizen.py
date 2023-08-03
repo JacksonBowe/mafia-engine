@@ -18,13 +18,15 @@ class Citizen(roles.Town):
         super().__init__(player)
         self.role_name = "Citizen"
         self.settings = CitizenSettings(settings)
-        self.remaining_vests = player.get('remainingVests', self.settings.max_vests)
+        self.remaining_vests = player.get('roleActions', {}).get('remainingVests', self.settings.max_vests)
         
     @property
     def state(self):
         # Return 'self.state' merged with 'parent.state'
         return {**super().state,**{
-            "remainingVests": self.remaining_vests
+            "role_actions": {
+                "remainingVests": self.remaining_vests
+            }
         }}
 
     def find_possible_targets(self, actors: List[roles.Actor]=None) -> None:

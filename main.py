@@ -7,7 +7,10 @@ def create():
         {
             "id":  "1",
             "name": "Player 1",
-            "alias": "Jackson"
+            "alias": "Jackson",
+            "roleActions": {
+                "remainingVests": 100
+            }
         },
         {
             "id": "2",
@@ -1643,4 +1646,4 @@ def test():
     print(winners)
 
 if __name__=='__main__':
-    test()
+    create()
