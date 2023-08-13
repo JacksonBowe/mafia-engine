@@ -1160,7 +1160,7 @@ def simulate():
             "alias": "Gorden",
             "role": "Citizen",
             "number": 2,
-            "alive": False,
+            "alive": True,
             "possible_targets": [
                 [
                     2
@@ -1373,7 +1373,7 @@ def simulate():
             {
                 "number": 1,
                 "alias": "Brandon",
-                "alive": False
+                "alive": True
             },
             {
                 "number": 2,
@@ -1446,15 +1446,7 @@ def simulate():
                 "alive": True
             }
         ],
-        "graveyard": [
-            {
-                "number": 1,
-                "alias": "Brandon",
-                "deathReason": 'Terminal Fiths',
-                "role": "Citizen",
-                "will": "And I oop"
-            },
-        ]
+        "graveyard": []
     }
     config = {
         "tags": [
@@ -1609,6 +1601,7 @@ def simulate():
     # print('Total events duration:', game.events.duration)
     # print('Graveyard', len(game.state.graveyard))
     # print("Alive", game.state.alive_actors)
+    print('State', json.dumps(game.dump_state(), indent=4))
 
 def test():
     players = [{'id': '297e2488-a011-70d3-37fe-7726fc204909', 'createdAt': 1689715773448, 'name': 'UncleGenghi', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'UncleGenghi', 'role': 'Godfather', 'possible_targets': [[1]], 'number': 1, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 2', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}]
@@ -1699,4 +1692,4 @@ def test():
     print(winners)
 
 if __name__=='__main__':
-    load_lynch()
+    simulate()
