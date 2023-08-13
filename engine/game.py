@@ -60,6 +60,11 @@ class Game:
         
         return self
     
+    def lynch(self, number: int) -> None:
+        actor = self.state.get_actor_by_number(2)
+        actor.lynched()
+        pass
+    
     def resolve(self):
         ''' Resolve all player actions'''
         logger.info("--- Resolving all player actions ---")

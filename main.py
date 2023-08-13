@@ -618,20 +618,73 @@ def load():
 
                 }
             },
-            "Enforcer": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
-
-                }
-            }
         }
     }
     
     game = Mafia.load_game(players, state, config)
     
     print(game.dump_state())
+
+def load_lynch():
+    players = [
+        {
+            "id": "8",
+            "name": "Player 8",
+            "alias": "Gorden",
+            "role": "Citizen",
+            "number": 2,
+            "alive": True,
+            "possible_targets": [
+                [
+                    2
+                ]
+            ],
+            "targets": [],
+            "allies": []
+        }
+    ]
+
+    state = {
+        "day": 1,
+        "players": [
+            {
+                "number": 2,
+                "alias": "Gordon",
+                "alive": True
+            },
+        ],
+        "graveyard": [
+            {
+                "number": 1,
+                "alias": "Brandon",
+                "deathReason": 'Terminal Fiths'
+            },
+        ]
+    }
+
+    config = {
+        "tags": [
+            "town_government", 
+        ],
+        "settings": {},
+        "roles": {
+            "Citizen": {
+                "max": 1,
+                "weight": 1,
+                "settings": {
+                    "maxVests": 2
+                }
+            }
+        }
+    }
+
+    game = Mafia.load_game(players, state, config)
+
+    game.lynch(2)
+
+    print(game.dump_state())
     
+
 def resolve():
     players = [
         {
@@ -1646,4 +1699,4 @@ def test():
     print(winners)
 
 if __name__=='__main__':
-    create()
+    load_lynch()

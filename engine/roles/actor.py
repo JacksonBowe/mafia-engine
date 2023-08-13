@@ -27,6 +27,7 @@ class Actor(ABC):
         self.targets: List[Actor] = None
         self.allies: List[Actor] = []
         self.death_reason: str = None
+        self.death_day: int = None
         # self.targets: List = player.get('targets', [])
         self.will: str = player.get('will', None)
         # TODO: self.witched, self.roleblocked
@@ -69,6 +70,10 @@ class Actor(ABC):
     
     def set_targets(self, targets: List[roles.Actor]=[]):
         self.targets = targets
+
+    def lynched(self):
+        reason = "They were lynched"
+        self.die(reason)
     
     def do_action(self):
         self.action_done = True
@@ -122,6 +127,7 @@ class Actor(ABC):
             target.die(reason=self.death_reason, true_death=true_death)
             
     def die(self, reason: str=None, true_death: bool=False) -> None:
+        # TODO: True Death
         self.alive = False
         self.doctors = [doctor for doctor in self.doctors if doctor.alive] # Remove any dead doctors
         if self.doctors:

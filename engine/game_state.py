@@ -61,6 +61,7 @@ class GameState:
             "number": actor.number,
             "alias": actor.alias,
             "deathReason": actor.death_reason,
+            "deathDay": actor.death_day or self.day,
             "role": actor.role_name,
             "will": actor.will
         } for actor in self.dead_actors]
