@@ -61,7 +61,7 @@ class Game:
         return self
     
     def lynch(self, number: int) -> None:
-        actor = self.state.get_actor_by_number(2)
+        actor = self.state.get_actor_by_number(number)
         actor.lynched()
         pass
     
