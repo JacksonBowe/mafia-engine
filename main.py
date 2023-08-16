@@ -428,92 +428,92 @@ def load():
         }
     ]
     state = {
-    "day": 1,
-    "players": [
-        {
-            "number": 1,
-            "alias": "Brandon",
-            "alive": False
-        },
-        {
-            "number": 2,
-            "alias": "Gorden",
-            "alive": True
-        },
-        {
-            "number": 3,
-            "alias": "Dog",
-            "alive": True
-        },
-        {
-            "number": 4,
-            "alias": "Jackson",
-            "alive": True
-        },
-        {
-            "number": 5,
-            "alias": "Scrooge",
-            "alive": True
-        },
-        {
-            "number": 6,
-            "alias": "Rory",
-            "alive": True
-        },
-        {
-            "number": 7,
-            "alias": "Muck",
-            "alive": True
-        },
-        {
-            "number": 8,
-            "alias": "Dinkle",
-            "alive": True
-        },
-        {
-            "number": 9,
-            "alias": "Bertha",
-            "alive": True
-        },
-        {
-            "number": 10,
-            "alias": "Kody",
-            "alive": True
-        },
-        {
-            "number": 11,
-            "alias": "Car",
-            "alive": True
-        },
-        {
-            "number": 12,
-            "alias": "Mick",
-            "alive": True
-        },
-        {
-            "number": 13,
-            "alias": "Bronson",
-            "alive": True
-        },
-        {
-            "number": 14,
-            "alias": "Wesley",
-            "alive": True
-        },
-        {
-            "number": 15,
-            "alias": "Brett",
-            "alive": True
-        }
-    ],
-    "graveyard": [
-        {
-            "number": 1,
-            "alias": "Brandon",
-            "deathReason": 'Terminal Fiths'
-        },
-    ]
-}
+        "day": 1,
+        "players": [
+            {
+                "number": 1,
+                "alias": "Brandon",
+                "alive": False
+            },
+            {
+                "number": 2,
+                "alias": "Gorden",
+                "alive": True
+            },
+            {
+                "number": 3,
+                "alias": "Dog",
+                "alive": True
+            },
+            {
+                "number": 4,
+                "alias": "Jackson",
+                "alive": True
+            },
+            {
+                "number": 5,
+                "alias": "Scrooge",
+                "alive": True
+            },
+            {
+                "number": 6,
+                "alias": "Rory",
+                "alive": True
+            },
+            {
+                "number": 7,
+                "alias": "Muck",
+                "alive": True
+            },
+            {
+                "number": 8,
+                "alias": "Dinkle",
+                "alive": True
+            },
+            {
+                "number": 9,
+                "alias": "Bertha",
+                "alive": True
+            },
+            {
+                "number": 10,
+                "alias": "Kody",
+                "alive": True
+            },
+            {
+                "number": 11,
+                "alias": "Car",
+                "alive": True
+            },
+            {
+                "number": 12,
+                "alias": "Mick",
+                "alive": True
+            },
+            {
+                "number": 13,
+                "alias": "Bronson",
+                "alive": True
+            },
+            {
+                "number": 14,
+                "alias": "Wesley",
+                "alive": True
+            },
+            {
+                "number": 15,
+                "alias": "Brett",
+                "alive": True
+            }
+        ],
+        "graveyard": [
+            {
+                "number": 1,
+                "alias": "Brandon",
+                "deathReason": 'Terminal Fiths'
+            },
+        ]
+    }
     config = {
         "tags": [
             "town_government", 
@@ -684,6 +684,136 @@ def load_lynch():
 
     print(game.dump_state())
     
+def create_unbalanced():
+    players = [
+        {
+            "id":  "1",
+            "name": "Player 1",
+            "alias": "Jackson",
+            "roleActions": {
+                "remainingVests": 100
+            }
+        },
+        {
+            "id": "2",
+            "name": "Player 2",
+            "alias": "Brandon"
+        }
+    ]
+    config = {
+        "tags": [
+            "town_government", 
+            "town_protective", 
+            "town_protective", 
+            "town_power", 
+            "town_investigative", 
+            "town_killing", 
+            "town_investigative", 
+            "town_random", 
+            "godfather",
+            "mafia_killing",
+            "mafia_killing",
+            "neutral_evil",
+            "neutral_benign",
+            "neutral_random",
+            "any_random"
+        ],
+        "settings": {
+            # TODO: Add durations here
+        },
+        "roles": {
+            "Citizen": {
+                "max": 0,
+                "weight": 0.01,
+                "settings": {
+                    "maxVests": 2
+                }
+            },
+            "Mayor": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Doctor": {
+                "max": 2,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Bodyguard": {
+                "max": 2,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Escort": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Sheriff": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Investigator": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Mafioso": {
+                "max": 2,
+                "weight": 1,
+                "settings": {
+                    "promotes": False
+                }
+            },
+            "Godfather": {
+                "max": 1,
+                "weight": 1,
+                "settings": {
+                    "nightImmune": True
+                }
+            },
+            "Consort": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "Survivor": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+
+                }
+            },
+            "SerialKiller": {
+                "max": 0,
+                "weight": 1,
+                "settings": {
+                    "nightImmune": True
+                }
+            }
+        }
+    }
+
+    # Build the initial game state
+    try:
+        game = Mafia.new_game(players, config)
+    except Mafia.AssConfigException as e:
+        print('[ERROR] AssConfigException: Unable to generate a viable game')
 
 def resolve():
     players = [
@@ -1603,6 +1733,7 @@ def simulate():
     # print("Alive", game.state.alive_actors)
     print('State', json.dumps(game.dump_state(), indent=4))
 
+
 def test():
     players = [{'id': '297e2488-a011-70d3-37fe-7726fc204909', 'createdAt': 1689715773448, 'name': 'UncleGenghi', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'UncleGenghi', 'role': 'Godfather', 'possible_targets': [[1]], 'number': 1, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 2', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}]
     state = {'day': 1, 'players': [{'number': 1, 'alias': 'UncleGenghi', 'alive': True}, {'number': 2, 'alias': 'User 2', 'alive': True}], 'graveyard': []}
@@ -1692,4 +1823,4 @@ def test():
     print(winners)
 
 if __name__=='__main__':
-    simulate()
+    create_unbalanced()
