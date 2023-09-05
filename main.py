@@ -1739,88 +1739,120 @@ def test():
     state = {'day': 1, 'players': [{'number': 1, 'alias': 'UncleGenghi', 'alive': True}, {'number': 2, 'alias': 'User 2', 'alive': True}], 'graveyard': []}
     config = {
         "tags": [
-            "town_government", 
+            # "town_government", 
             "town_protective", 
-            "town_protective", 
-            "town_power", 
-            "town_investigative", 
-            "town_killing", 
-            "town_investigative", 
-            "town_random", 
+            # "town_protective", 
+            # "town_power", 
+            # "town_investigative", 
+            # "town_killing", 
+            # "town_investigative", 
+            # "town_random", 
+            # "godfather",
             "mafia_killing",
-            "mafia_deception",
-            "mafia_support",
-            "neutral_evil",
-            "neutral_benign",
-            "neutral_random",
-            "any_random"
+            # "mafia_killing",
+            # "neutral_evil",
+            # "neutral_benign",
+            # "neutral_random",
+            # "any_random"
         ],
-        "settings": {},
+        "settings": {
+            # TODO: Add durations here
+        },
         "roles": {
             "Citizen": {
-                "max": 1,
-                "weight": 1,
+                "max": 0,
+                "weight": 0.01,
                 "settings": {
                     "maxVests": 2
                 }
             },
-            "Doctor": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            # "Mayor": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
+            #     }
+            # },
+            # "Doctor": {
+            #     "max": 2,
+            #     "weight": 1,
+            #     "settings": {
+
+            #     }
+            # },
             "Bodyguard": {
-                "max": 0,
+                "max": 2,
                 "weight": 1,
-                "settings": {
-
-                }
+                "settings": {},
             },
-            "Escort": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            # "Escort": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Sheriff": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "Sheriff": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Investigator": {
-                "max": 0,
-                "weight": 1,
-                "settings": {
+            #     }
+            # },
+            # "Investigator": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
 
-                }
-            },
-            "Godfather": {
-                "max": 1,
-                "weight": 1,
-                "settings": {
-
-                }
-            },
+            #     }
+            # },
             "Mafioso": {
-                "max": 3,
+                "max": 2,
                 "weight": 1,
                 "settings": {
-
+                    "promotes": False
                 }
             },
+            # "Godfather": {
+            #     "max": 1,
+            #     "weight": 1,
+            #     "settings": {
+            #         "nightImmune": True
+            #     }
+            # },
+            # "Consort": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
+
+            #     }
+            # },
+            # "Survivor": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
+
+            #     }
+            # },
+            # "SerialKiller": {
+            #     "max": 0,
+            #     "weight": 1,
+            #     "settings": {
+            #         "nightImmune": True
+            #     }
+            # }
         }
     }
     
-    game = Mafia.load_game(players, state, config)
-    
-    winners = game.check_for_win()
+    game = Mafia.new_game(players, config, tries=1)
 
-    print(winners)
+    # game = Mafia.load_game(players, state, config)
+
+    
+    
+    # winners = game.check_for_win()
+
+    # print(winners)
 
 if __name__=='__main__':
-    create_unbalanced()
+    test()

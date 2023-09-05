@@ -24,7 +24,7 @@ class GameEvent:
     targets: list
     message: str
 
-    def dump(self):
+    def dump(self) -> dict:
         return asdict(self)
 
 @dataclass
@@ -54,7 +54,7 @@ class GameEventGroup:
             if isinstance(event, GameEventGroup) and event.group_id == id: return event
             elif isinstance(event, GameEvent) and event.event_id == id: return event
 
-    def dump(self):
+    def dump(self) -> dict:
         return asdict(self)['events']
 
 
