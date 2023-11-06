@@ -45,7 +45,7 @@ def create():
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden"
+            "alias": "Gordon"
         },
         {
             "id": "9",
@@ -219,7 +219,7 @@ def load():
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": True,
@@ -437,7 +437,7 @@ def load():
             },
             {
                 "number": 2,
-                "alias": "Gorden",
+                "alias": "Gordon",
                 "alive": True
             },
             {
@@ -630,7 +630,7 @@ def load_lynch():
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": True,
@@ -835,7 +835,7 @@ def resolve():
         {
             "id": "2",
             "name": "Player 2",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": False,
@@ -1055,7 +1055,7 @@ def resolve():
             },
             {
                 "number": 2,
-                "alias": "Gorden",
+                "alias": "Gordon",
                 "alive": True
             },
             {
@@ -1287,7 +1287,7 @@ def simulate():
         {
             "id": "2",
             "name": "Player 2",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": True,
@@ -1507,7 +1507,7 @@ def simulate():
             },
             {
                 "number": 2,
-                "alias": "Gorden",
+                "alias": "Gordon",
                 "alive": True
             },
             {

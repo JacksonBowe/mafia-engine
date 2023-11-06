@@ -9,7 +9,7 @@ def load():
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": True,
@@ -227,7 +227,7 @@ def load():
             },
             {
                 "number": 2,
-                "alias": "Gorden",
+                "alias": "Gordon",
                 "alive": True
             },
             {

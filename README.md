@@ -95,7 +95,7 @@ Picking town_killing: Bodyguard
 
 --- Allocating roles ---
   |-> Car (Player 15):                   Citizen
-  |-> Gorden (Player 8):                 Citizen
+  |-> Gordon (Player 8):                 Citizen
   |-> Brandon (Player 2):                Doctor
   ...
 ```

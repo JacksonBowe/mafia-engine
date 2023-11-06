@@ -24,7 +24,7 @@ def resolve():
         {
             "id": "2",
             "name": "Player 2",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": False,
@@ -244,7 +244,7 @@ def resolve():
             },
             {
                 "number": 2,
-                "alias": "Gorden",
+                "alias": "Gordon",
                 "alive": True
             },
             {

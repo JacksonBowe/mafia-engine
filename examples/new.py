@@ -43,7 +43,7 @@ def create():
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden"
+            "alias": "Gordon"
         },
         {
             "id": "9",

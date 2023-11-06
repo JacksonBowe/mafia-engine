@@ -60,7 +60,7 @@ def test_new_game() -> Mafia.Game:
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden"
+            "alias": "Gordon"
         },
         {
             "id": "9",
@@ -260,7 +260,7 @@ def test_load_game() -> Mafia.Game:
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": True,
@@ -478,7 +478,7 @@ def test_load_game() -> Mafia.Game:
         },
         {
             "number": 2,
-            "alias": "Gorden",
+            "alias": "Gordon",
             "alive": True
         },
         {
@@ -697,7 +697,7 @@ def test_simulate() -> Mafia.Game:
         {
             "id": "2",
             "name": "Player 2",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": False,
@@ -917,7 +917,7 @@ def test_simulate() -> Mafia.Game:
             },
             {
                 "number": 2,
-                "alias": "Gorden",
+                "alias": "Gordon",
                 "alive": True
             },
             {
@@ -1141,7 +1141,7 @@ def test_lynch():
         {
             "id": "8",
             "name": "Player 8",
-            "alias": "Gorden",
+            "alias": "Gordon",
             "role": "Citizen",
             "number": 2,
             "alive": True,
