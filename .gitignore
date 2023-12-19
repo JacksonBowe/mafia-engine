@@ -1,6 +1,7 @@
 /.venv
 
 pytest-log.txt
+.pytest-cache
 log.txt
 .coverage
 
