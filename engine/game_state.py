@@ -107,7 +107,7 @@ class GameState:
             actor.find_possible_targets(self.actors)
             
     def get_actor_by_number(self, number: int) -> roles.Actor:
-        return [actor for actor in self.actors if actor.number == number][0]
+        return next((actor for actor in self.actors if actor.number == number), None)
             
     
 
