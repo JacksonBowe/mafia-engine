@@ -220,16 +220,16 @@ def load():
             "id": "8",
             "name": "Player 8",
             "alias": "Gordon",
-            "role": "Citizen",
-            "number": 2,
+            "role": "Citizen", # string MUST exist in external dictionary
+            "number": 2, # int in range 1 to 15 inclusive
             "alive": True,
-            "possible_targets": [
+            "possible_targets": [ # List of lists (max length 2). Contained lists contain ints in range 1 to 15 (inclusive), max length 15
                 [
                     2
                 ]
             ],
-            "targets": [],
-            "allies": []
+            "targets": [], # Optional list of ints in range 1 to 15 (inclusive), max length 15
+            "allies": [] # Optional list of ints in range 1 to 15 (inclusive), max length 15
         },
         {
             "id": "14",
@@ -1739,21 +1739,8 @@ def test():
     state = {'day': 1, 'players': [{'number': 1, 'alias': 'UncleGenghi', 'alive': True}, {'number': 2, 'alias': 'User 2', 'alive': True}], 'graveyard': []}
     config = {
         "tags": [
-            # "town_government", 
             "town_protective", 
-            # "town_protective", 
-            # "town_power", 
-            # "town_investigative", 
-            # "town_killing", 
-            # "town_investigative", 
-            # "town_random", 
-            # "godfather",
             "mafia_killing",
-            # "mafia_killing",
-            # "neutral_evil",
-            # "neutral_benign",
-            # "neutral_random",
-            # "any_random"
         ],
         "settings": {
             # TODO: Add durations here
@@ -1766,81 +1753,18 @@ def test():
                     "maxVests": 2
                 }
             },
-            # "Mayor": {
-            #     "max": 0,
-            #     "weight": 1,
-            #     "settings": {
-
-            #     }
-            # },
-            # "Doctor": {
-            #     "max": 2,
-            #     "weight": 1,
-            #     "settings": {
-
-            #     }
-            # },
             "Bodyguard": {
                 "max": 2,
                 "weight": 1,
                 "settings": {},
             },
-            # "Escort": {
-            #     "max": 0,
-            #     "weight": 1,
-            #     "settings": {
-
-            #     }
-            # },
-            # "Sheriff": {
-            #     "max": 0,
-            #     "weight": 1,
-            #     "settings": {
-
-            #     }
-            # },
-            # "Investigator": {
-            #     "max": 0,
-            #     "weight": 1,
-            #     "settings": {
-
-            #     }
-            # },
             "Mafioso": {
                 "max": 2,
                 "weight": 1,
                 "settings": {
                     "promotes": False
                 }
-            },
-            # "Godfather": {
-            #     "max": 1,
-            #     "weight": 1,
-            #     "settings": {
-            #         "nightImmune": True
-            #     }
-            # },
-            # "Consort": {
-            #     "max": 0,
-            #     "weight": 1,
-            #     "settings": {
-
-            #     }
-            # },
-            # "Survivor": {
-            #     "max": 0,
-            #     "weight": 1,
-            #     "settings": {
-
-            #     }
-            # },
-            # "SerialKiller": {
-            #     "max": 0,
-            #     "weight": 1,
-            #     "settings": {
-            #         "nightImmune": True
-            #     }
-            # }
+            }
         }
     }
     

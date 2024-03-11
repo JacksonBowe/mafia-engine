@@ -1,0 +1,3 @@
+
+class AssConfigException(Exception):
+    pass

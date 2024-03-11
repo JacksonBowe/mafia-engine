@@ -1,118 +1,37 @@
-from __future__ import annotations
-from typing import List
-import random
-import json
-import copy
+from typing import List, Optional
+from pydantic import BaseModel, Field, validator
 
-from engine.utils.logger import logger
+from engine.roles import ROLE_TAGS
 
-from engine.game_save import GameSave
-from engine.game_state import GameState
-from engine.events import ACTION_EVENTS, GameEventGroup
+class Player(BaseModel):
+    id: str
+    name: str
+    alias: str
+    role: str
+    number: int = Field(..., ge=1, le=15)  # Ensure number is between 1 and 15 inclusive
+    alive: bool
+    possible_targets: List[List[int]] = Field(..., max_items=2)
+    targets: Optional[List[int]] = Field(default_factory=list, max_items=15)
+    allies: Optional[List[int]] = Field(default_factory=list, max_items=15)
 
-import engine.roles as roles
+    @validator('role')
+    def role_must_exist_in_external_dict(cls, v):
+        if v not in ROLE_TAGS.keys():
+            raise ValueError(f"Role {v} is not a valid role")
+        return v
 
+    @validator('possible_targets', 'targets', 'allies', each_item=True)
+    def validate_target_lists(cls, v):
+        if isinstance(v, list):
+            if any(not (1 <= item <= 15) for item in v):
+                raise ValueError("All values must be between 1 and 15 inclusive")
+        return v
 
-class Game:
-    def __init__(self) -> None:
-        self.save: GameSave = None
-        self.state = None
-        self.roles: list = None
-        self.failed_roles: list = None
-        self.events = GameEventGroup(group_id='root')
-        
-    @property
-    def actors(self) -> dict:
-        return [actor.state for actor in self.state.actors]
-          
-    def new(self, players: List[dict], config: dict) -> Game:
-        logger.info('--- Creating a new Game ---')
-        logger.info("Players: {}".format(players))
-        
-        self.save = GameSave(config=config)
-        self.roles, self.failed_roles = self.save.generate_roles()
-        
-        # Assign roles and numbers to players
-        random.shuffle(players)
-        random.shuffle(self.save.roles)
-        
-        # Allocate roles
-        logger.info("--- Allocating roles ---")
-        for index, player in enumerate(players):
-            player['role'] = self.save.roles[index]
-            logger.info(f"  |-> {player['alias']} ({player['name']}):".ljust(40) + f" {player['role']}")
-        
-        # Generate GameState
-        logger.info("--- Generating initial GameState ---")
-        self.state = GameState().new(players, self.save.roles_settings)
-        
-        return self
-    
-    def load(self, players, state, config) -> Game:
-        logger.info('--- Loading Game ---')
-        logger.info("Players: {}".format(players))
-        logger.info("GameState: {}".format(state))
-        
-        self.save = GameSave(config=config)
-        
-        # Generate GameState
-        self.state = GameState().load(players, state, self.save.roles_settings)
-        
-        return self
-    
-    def lynch(self, number: int) -> None:
-        actor = self.state.get_actor_by_number(number)
-        actor.lynched()
-        pass
-    
-    def resolve(self):
-        ''' Resolve all player actions'''
-        logger.info("--- Resolving all player actions ---")
-        self.state.day += 1
-        
-        self.state.generate_allies_and_possible_targets()
-        
-        # sort the actors based on TURN_ORDER
-        self.state.actors.sort(key=lambda actor: roles.TURN_ORDER.index(actor.role_name))
-        
-        # Prelim check to ensure that players are only targetting valid options
-        # This needs to happen BEFORE resolution as Witch can then fuck with the targetting as intended
-        for actor in self.state.actors:
-            if not actor.targets or not actor.possible_targets: continue
-            for i, target in enumerate(actor.targets):
-                # For each list of possible targets, check if contains selected target
-                p_targets = [p_target for p_target in actor.possible_targets[i]]
-                if target in p_targets: continue
-                actor.targets = None
-                logger.critical(f"{actor} invalid targets ({target})")
-                break
-            
-        # Resolve all actions for the day
-        for actor in self.state.actors:
-            if not actor.targets: continue
-            
-            logger.info(f"{actor} is targetting {actor.targets}")
-            
-            # Initialise the events group for this action
-            ACTION_EVENTS.reset(new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action")
-            actor.do_action()
-            if ACTION_EVENTS.events:
-                self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
-                
-        # Action summary for all the investigative roles
-        ACTION_EVENTS.reset(new_id="post-resolve")
-        for actor in self.state.alive_actors:
-            if not actor.targets: continue
-            actor.investigate()
-            
-        if ACTION_EVENTS.events:
-            self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
-            
-            
-    def check_for_win(self): # TODO
-        return [actor for actor in self.state.actors if actor.check_for_win(self.state.alive_actors)]
-        
-    
-    def dump_state(self) -> dict:
-        return self.state.json()
-        
+    @validator('possible_targets')
+    def validate_possible_targets(cls, v):
+        if len(v) > 2:
+            raise ValueError("possible_targets list cannot have more than 2 lists")
+        for sublist in v:
+            if len(sublist) > 15:
+                raise ValueError("Sublists in possible_targets cannot have more than 15 items")
+        return v
