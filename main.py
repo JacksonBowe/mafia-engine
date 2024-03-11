@@ -1733,16 +1733,31 @@ def simulate():
     # print("Alive", game.state.alive_actors)
     print('State', json.dumps(game.dump_state(), indent=4))
 
+def dummy_players(n):
+    players = []
+    for i in range(1,n+1):
+        players.append({
+            'id': f'user-{i}',
+            'name': f'UserName{i}',
+            'alias': f'UserAlias{i}',
+        })
+        
+    return players
 
 def test():
     import engine as Engine
-    players = [{'id': '297e2488-a011-70d3-37fe-7726fc204909', 'createdAt': 1689715773448, 'name': 'UncleGenghi', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'UncleGenghi', 'role': 'Godfather', 'possible_targets': [[1]], 'number': 1, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 2', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}]
+    # players = [{'id': '297e2488-a011-70d3-37fe-7726fc204909', 'createdAt': 1689715773448, 'name': 'UncleGenghi', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'UncleGenghi', 'role': 'Godfather', 'possible_targets': [[1]], 'number': 1, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 2', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 3', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 4', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}]
     # state = {'day': 1, 'players': [{'number': 1, 'alias': 'UncleGenghi', 'alive': True}, {'number': 2, 'alias': 'User 2', 'alive': True}], 'graveyard': []}
+    
+    players = dummy_players(3)
+    
+    
     config = {
         "tags": [
-            "town_government", 
+            "Citizen", 
             "mafia_killing",
-            "any_random"
+            "any_random",
+            "town_killing"
         ],
         "settings": {
         },
@@ -1754,11 +1769,11 @@ def test():
                     "maxVests": 2
                 }
             },
-            # "Bodyguard": {
-            #     "max": 2,
-            #     "weight": 1,
-            #     "settings": {},
-            # },
+            "Bodyguard": {
+                "max": 2,
+                "weight": 1,
+                "settings": {},
+            },
             "Mafioso": {
                 "max": 2,
                 "weight": 1,

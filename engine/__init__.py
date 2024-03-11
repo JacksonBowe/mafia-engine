@@ -21,8 +21,18 @@ def new_game(players: List[dict], config: dict):
     roles, failures = Config.generate_roles()
     
     # Assign rules and numbers to players
+    random.shuffle(Players)
+    random.shuffle(roles)
     
-    
+    # Ensure that there are equal roles to players, pad roles with 'Citizen'
+    if len(Players) > len(roles):
+        roles.extend(['Citizen'] * (len(Players) - len(roles)))
+
+    # Allocate roles
+    logger.info("--- Allocating roles ---")
+    for index, player in enumerate(Players):
+        player.role = roles[index]
+        logger.info(f"  |-> {player.alias} ({player.name}):".ljust(40) + f" {player.role}")    
     return
 
 def load_game():

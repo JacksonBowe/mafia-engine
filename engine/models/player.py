@@ -9,10 +9,10 @@ class Player(BaseModel):
     id: str
     name: str
     alias: str
-    role: str
-    number: Optional[int]  # Ensure number is between 1 and 15 inclusive
-    alive: bool
-    possible_targets: List[List[int]] = Field(..., max_items=2)
+    role: Optional[str] = None
+    number: Optional[int] = None  # Ensure number is between 1 and 15 inclusive
+    alive: Optional[bool] = None
+    possible_targets: Optional[List[List[int]]] = Field(default_factory=list, max_items=2)
     targets: Optional[List[int]] = Field(default_factory=list, max_items=15)
     allies: Optional[List[int]] = Field(default_factory=list, max_items=15)
 
