@@ -1735,15 +1735,16 @@ def simulate():
 
 
 def test():
+    import engine as Engine
     players = [{'id': '297e2488-a011-70d3-37fe-7726fc204909', 'createdAt': 1689715773448, 'name': 'UncleGenghi', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'UncleGenghi', 'role': 'Godfather', 'possible_targets': [[1]], 'number': 1, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}, {'id': '79ae6438-a0f1-702d-dcb3-e86eff713c10', 'createdAt': 1689715773448, 'name': 'User 2', 'alive': True, 'gameId': '9cf2712e-40c1-4a41-8893-af732ad484d1', 'alias': 'User 2', 'role': 'Citizen', 'possible_targets': [[1]], 'number': 2, 'targets': [], 'allies': [], 'type': 'GAME_ACTOR'}]
-    state = {'day': 1, 'players': [{'number': 1, 'alias': 'UncleGenghi', 'alive': True}, {'number': 2, 'alias': 'User 2', 'alive': True}], 'graveyard': []}
+    # state = {'day': 1, 'players': [{'number': 1, 'alias': 'UncleGenghi', 'alive': True}, {'number': 2, 'alias': 'User 2', 'alive': True}], 'graveyard': []}
     config = {
         "tags": [
-            "town_protective", 
+            "town_government", 
             "mafia_killing",
+            "any_random"
         ],
         "settings": {
-            # TODO: Add durations here
         },
         "roles": {
             "Citizen": {
@@ -1753,11 +1754,11 @@ def test():
                     "maxVests": 2
                 }
             },
-            "Bodyguard": {
-                "max": 2,
-                "weight": 1,
-                "settings": {},
-            },
+            # "Bodyguard": {
+            #     "max": 2,
+            #     "weight": 1,
+            #     "settings": {},
+            # },
             "Mafioso": {
                 "max": 2,
                 "weight": 1,
@@ -1768,15 +1769,7 @@ def test():
         }
     }
     
-    game = Mafia.new_game(players, config, tries=1)
-
-    # game = Mafia.load_game(players, state, config)
-
-    
-    
-    # winners = game.check_for_win()
-
-    # print(winners)
+    game = Engine.new_game(players, config)
 
 if __name__=='__main__':
     test()
