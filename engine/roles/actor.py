@@ -1,5 +1,6 @@
+from __future__ import annotations
 from enum import Enum
-
+from typing import List
 from abc import ABC, abstractmethod
 
 from engine.models import Player
@@ -15,7 +16,21 @@ class Actor(ABC):
         
         
         self.algnment = None
-             
+    
+    @property
+    def role_name(self) -> str:
+        return self.__class__.__name__
+          
+    def __repr__(self) -> str:
+        return f"|{self.role_name}| {self.alias}({self.number})"
+    
+    def find_allies(self, actors: List[Actor] = None) -> List[Actor] | None:
+        self.allies = []
+        return self.allies
+    
+    def find_possible_targets(self, actors: List[Actor] = None) -> List[Actor] | None:
+        self.possible_targets = []
+        return self.possible_targets
         
 class Alignment(Enum):
     TOWN = "Town"

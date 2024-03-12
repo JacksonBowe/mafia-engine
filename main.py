@@ -1785,7 +1785,8 @@ def test():
     }
     
     game = Engine.new_game(players, config)
-    
+    for actor in game.actors:
+        print(actor)
     print(game.dump_state())
     
 def test2():

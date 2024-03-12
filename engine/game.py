@@ -28,7 +28,9 @@ class Game:
         pass
     
     def generate_allies_and_possible_targets(self):
-        pass
+        for actor in self.alive_actors:
+            actor.find_allies(self.actors)
+            actor.find_possible_targets(self.actors)
     
     def resolve(self):
         pass
