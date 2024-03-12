@@ -1,6 +1,6 @@
 from typing_extensions import Annotated
 from annotated_types import Ge, Le
-from typing import List, Optional
+from typing import List, Optional, Mapping, Any
 from pydantic import BaseModel, Field, validator
 
 # from engine.roles import ROLE_TAGS
@@ -12,9 +12,10 @@ class Player(BaseModel):
     role: Optional[str] = None
     number: Optional[int] = None  # TODO: Ensure number is between 1 and 15 inclusive
     alive: Optional[bool] = True
-    possible_targets: Optional[List[List[int]]] = Field(default_factory=list, max_items=2)
+    possible_targets: Optional[List[List[int]]] = Field(default_factory=list, max_items=2, alias='possibleTargets')
     targets: Optional[List[int]] = Field(default_factory=list, max_items=15)
     allies: Optional[List[int]] = Field(default_factory=list, max_items=15)
+    role_actions: Optional[Mapping[str, Any]] = Field(default_factory=dict, alias='roleActions')
 
     # @validator('role')
     # def role_must_exist_in_external_dict(cls, v):

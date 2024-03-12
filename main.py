@@ -1739,8 +1739,7 @@ def dummy_players(n):
         players.append({
             'id': f'user-{i}',
             'name': f'UserName{i}',
-            'alias': f'UserAlias{i}',
-            'alive': False
+            'alias': f'UserAlias{i}'
         })
         
     return players
@@ -1787,15 +1786,60 @@ def test():
     
     game = Engine.new_game(players, config)
     actors = game.dump_actors()
+    print()
+    print(actors)
+    print()
     for actor in actors:
         print(actor)
+    print()
     print(game.dump_state())
+    print()
     
     
     
 def test2():
     import engine as Engine
 
+    players = [{'id': 'user-2', 'name': 'UserName2', 'alias': 'UserAlias2', 'role': 'Mafioso', 'number': 1, 'alive': True, 'possibleTargets': [], 
+                'targets': [], 'allies': [], 'roleActions': {}}, {'id': 'user-3', 'name': 'UserName3', 'alias': 'UserAlias3', 'role': 'Mafioso', 'number': 2, 'alive': True, 'possibleTargets': [], 'targets': [], 'allies': [], 'roleActions': {}}, {'id': 'user-1', 'name': 'UserName1', 'alias': 'UserAlias1', 'role': 'Citizen', 'number': 3, 'alive': True, 'possibleTargets': [], 'targets': [], 'allies': [], 'roleActions': {'remainingVests': 2}}]
 
+    state = {'day': 1, 'players': [{'number': 1, 'alias': 'UserAlias2', 'alive': True}, {'number': 2, 'alias': 'UserAlias3', 'alive': True}, {'number': 3, 'alias': 'UserAlias1', 'alive': True}], 'graveyard': []}
+
+    config = {
+        "tags": [
+            "town_government", 
+            "mafia_killing",
+            "any_random",
+            "town_killing"
+        ],
+        "settings": {
+        },
+        "roles": {
+            "Citizen": {
+                "max": 0,
+                "weight": 0.01,
+                "settings": {
+                    "maxVests": 2
+                }
+            },
+            "Bodyguard": {
+                "max": 1,
+                "weight": 1,
+                "settings": {},
+            },
+            "Mafioso": {
+                "max": 2,
+                "weight": 1,
+                "settings": {
+                    "promotes": False
+                }
+            }
+        }
+    }
+    
+    game = Engine.load_game(players, config, state)
+    
+    print(game)
+    
 if __name__=='__main__':
-    test()
+    test2()
