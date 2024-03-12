@@ -38,9 +38,6 @@ class Game:
     def check_for_win(self):
         pass
     
-    def state(self):
-        pass
-    
     @property
     def alive_actors(self) -> List[Actor]:
         return [actor for actor in self.actors if actor.alive]
@@ -70,3 +67,6 @@ class Game:
             } for actor in self.actors],
             'graveyard': self.graveyard
         }
+        
+    def dump_actors(self):
+        return [actor.dump_state() for actor in self.actors]

@@ -10,7 +10,7 @@ class Player(BaseModel):
     name: str
     alias: str
     role: Optional[str] = None
-    number: Optional[int] = None  # Ensure number is between 1 and 15 inclusive
+    number: Optional[int] = None  # TODO: Ensure number is between 1 and 15 inclusive
     alive: Optional[bool] = True
     possible_targets: Optional[List[List[int]]] = Field(default_factory=list, max_items=2)
     targets: Optional[List[int]] = Field(default_factory=list, max_items=15)
@@ -22,7 +22,7 @@ class Player(BaseModel):
     #         raise ValueError(f"Role {v} is not a valid role")
     #     return v
 
-    @validator('possible_targets', 'targets', 'allies', each_item=True)
+    @validator('targets', 'allies', each_item=True)
     def validate_target_lists(cls, v):
         if isinstance(v, list):
             if any(not (1 <= item <= 15) for item in v):
@@ -36,4 +36,7 @@ class Player(BaseModel):
         for sublist in v:
             if len(sublist) > 15:
                 raise ValueError("Sublists in possible_targets cannot have more than 15 items")
+            
+            if any(not (1 <= item <= 15) for item in sublist):
+                raise ValueError("All values must be between 1 and 15 inclusive")
         return v

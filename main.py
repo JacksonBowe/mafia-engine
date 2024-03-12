@@ -1740,6 +1740,7 @@ def dummy_players(n):
             'id': f'user-{i}',
             'name': f'UserName{i}',
             'alias': f'UserAlias{i}',
+            'alive': False
         })
         
     return players
@@ -1785,9 +1786,12 @@ def test():
     }
     
     game = Engine.new_game(players, config)
-    for actor in game.actors:
+    actors = game.dump_actors()
+    for actor in actors:
         print(actor)
     print(game.dump_state())
+    
+    
     
 def test2():
     import engine as Engine
