@@ -1,12 +1,14 @@
-from typing import Set
+from typing import List
 
-from engine.roles.actor import Actor
+from engine.roles.actor import Actor, Alignment, Town, Mafia
 from engine.roles.citizen import Citizen
 from engine.roles.bodyguard import Bodyguard
 from engine.roles.mafioso import Mafioso
 
+
+
 # This is also turn order
-ROLE_LIST: Set[Actor] = {
+ROLE_LIST: List[Actor] = {
     # ---   Role Blocking       --- #
     
     # ---   Self Protecting     --- #
@@ -20,3 +22,7 @@ ROLE_LIST: Set[Actor] = {
 }
 
 ROLE_TAGS_MAP = { role.__name__: role.tags for role in ROLE_LIST }
+
+from engine.utils import class_for_name
+def import_role(role_name: str):
+    return class_for_name('engine.roles', role_name)

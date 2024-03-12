@@ -1754,7 +1754,7 @@ def test():
     
     config = {
         "tags": [
-            "Citizen", 
+            "town_government", 
             "mafia_killing",
             "any_random",
             "town_killing"
@@ -1770,7 +1770,7 @@ def test():
                 }
             },
             "Bodyguard": {
-                "max": 2,
+                "max": 1,
                 "weight": 1,
                 "settings": {},
             },
@@ -1785,6 +1785,12 @@ def test():
     }
     
     game = Engine.new_game(players, config)
+    
+    print(game.dump_state())
+    
+def test2():
+    import engine as Engine
+
 
 if __name__=='__main__':
     test()

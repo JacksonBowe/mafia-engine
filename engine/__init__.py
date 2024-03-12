@@ -3,7 +3,7 @@ from typing import List
 from pydantic import BaseModel, ValidationError
 
 from engine.models import Player, GameState, GameConfig
-# from engine.game import Game
+from engine.game import Game
 
 from engine.utils.logger import logger
 
@@ -31,9 +31,14 @@ def new_game(players: List[dict], config: dict):
     # Allocate roles
     logger.info("--- Allocating roles ---")
     for index, player in enumerate(Players):
+        player.number = index + 1
         player.role = roles[index]
         logger.info(f"  |-> {player.alias} ({player.name}):".ljust(40) + f" {player.role}")    
-    return
+    
+    
+    game = Game.new(Players, Config)
+ 
+    return game
 
 def load_game():
     pass

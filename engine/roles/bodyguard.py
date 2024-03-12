@@ -1,7 +1,8 @@
-from engine.roles import Actor
+from engine.roles import Actor, Town
 from engine.models import Player
 
-class Bodyguard(Actor):
+class Bodyguard(Town):
     tags = ["any_random", "town_random", "town_protective", "town_killing"]
-    def __init__(self, player: Player):
-        self.player = player
+    
+    def __init__(self, player: Player, settings: dict):
+        super().__init__(player)
