@@ -70,7 +70,7 @@ class Game:
             'players': [{
                 'number': actor.number,
                 'alias': actor.alias,
-                'alive': actor.alive
+                'alive': actor.alive,
             } for actor in self.actors],
             'graveyard': self.graveyard
         }).model_dump()

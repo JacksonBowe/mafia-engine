@@ -1,11 +1,12 @@
 from typing_extensions import Annotated
 from annotated_types import Ge, Le
 from typing import List, Optional, Mapping, Any
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, ConfigDict, Field, validator
 
-# from engine.roles import ROLE_TAGS
+# from engine.roles import ROLE_TAGS_MAP
 
 class Player(BaseModel):
+    model_config = ConfigDict(extra='forbid')
     id: str
     name: str
     alias: str
@@ -19,19 +20,20 @@ class Player(BaseModel):
 
     # @validator('role')
     # def role_must_exist_in_external_dict(cls, v):
-    #     if v not in ROLE_TAGS.keys():
+    #     if v not in ROLE_TAGS_MAP.keys():
     #         raise ValueError(f"Role {v} is not a valid role")
     #     return v
 
     @validator('targets', 'allies', each_item=True)
+    @classmethod
     def validate_target_lists(cls, v):
-        if isinstance(v, list):
-            print('YOOOOOOOOOOOOOOOO', v)
-            if any(not (1 <= item <= 15) for item in v):
-                raise ValueError("All values must be between 1 and 15 inclusive")
+        print('yo')
+        if not (1 <= v <= 15):
+            raise ValueError("All values must be between 1 and 15 inclusive")
         return v
 
     @validator('possible_targets')
+    @classmethod
     def validate_possible_targets(cls, v):
         if len(v) > 2:
             raise ValueError("possible_targets list cannot have more than 2 lists")
