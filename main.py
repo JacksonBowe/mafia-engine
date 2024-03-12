@@ -1801,7 +1801,7 @@ def test2():
     import engine as Engine
 
     players = [{'id': 'user-2', 'name': 'UserName2', 'alias': 'UserAlias2', 'role': 'Mafioso', 'number': 1, 'alive': True, 'possibleTargets': [], 
-                'targets': [], 'allies': [], 'roleActions': {}}, {'id': 'user-3', 'name': 'UserName3', 'alias': 'UserAlias3', 'role': 'Mafioso', 'number': 2, 'alive': True, 'possibleTargets': [], 'targets': [], 'allies': [], 'roleActions': {}}, {'id': 'user-1', 'name': 'UserName1', 'alias': 'UserAlias1', 'role': 'Citizen', 'number': 3, 'alive': True, 'possibleTargets': [], 'targets': [], 'allies': [], 'roleActions': {'remainingVests': 2}}]
+                'targets': [2], 'allies': [], 'roleActions': {}}, {'id': 'user-3', 'name': 'UserName3', 'alias': 'UserAlias3', 'role': 'Mafioso', 'number': 2, 'alive': True, 'possibleTargets': [], 'targets': [], 'allies': [], 'roleActions': {}}, {'id': 'user-1', 'name': 'UserName1', 'alias': 'UserAlias1', 'role': 'Citizen', 'number': 3, 'alive': True, 'possibleTargets': [], 'targets': [], 'allies': [], 'roleActions': {'remainingVests': 2}}]
 
     state = {'day': 1, 'players': [{'number': 1, 'alias': 'UserAlias2', 'alive': True}, {'number': 2, 'alias': 'UserAlias3', 'alive': True}, {'number': 3, 'alias': 'UserAlias1', 'alive': True}], 'graveyard': []}
 

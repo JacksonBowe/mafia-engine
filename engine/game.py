@@ -25,7 +25,11 @@ class Game:
     
     @classmethod
     def load(cls, players: List[Player], config: GameConfig, state: GameState):
-        pass
+        g = cls(state.day, players, config)
+        g._graveyard = state.graveyard
+        
+        for actor in g.actors:
+            actor.set_targets([g.get_actor_by_number(target) for target in actor.player.targets])
     
     def generate_allies_and_possible_targets(self):
         for actor in self.alive_actors:
@@ -37,6 +41,9 @@ class Game:
     
     def check_for_win(self):
         pass
+    
+    def get_actor_by_number(self, number: int) -> Actor:
+        return next((actor for actor in self.actors if actor.number == number), None)
     
     @property
     def alive_actors(self) -> List[Actor]:
@@ -52,13 +59,13 @@ class Game:
             'number': actor.number,
             'alias': actor.alias,
             'cod': 'actor.cod',
-            'dod': 'actor.dod',
+            'dod': 1,
             'role': 'actor.role_name',
             'will': 'actor.will'
         } for actor in self.dead_actors]
     
     def dump_state(self):
-        return {
+        return GameState(**{
             'day': self.day,
             'players': [{
                 'number': actor.number,
@@ -66,7 +73,7 @@ class Game:
                 'alive': actor.alive
             } for actor in self.actors],
             'graveyard': self.graveyard
-        }
+        }).model_dump()
         
     def dump_actors(self):
         return [actor.dump_state() for actor in self.actors]

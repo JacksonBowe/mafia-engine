@@ -54,6 +54,9 @@ class Actor(ABC):
     def find_possible_targets(self, actors: List[Actor] = None) -> List[Actor] | None:
         self.possible_targets = []
         return self.possible_targets
+    
+    def set_targets(self, targets: List[Actor]):
+        self.targets = targets
         
 class Alignment(Enum):
     TOWN = "Town"

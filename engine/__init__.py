@@ -40,10 +40,27 @@ def new_game(players: List[dict], config: dict):
  
     return game
 
-def load_game():
-    pass
+def load_game(players: List[dict], config: dict, state: dict):
+    logger.info('--- Loading Game ---')
+    logger.info("Players: {}".format(players))
+    
+    try:
+        Players = [Player(**player) for player in players]
+        Config = GameConfig(**config)
+        State = GameState(**state)
+    except ValidationError as e:
+        print(f"An error occurred while initializing the game: {e}")
+        return
+    
+    for player in Players:
+        logger.info(f"  |-> {player.alias} ({player.name}):".ljust(40) + f" {player.role} {'(DEAD)' if not player.alive else ''}") 
+        
+    game = Game.load(Players, Config, State)
+    
+       
 
-def validate_save():
+
+def validate_config():
     pass
 
 def generate_roles():
