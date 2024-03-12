@@ -27,7 +27,6 @@ class Player(BaseModel):
     @validator('targets', 'allies', each_item=True)
     @classmethod
     def validate_target_lists(cls, v):
-        print('yo')
         if not (1 <= v <= 15):
             raise ValueError("All values must be between 1 and 15 inclusive")
         return v

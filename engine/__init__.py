@@ -7,10 +7,7 @@ from engine.game import Game
 
 from engine.utils.logger import logger
 
-def new_game(players: List[dict], config: dict):
-    logger.info('--- Creating a new Game ---')
-    logger.info("Players: {}".format(players))
-    
+def new_game(players: List[dict], config: dict, tries=1):
     try:
         Players = [Player(**player) for player in players]
         Config = GameConfig(**config)
@@ -18,31 +15,13 @@ def new_game(players: List[dict], config: dict):
         print(f"An error occurred while initializing the game: {e}")
         return
     
-    roles, failures = Config.generate_roles()
-    
-    # Assign rules and numbers to players
-    random.shuffle(Players)
-    random.shuffle(roles)
-    
-    # Ensure that there are equal roles to players, pad roles with 'Citizen'
-    if len(Players) > len(roles):
-        roles.extend(['Citizen'] * (len(Players) - len(roles)))
-
-    # Allocate roles
-    logger.info("--- Allocating roles ---")
-    for index, player in enumerate(Players):
-        player.number = index + 1
-        player.role = roles[index]
-        logger.info(f"  |-> {player.alias} ({player.name}):".ljust(40) + f" {player.role}")    
-    
-    
-    game = Game.new(Players, Config)
+    for i in range(tries):
+        game = Game.new(Players, Config)
  
     return game
 
 def load_game(players: List[dict], config: dict, state: dict):
-    logger.info('--- Loading Game ---')
-    logger.info("Players: {}".format(players))
+    
     
     try:
         Players = [Player(**player) for player in players]
@@ -52,12 +31,13 @@ def load_game(players: List[dict], config: dict, state: dict):
         print(f"An error occurred while initializing the game: {e}")
         return
     
-    for player in Players:
-        logger.info(f"  |-> {player.alias} ({player.name}):".ljust(40) + f" {player.role} {'(DEAD)' if not player.alive else ''}") 
-        
+    
+    
+     
     game = Game.load(Players, Config, State)
     
-       
+    
+    return game
 
 
 def validate_config():

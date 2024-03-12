@@ -1,3 +1,4 @@
+import random
 from typing import List
 from engine.roles import import_role, Actor
 from engine.models import Player, GameConfig, GameState
@@ -21,15 +22,42 @@ class Game:
     
     @classmethod
     def new(cls, players: List[Player], config: GameConfig):
+        logger.info('--- Creating a new Game ---')
+        logger.info("Players: {}".format(players))
+        
+        roles, failures = config.generate_roles()
+        
+        # Assign rules and numbers to players
+        random.shuffle(players)
+        random.shuffle(roles)
+        
+        # Ensure that there are equal roles to players, pad roles with 'Citizen'
+        if len(players) > len(roles):
+            roles.extend(['Citizen'] * (len(players) - len(roles)))
+
+        # Allocate roles
+        logger.info("--- Allocating roles ---")
+        for index, player in enumerate(players):
+            player.number = index + 1
+            player.role = roles[index]
+            logger.info(f"  |-> {player.alias} ({player.name}):".ljust(40) + f" {player.role}")    
+    
         return cls(1, players, config)
     
     @classmethod
     def load(cls, players: List[Player], config: GameConfig, state: GameState):
+        logger.info('--- Loading Game ---')
+        logger.info("Players: {}".format(players))
+        for player in players:
+            logger.info(f"  |-> {player.alias} ({player.name}):".ljust(40) + f" {player.role} {'(DEAD)' if not player.alive else ''}") 
+        
         g = cls(state.day, players, config)
         g._graveyard = state.graveyard
         
         for actor in g.actors:
             actor.set_targets([g.get_actor_by_number(target) for target in actor.player.targets])
+    
+        return g
     
     def generate_allies_and_possible_targets(self):
         for actor in self.alive_actors:
