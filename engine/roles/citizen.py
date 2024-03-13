@@ -21,3 +21,7 @@ class Citizen(Town):
                 "remainingVests": self.remaining_vests
             }
         }}
+        
+        
+    def action(self):
+        pass

@@ -1,5 +1,7 @@
 from typing import List
 
+import engine.events as events
+from engine.events import ACTION_EVENTS
 from engine.roles import Actor, Mafia
 from engine.models import Player
 
@@ -24,3 +26,44 @@ class Mafioso(Mafia):
             })
             
         return self.possible_targets
+    
+    def action(self):
+        target = self.targets[0]
+        def success():
+            success_event_group = events.GameEventGroup(group_id='mafioso_action_success', duration=events.Duration.MAFIA_KILL)
+            
+            # Inform all players that a Mafia kill has succeeded
+            success_event_group.new_event(
+                events.GameEvent(
+                    event_id="mafia_kill_success",
+                    targets=['*'],
+                    message="There are sounds of shots in the streets"
+                )
+            )
+            
+            # Inform the target player that they have been killed
+            success_event_group.new_event(
+                events.GameEvent(
+                    event_id=events.Common.KILLED_BY_MAFIA,
+                    targets=[target.player.id],
+                    message='You were killed by a member of the Mafia'
+                )
+            )
+            
+            ACTION_EVENTS.new_event_group(success_event_group)
+        
+        def fail():
+            fail_event_group = events.GameEventGroup(group_id="mafioso_action_fail", duration=events.Duration.MAFIA_KILL)
+            
+            # Inform all players that a Mafia kill has failed
+            fail_event_group.new_event(
+                events.GameEvent(
+                    event_id='mafia_kill_fail',
+                    targets=['*'],
+                    message=''
+                )
+            )
+            
+            ACTION_EVENTS.new_event_group(fail_event_group)
+        
+        self.kill(target, success, fail)
