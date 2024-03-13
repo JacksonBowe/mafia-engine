@@ -1,4 +1,5 @@
 import random
+import copy
 from typing import List
 from engine.roles import import_role, Actor, ROLE_LIST
 from engine.models import Player, GameConfig, GameState
@@ -11,6 +12,7 @@ class Game:
         self.config = config
         self.actors: List[Actor] = []
         self._graveyard = []
+        self.events = GameEventGroup(group_id='root')
         
         logger.info("Importing required roles and instantiating actors")
         for index, player in enumerate(players):
@@ -103,7 +105,11 @@ class Game:
             # Initialise events group for this action
             print(f"{'_'.join(actor.role_name.lower().split(' '))}_action")
             ACTION_EVENTS.reset(new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action")
-            
+            actor.do_action()
+            if ACTION_EVENTS.events:
+                self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
+                
+        print(self.events)
         pass
     
     def check_for_win(self):

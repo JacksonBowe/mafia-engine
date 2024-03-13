@@ -8,7 +8,7 @@ class Mafioso(Mafia):
     
     def __init__(self, player: Player, settings: dict):
         super().__init__(player)
-        self.role_name = 'Mafioso'
+        # self.role_name = 'MafiosoTest'
         
     def find_possible_targets(self, actors: List[Actor] = None) -> List[Actor]:
         # Number of targets

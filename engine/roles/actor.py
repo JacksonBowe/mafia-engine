@@ -8,7 +8,7 @@ from engine.models import Player
 class Actor(ABC):
     tags = ['any_random']
     def __init__(self, player: Player) -> None:
-        self.role_name = 'Actor'
+        # self.role_name = 'Actor'
         self.name = 'Actor'
         self.alignment = None
         
@@ -20,9 +20,9 @@ class Actor(ABC):
         self.allies: List[Actor] = []
         self.possible_targets: List[List[Actor]] = []
     
-    # @property
-    # def role_name(self) -> str:
-    #     return self.__class__.__name__
+    @property
+    def role_name(self) -> str:
+        return self.__class__.__name__
     
     def dump_state(self):
         # print(self)
@@ -61,6 +61,13 @@ class Actor(ABC):
         
     def clear_targets(self) -> None:
         self.targets = []
+        
+    def do_action(self):
+        self.action()
+        
+    @classmethod
+    def action(self):
+        pass
         
 class Alignment(Enum):
     TOWN = "Town"

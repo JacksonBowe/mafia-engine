@@ -11,7 +11,7 @@ class Citizen(Town):
     
     def __init__(self, player: Player, settings: dict):
         super().__init__(player)
-        self.role_name = 'Citizen'
+        # self.role_name = 'Citizen'
         self.settings = CitizenSettings.model_validate(settings)
         self.remaining_vests = player.role_actions.get('remainingVests', self.settings.max_vests)
         
