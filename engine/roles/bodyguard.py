@@ -6,3 +6,4 @@ class Bodyguard(Town):
     
     def __init__(self, player: Player, settings: dict):
         super().__init__(player)
+        self.role_name = "Bodyguard"

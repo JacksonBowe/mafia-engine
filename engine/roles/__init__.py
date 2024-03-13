@@ -8,7 +8,7 @@ from engine.roles.mafioso import Mafioso
 
 
 # This is also turn order
-ROLE_LIST: List[Actor] = {
+ROLE_LIST: List[Actor] = [
     # ---   Role Blocking       --- #
     
     # ---   Self Protecting     --- #
@@ -19,7 +19,7 @@ ROLE_LIST: List[Actor] = {
     # ---   Killing             --- #
     Mafioso
     # ---   Investigative       --- #
-}
+]
 
 ROLE_TAGS_MAP = { role.__name__: role.tags for role in ROLE_LIST }
 

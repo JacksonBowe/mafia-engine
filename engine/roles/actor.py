@@ -8,8 +8,9 @@ from engine.models import Player
 class Actor(ABC):
     tags = ['any_random']
     def __init__(self, player: Player) -> None:
+        self.role_name = 'Actor'
         self.name = 'Actor'
-        self.algnment = None
+        self.alignment = None
         
         self.player = player
         self.alias = player.alias
@@ -19,9 +20,9 @@ class Actor(ABC):
         self.allies: List[Actor] = []
         self.possible_targets: List[List[Actor]] = []
     
-    @property
-    def role_name(self) -> str:
-        return self.__class__.__name__
+    # @property
+    # def role_name(self) -> str:
+    #     return self.__class__.__name__
     
     def dump_state(self):
         # print(self)
@@ -58,6 +59,9 @@ class Actor(ABC):
     def set_targets(self, targets: List[Actor]):
         self.targets = targets
         
+    def clear_targets(self) -> None:
+        self.targets = []
+        
 class Alignment(Enum):
     TOWN = "Town"
     MAFIA = "Mafia"
@@ -74,6 +78,9 @@ class Mafia(Actor):
     def __init__(self, player: Player) -> None:
         super().__init__(player)
         self.alignment = Alignment.MAFIA
+        
+    def find_allies(self, actors: List[Actor] = []) -> List[Actor]:
+        self.allies = [actor for actor in actors if actor.alignment == self.alignment]
         
     def check_for_win(self):
         pass

@@ -1,7 +1,8 @@
 import random
 from typing import List
-from engine.roles import import_role, Actor
+from engine.roles import import_role, Actor, ROLE_LIST
 from engine.models import Player, GameConfig, GameState
+from engine.events import ACTION_EVENTS, GameEventGroup
 
 from engine.utils.logger import logger
 class Game:
@@ -65,6 +66,44 @@ class Game:
             actor.find_possible_targets(self.actors)
     
     def resolve(self):
+        logger.info("--- Resolving all player actions ---")
+        self.day += 1
+        
+        self.generate_allies_and_possible_targets()
+        
+        # sort the actors based on turn order
+        self.actors.sort(key=lambda actor: ROLE_LIST.index(actor.__class__))
+        
+        # Prelim check to ensure that players are only targetting valid options
+        # This needs to happen BEFORE resolution as Witch can then fuck with the targetting as god intended
+        for actor in self.actors:
+            if not actor.targets: continue
+            if actor.targets and not actor.possible_targets:
+                logger.critical(f"{actor} invalid targets ({actor.targets})")
+                logger.info('Clearing targets')
+                actor.clear_targets()
+                continue
+            
+            for i, target in enumerate(actor.targets):
+                # For each list of possible targets, check if contains selected target
+                p_targets = [p_target for p_target in actor.possible_targets[i]]
+                if target in p_targets: continue
+                
+                logger.critical(f"{actor} invalid targets ({target})")
+                logger.info('Clearing targets')
+                actor.clear_targets()
+                break
+            
+        # Resolve all actions for the day
+        for actor in self.actors:
+            if not actor.targets: continue
+            
+            logger.info(f"{actor} is targetting {actor.targets}")
+            
+            # Initialise events group for this action
+            print(f"{'_'.join(actor.role_name.lower().split(' '))}_action")
+            ACTION_EVENTS.reset(new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action")
+            
         pass
     
     def check_for_win(self):
