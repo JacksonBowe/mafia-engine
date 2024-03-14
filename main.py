@@ -330,15 +330,15 @@ def resolve():
             "alive": True,
             "targets": [2],
         },
-        # {
-        #     "id": "user-3", 
-        #     "name": "UserName3",
-        #     "alias": "UserAlias3",
-        #     "role": "Mafioso",
-        #     "number": 2,
-        #     "alive": True, 
-        #     "targets": [3],
-        # },
+        {
+            "id": "user-3", 
+            "name": "UserName3",
+            "alias": "UserAlias3",
+            "role": "Mafioso",
+            "number": 2,
+            "alive": True, 
+            "targets": [3],
+        },
         {
             "id": "user-1",
             "name": "UserName1",
@@ -346,7 +346,7 @@ def resolve():
             "role": "Citizen",
             "number": 3,
             "alive": True,
-            "targets": [],
+            "targets": [3],
             "roleActions": {"remainingVests": 2}
         }
     ]
@@ -401,7 +401,6 @@ def resolve():
     winners = game.check_for_win()
     print('Winners', winners)
     
-    return
     print(json.dumps(game.events.dump(), indent=4))
     print('Total events duration:', game.events.duration)
     
@@ -410,6 +409,7 @@ def resolve():
 
     print(len(state['players']))
     # print(game.dump_state())
+    
 def simulate():
     players = [
         {

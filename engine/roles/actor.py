@@ -28,6 +28,7 @@ class Actor(ABC):
         self.night_immune: bool = False
         # Action
         self.visiting: Actor = None
+        self.kill_reason = "How they died is unknown"
     
     @property
     def role_name(self) -> str:
@@ -113,7 +114,7 @@ class Actor(ABC):
         
         else:
             success()
-            target.die(reason=f"Killed by {self}", true_death=true_death)
+            target.die(reason=self.kill_reason, true_death=true_death)
             
     def die(self, reason: str=None, true_death: bool=False) -> None:
         # TODO: True Death
@@ -150,6 +151,7 @@ class Mafia(Actor):
     def __init__(self, player: Player) -> None:
         super().__init__(player)
         self.alignment = Alignment.MAFIA
+        self.kill_reason = "They were found riddled with bullets"
         
     def find_allies(self, actors: List[Actor] = []) -> List[Actor]:
         self.allies = [actor for actor in actors if actor.alignment == self.alignment]

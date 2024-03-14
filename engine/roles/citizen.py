@@ -28,10 +28,12 @@ class Citizen(Town):
     def check_for_win(self, actors: List[Actor]) -> bool:
         # Check if the faction has won
         faction_win = super().check_for_win(actors)
+        print('faction win', faction_win)
         if faction_win: return faction_win
 
         # Check if role has won via special conditions
-        if len(actors) == 2:
+        if len(actors) == 2 and any(isinstance(actor, Citizen) for actor in actors):
+            print('role win', actors)
             return True # Citizen wins ties
         
         return False
