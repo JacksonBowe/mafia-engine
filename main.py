@@ -138,7 +138,7 @@ def load_lynch():
             "role": "Citizen",
             "number": 2,
             "alive": True,
-            "possible_targets": [
+            "possibleTargets": [
                 [
                     2
                 ]
@@ -161,7 +161,10 @@ def load_lynch():
             {
                 "number": 1,
                 "alias": "Brandon",
-                "deathReason": 'Terminal Fiths'
+                "cod": 'Terminal Fiths',
+                "dod": 1,
+                "role": 'Citizen',
+                'will': 'Big water based lu-'
             },
         ]
     }
@@ -182,7 +185,7 @@ def load_lynch():
         }
     }
 
-    game = Mafia.load_game(players, state, config)
+    game = Mafia.load_game(players, config, state)
 
     game.lynch(2)
 
@@ -979,4 +982,4 @@ def test2():
     print(game.dump_state())
     
 if __name__=='__main__':
-    resolve()
+    load_lynch()

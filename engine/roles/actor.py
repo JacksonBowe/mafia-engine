@@ -25,6 +25,7 @@ class Actor(ABC):
         self.possible_targets: List[List[Actor]] = []
         self.visitors: List[Actor] = []
         self.bodyguards: List[roles.Bodyguard] = []
+        self.doctors: List[Actor] = [] # TODO
         self.night_immune: bool = False
         # Action
         self.visiting: Actor = None
@@ -116,13 +117,18 @@ class Actor(ABC):
             success()
             target.die(reason=self.kill_reason, true_death=true_death)
             
+    def lynched(self):
+        reason = "They were lynched"
+        self.die(reason, true_death=True)
+            
     def die(self, reason: str=None, true_death: bool=False) -> None:
-        # TODO: True Death
+        self.doctors = [doctor for doctor in self.doctors if doctor.alive] # Remove any dead doctors
+        
         self.alive = False
-        # self.doctors = [doctor for doctor in self.doctors if doctor.alive] # Remove any dead doctors
-        # if self.doctors:
-        #     doctor = self.doctors.pop(0)
-        #     doctor.revive_target(self)
+        if true_death: pass
+        elif self.doctors:
+            doctor = self.doctors.pop(0)
+            doctor.revive_target(self)
         # else:
         self.cod = reason
         logger.info(f"{self} died. Cause of death: {reason}")

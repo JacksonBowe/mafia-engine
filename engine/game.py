@@ -66,6 +66,12 @@ class Game:
         for actor in self.alive_actors:
             actor.find_allies(self.actors)
             actor.find_possible_targets(self.actors)
+            
+    def lynch(self, number: int) -> None:
+        actor = self.get_actor_by_number(number)
+        if not actor: raise ValueError('Actor not found')
+        
+        actor.lynched()
     
     def resolve(self):
         logger.info("--- Resolving all player actions ---")
