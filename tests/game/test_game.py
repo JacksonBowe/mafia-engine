@@ -4,9 +4,11 @@ import json
 import pytest
 import random
 
+from typing import Tuple, List
+
 import engine as Mafia
 
-def dummy_players(n):
+def dummy_players(n) -> List[dict]:
     players = []
     for i in range(1,n+1):
         players.append({
@@ -18,9 +20,9 @@ def dummy_players(n):
     return players
 
 @pytest.fixture(scope="session")
-def test_new_game() -> Mafia.Game:
+def test_new_game() -> Tuple[List[dict], dict, Mafia.Game]:
     logging.info("--- TEST: New game ---")
-    num_players = 3
+    num_players = 15
     players = dummy_players(num_players)
     
     config = {
@@ -121,11 +123,46 @@ def test_new_game() -> Mafia.Game:
     
     assert len(game.events.events) == 0, "Game's should start with no events"
     
-    return game
+    return players, config, game
 
-def test_new_game_state(test_new_game: Mafia.Game):
-    logging.info("--- TEST: New game state ---")
+def test_new_game_dump_actors(test_new_game: Tuple[List[dict], dict, Mafia.Game]):
+    logging.info("--- TEST: New game dump actors ---")
+    players, config, game = test_new_game
     
-    game = test_new_game
+    actors_state = [actor.dump_state() for actor in game.actors]
+    
+    assert len(actors_state) == len(players)
+
+@pytest.fixture(scope='session')
+def test_new_game_dump_state(test_new_game: Tuple[List[dict], dict, Mafia.Game]) -> Tuple[List[dict], dict, dict]:
+    logging.info("--- TEST: New game dump state ---")
+    
+    players, config, game = test_new_game
+    
+    game_state = game.dump_state()
+    actors_state = [actor.dump_state() for actor in game.actors]
+    
+    # Test the GameState
+    assert game_state['day'] == 1
+    assert len(game_state['graveyard']) == 0
+    assert len(game_state['players']) == len(game.actors)
+    
+    for player in game_state['players']:
+        actor = game.get_actor_by_number(player['number'])
+        assert actor
+        assert player['alive'] == actor.alive
+        
+    return actors_state, config, game_state
+
+def test_game_load(test_new_game_dump_state: Tuple[List[dict], dict, dict]):
+    logging.info("--- TEST: Load game ---")
+    
+    players, config, state = test_new_game_dump_state
+    
+    print(players)
+    
+    game = Mafia.load_game(players, config, state)
+    
+    assert len(game.actors) == len(players)
     
     

@@ -143,7 +143,8 @@ class Game:
             'will': 'actor.will'
         } for actor in self.dead_actors]
     
-    def dump_state(self):
+    @property
+    def state(self) -> GameState:
         return GameState(**{
             'day': self.day,
             'players': [{
@@ -152,7 +153,10 @@ class Game:
                 'alive': actor.alive,
             } for actor in self.actors],
             'graveyard': self.graveyard
-        }).model_dump()
+        })
+    
+    def dump_state(self):
+        return self.state.model_dump()
         
     def dump_actors(self):
         return [actor.dump_state() for actor in self.actors]

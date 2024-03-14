@@ -13,7 +13,7 @@ class Player(BaseModel):
     alive: Optional[bool] = True
     possible_targets: Optional[List[List[int]]] = Field(default_factory=list, max_length=2, alias='possibleTargets')
     targets: Optional[List[int]] = Field(default_factory=list, max_length=15)
-    allies: Optional[List[int]] = Field(default_factory=list, max_length=15)
+    allies: Optional[List[dict]] = Field(default_factory=list, max_length=15)
     role_actions: Optional[Mapping[str, Any]] = Field(default_factory=dict, alias='roleActions')
 
     @field_validator('number')
@@ -23,7 +23,7 @@ class Player(BaseModel):
             raise ValueError("Number must be between 1 and 15 inclusive")
         return v
 
-    @field_validator('targets', 'allies')
+    @field_validator('targets')
     @classmethod
     def validate_target_lists(cls, v):
         for el in v:
