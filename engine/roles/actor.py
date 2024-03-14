@@ -104,7 +104,7 @@ class Actor(ABC):
             survive_event_group.new_event(
                 events.GameEvent(
                     event_id=events.Common.NIGHT_IMMUNE,
-                    targets=[target.player['id']],
+                    targets=[target.player.id],
                     message="You were attacked tonight but survived due to Night Immunity"
                 )
             )

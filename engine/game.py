@@ -98,7 +98,7 @@ class Game:
             
         # Resolve all actions for the day
         for actor in self.actors:
-            if not actor.targets: continue
+            if not actor.targets or not actor.alive: continue
             
             logger.info(f"{actor} is targetting {actor.targets}")
             
@@ -109,7 +109,7 @@ class Game:
             if ACTION_EVENTS.events:
                 self.events.new_event_group(copy.deepcopy(ACTION_EVENTS))
                 
-        print(self.events)
+        # print(self.events)
         pass
     
     def check_for_win(self):

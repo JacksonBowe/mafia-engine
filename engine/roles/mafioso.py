@@ -8,7 +8,7 @@ from engine.models import Player
 class Mafioso(Mafia):
     tags = ["any_random", "mafia_random", "mafia_killing"]
     
-    def __init__(self, player: Player, settings: dict):
+    def __init__(self, player: Player, settings: dict=dict()):
         super().__init__(player)
         # self.role_name = 'MafiosoTest'
         
