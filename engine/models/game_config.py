@@ -38,8 +38,11 @@ class GameConfig(BaseModel):
             
         # Sort the (tag, [roles]) tuples by increasing len([roles]),
         # this means that tags with only a single valid valid outcome have a higher chance of succeeding
-        role_options = sorted(role_options, key=lambda option: len(option[1]))
-    
+        role_options = sorted(role_options, key=lambda option: (
+            len(option[1]) == 0,
+            len(option[1])
+        ))
+        logger.debug(role_options)
         # Loop through and select roles
         selected_roles = []
         blacklist = []
@@ -61,7 +64,10 @@ class GameConfig(BaseModel):
                                 del role_options[option_index][1][role_index]
                                 
             # sort again
-            role_options = sorted(role_options, key=lambda option: len(option[1]))
+            role_options = sorted(role_options, key=lambda option: (
+                len(option[1]) == 0,
+                len(option[1])
+            ))
     
             # remove roles that are in the blacklist
             available_roles = [role for role in role_options[0][1] if role[0] not in blacklist]
