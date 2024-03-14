@@ -39,3 +39,18 @@ def test_citizen_action(test_citizen_boostrap: Tuple[roles.Citizen, List[roles.A
     
     assert citizen_1.night_immune
     assert citizen_1.remaining_vests == vests_before - 1
+    
+def test_citizen_win(test_citizen_boostrap: Tuple[roles.Citizen, List[roles.Actor]]):
+    citizen_1, citizen_2, mafioso_1 = test_citizen_boostrap
+
+    # Test no win
+    win = citizen_1.check_for_win([citizen_1, citizen_2, mafioso_1])
+    assert not win, 'Citizen should not win unless direct tie'
+    
+    # Test faction win
+    win = citizen_1.check_for_win([citizen_1, citizen_2])
+    assert win, 'Citizen should inherit faction win'
+    
+    # Test win tie
+    win = citizen_1.check_for_win([citizen_1, mafioso_1])
+    assert win, 'Citizen should win ties'

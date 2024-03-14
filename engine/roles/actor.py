@@ -125,6 +125,10 @@ class Actor(ABC):
         # else:
         self.cod = reason
         logger.info(f"{self} died. Cause of death: {reason}")
+        
+    @abstractmethod       
+    def check_for_win(self, actors: List[Actor]) -> bool:
+        pass
             
 class Alignment(Enum):
     TOWN = "Town"
@@ -135,8 +139,12 @@ class Town(Actor):
         super().__init__(player)
         self.alignment = Alignment.TOWN
         
-    def check_for_win(self):
-        pass
+    def check_for_win(self, actors: List[Actor]) -> bool:
+        # TODO: This need to be expanded such that citizen wins with Neutral Benign etc
+        enemies = []
+        enemies.extend([actor for actor in actors if actor.alignment in [roles.Alignment.MAFIA]])
+        if enemies: return False
+        else: return True
     
 class Mafia(Actor):
     def __init__(self, player: Player) -> None:
@@ -146,5 +154,9 @@ class Mafia(Actor):
     def find_allies(self, actors: List[Actor] = []) -> List[Actor]:
         self.allies = [actor for actor in actors if actor.alignment == self.alignment]
         
-    def check_for_win(self):
-        pass
+    def check_for_win(self, actors: List[Actor]):
+        enemies = [actor for actor in actors if actor not in self.allies]
+        wins_with = [''] # TODO: Not sure if this should be tags or explicily stating roles. Probably roles
+        
+        if enemies: return False
+        else: return True

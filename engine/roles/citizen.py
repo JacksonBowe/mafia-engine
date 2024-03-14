@@ -25,6 +25,17 @@ class Citizen(Town):
             }
         }}
         
+    def check_for_win(self, actors: List[Actor]) -> bool:
+        # Check if the faction has won
+        faction_win = super().check_for_win(actors)
+        if faction_win: return faction_win
+
+        # Check if role has won via special conditions
+        if len(actors) == 2:
+            return True # Citizen wins ties
+        
+        return False
+        
     def find_possible_targets(self, actors: List[Actor]=None) -> None:
         self.possible_targets = []
         if self.remaining_vests > 0:

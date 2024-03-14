@@ -320,10 +320,47 @@ def create_unbalanced():
         print('[ERROR] AssConfigException: Unable to generate a viable game')
 
 def resolve():
-    players = [{'id': 'user-2', 'name': 'UserName2', 'alias': 'UserAlias2', 'role': 'Mafioso', 'number': 1, 'alive': True, 'possibleTargets': [], 
-            'targets': [2], 'allies': [], 'roleActions': {}}, {'id': 'user-3', 'name': 'UserName3', 'alias': 'UserAlias3', 'role': 'Mafioso', 'number': 2, 'alive': True, 'possibleTargets': [], 'targets': [3], 'allies': [], 'roleActions': {}}, {'id': 'user-1', 'name': 'UserName1', 'alias': 'UserAlias1', 'role': 'Citizen', 'number': 3, 'alive': True, 'possibleTargets': [], 'targets': [3], 'allies': [], 'roleActions': {'remainingVests': 2}}]
+    players = [
+        {
+            "id": "user-2",
+            "name": "UserName2", 
+            "alias": "UserAlias2",
+            "role": "Mafioso",
+            "number": 1,
+            "alive": True,
+            "targets": [2],
+        },
+        # {
+        #     "id": "user-3", 
+        #     "name": "UserName3",
+        #     "alias": "UserAlias3",
+        #     "role": "Mafioso",
+        #     "number": 2,
+        #     "alive": True, 
+        #     "targets": [3],
+        # },
+        {
+            "id": "user-1",
+            "name": "UserName1",
+            "alias": "UserAlias1",
+            "role": "Citizen",
+            "number": 3,
+            "alive": True,
+            "targets": [],
+            "roleActions": {"remainingVests": 2}
+        }
+    ]
 
-    state = {'day': 1, 'players': [{'number': 1, 'alias': 'UserAlias2', 'alive': True}, {'number': 2, 'alias': 'UserAlias3', 'alive': True}, {'number': 3, 'alias': 'UserAlias1', 'alive': True}], 'graveyard': []}
+
+    state = {
+        'day': 1, 
+        'players': [
+            {'number': 1, 'alias': 'UserAlias2', 'alive': True}, 
+            {'number': 2, 'alias': 'UserAlias3', 'alive': True}, 
+            {'number': 3, 'alias': 'UserAlias1', 'alive': True}
+        ], 
+        'graveyard': []
+    }
 
     config = {
         "tags": [
@@ -360,6 +397,9 @@ def resolve():
     game = Mafia.load_game(players, config, state)
 
     game.resolve()
+    
+    winners = game.check_for_win()
+    print('Winners', winners)
     
     return
     print(json.dumps(game.events.dump(), indent=4))

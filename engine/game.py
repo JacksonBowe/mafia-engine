@@ -113,7 +113,7 @@ class Game:
         pass
     
     def check_for_win(self):
-        pass
+        return [actor for actor in self.actors if actor.check_for_win(self.alive_actors)]
     
     def get_actor_by_number(self, number: int) -> Actor:
         return next((actor for actor in self.actors if actor.number == number), None)
