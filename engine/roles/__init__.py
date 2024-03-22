@@ -3,6 +3,7 @@ from typing import List
 from engine.roles.actor import Actor
 from engine.roles.bodyguard import Bodyguard
 from engine.roles.citizen import Citizen
+from engine.roles.doctor import Doctor
 from engine.roles.mafioso import Mafioso
 from engine.utils import class_for_name
 
@@ -12,6 +13,7 @@ ROLE_LIST: List[Actor] = [
     # ---   Self Protecting     --- #
     Citizen,
     # ---   Target Protecting   --- #
+    Doctor,
     Bodyguard,
     # ---   Killing             --- #
     Mafioso,

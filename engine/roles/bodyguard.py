@@ -23,11 +23,7 @@ class Bodyguard(Town):
         for i in range(num_targets):
             self.possible_targets.insert(
                 i,
-                [
-                    actor
-                    for actor in actors
-                    if actor.alive and actor.number != self.number
-                ],
+                [actor for actor in actors if actor.alive and actor != self],
             )
         return self.possible_targets
 

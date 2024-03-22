@@ -28,7 +28,7 @@ class Actor(ABC):
         self.possible_targets: List[List[Actor]] = []
         self.visitors: List[Actor] = []
         self.bodyguards: List[roles.Bodyguard] = []
-        self.doctors: List[Actor] = []  # TODO
+        self.doctors: List[roles.Doctor] = []  # TODO
         self.night_immune: bool = False
         # Action
         self.visiting: Actor = None
@@ -150,9 +150,10 @@ class Actor(ABC):
         elif self.doctors:
             doctor = self.doctors.pop(0)
             doctor.revive_target(self)
-        # else:
-        self.cod = reason
-        logger.info(f"{self} died. Cause of death: {reason}")
+            self.alive = True
+        else:
+            self.cod = reason
+            logger.info(f"{self} died. Cause of death: {reason}")
 
     @abstractmethod
     def check_for_win(self, actors: List[Actor]) -> bool:
