@@ -173,7 +173,7 @@ class Town(Actor):
         # TODO: This need to be expanded such that citizen wins with Neutral Benign etc
         enemies = []
         enemies.extend(
-            [actor for actor in actors if actor.alignment in [roles.Alignment.MAFIA]]
+            [actor for actor in actors if actor.alignment in [Alignment.MAFIA]]
         )
         if enemies:
             return False

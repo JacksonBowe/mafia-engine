@@ -1,7 +1,9 @@
 from typing import List
 
 from engine.models import Player
-from engine.roles import Actor, Town
+
+# from engine.roles import Actor
+from engine.roles.actor import Actor, Town
 from engine.utils.logger import logger
 
 import engine.events as events

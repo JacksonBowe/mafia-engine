@@ -1,9 +1,9 @@
 import logging
-import pytest
-from typing import List, Tuple
+from typing import Tuple
 
-import engine as Mafia
-from engine import roles, models
+import pytest
+
+from engine import models, roles
 
 
 @pytest.fixture(scope="session")

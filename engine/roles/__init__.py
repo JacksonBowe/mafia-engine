@@ -1,28 +1,25 @@
 from typing import List
 
-from engine.roles.actor import Actor, Alignment, Town, Mafia
-from engine.roles.citizen import Citizen
+from engine.roles.actor import Actor
 from engine.roles.bodyguard import Bodyguard
+from engine.roles.citizen import Citizen
 from engine.roles.mafioso import Mafioso
-
-
+from engine.utils import class_for_name
 
 # This is also turn order
 ROLE_LIST: List[Actor] = [
     # ---   Role Blocking       --- #
-    
     # ---   Self Protecting     --- #
     Citizen,
-    
     # ---   Target Protecting   --- #
     Bodyguard,
     # ---   Killing             --- #
-    Mafioso
+    Mafioso,
     # ---   Investigative       --- #
 ]
 
-ROLE_TAGS_MAP = { role.__name__: role.tags for role in ROLE_LIST }
+ROLE_TAGS_MAP = {role.__name__: role.tags for role in ROLE_LIST}
 
-from engine.utils import class_for_name
+
 def import_role(role_name: str):
-    return class_for_name('engine.roles', role_name)
+    return class_for_name("engine.roles", role_name)
