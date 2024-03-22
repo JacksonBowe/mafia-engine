@@ -6,7 +6,7 @@ import pytest
 from engine import models, roles
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def test_doctor_boostrap() -> (
     Tuple[roles.Citizen, roles.Bodyguard, roles.Doctor, roles.Mafioso]
 ):

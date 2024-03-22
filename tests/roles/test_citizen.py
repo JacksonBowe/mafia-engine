@@ -6,7 +6,7 @@ import pytest
 from engine import models, roles
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def test_citizen_boostrap() -> Tuple[roles.Citizen, roles.Citizen, roles.Mafioso]:
     logging.info("--- TEST: Citizen boostrap ---")
     citizen_1 = roles.Citizen(

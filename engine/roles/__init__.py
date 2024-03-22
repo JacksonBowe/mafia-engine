@@ -4,6 +4,7 @@ from engine.roles.actor import Actor
 from engine.roles.bodyguard import Bodyguard
 from engine.roles.citizen import Citizen
 from engine.roles.doctor import Doctor
+from engine.roles.godfather import Godfather
 from engine.roles.mafioso import Mafioso
 from engine.utils import class_for_name
 
@@ -16,6 +17,7 @@ ROLE_LIST: List[Actor] = [
     Doctor,
     Bodyguard,
     # ---   Killing             --- #
+    Godfather,
     Mafioso,
     # ---   Investigative       --- #
 ]

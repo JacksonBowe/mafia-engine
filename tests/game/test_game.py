@@ -17,7 +17,7 @@ def dummy_players(n) -> List[dict]:
     return players
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def test_new_game() -> Tuple[List[dict], dict, Mafia.Game]:
     logging.info("--- TEST: New game ---")
     num_players = 15
@@ -119,7 +119,7 @@ def test_new_game_dump_actors(test_new_game: Tuple[List[dict], dict, Mafia.Game]
     assert len(actors_state) == len(players)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def test_new_game_dump_state(
     test_new_game: Tuple[List[dict], dict, Mafia.Game],
 ) -> Tuple[List[dict], dict, dict]:
