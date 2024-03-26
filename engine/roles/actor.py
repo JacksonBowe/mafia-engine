@@ -151,9 +151,11 @@ class Actor(ABC):
             doctor = self.doctors.pop(0)
             doctor.revive_target(self)
             self.alive = True
-        else:
-            self.cod = reason
-            logger.info(f"{self} died. Cause of death: {reason}")
+            return
+
+        print("SOMEONE IS DIE HERE", reason)
+        self.cod = reason
+        logger.info(f"{self} died. Cause of death: {reason}")
 
     @abstractmethod
     def check_for_win(self, actors: List[Actor]) -> bool:

@@ -1,10 +1,10 @@
-import random
 import copy
+import random
 from typing import List
-from engine.roles import import_role, Actor, ROLE_LIST
-from engine.models import Player, GameConfig, GameState
-from engine.events import ACTION_EVENTS, GameEventGroup
 
+from engine.events import ACTION_EVENTS, GameEventGroup
+from engine.models import GameConfig, GameState, Player
+from engine.roles import ROLE_LIST, Actor, import_role
 from engine.utils.logger import logger
 
 
@@ -122,7 +122,6 @@ class Game:
             logger.info(f"{actor} is targetting {actor.targets}")
 
             # Initialise events group for this action
-            print(f"{'_'.join(actor.role_name.lower().split(' '))}_action")
             ACTION_EVENTS.reset(
                 new_id=f"{'_'.join(actor.role_name.lower().split(' '))}_action"
             )
@@ -147,6 +146,9 @@ class Game:
 
     @property
     def dead_actors(self) -> List[Actor]:
+        print(
+            "DEADIED:", [actor.dump_state() for actor in self.actors if not actor.alive]
+        )
         return [actor for actor in self.actors if not actor.alive]
 
     @property
@@ -156,7 +158,7 @@ class Game:
                 "number": actor.number,
                 "alias": actor.alias,
                 "cod": actor.cod,
-                "dod": 1,
+                "dod": self.day,
                 "role": actor.role_name,
                 "will": "actor.will",
             }

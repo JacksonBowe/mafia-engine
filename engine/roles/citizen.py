@@ -31,7 +31,6 @@ class Citizen(Town):
     def check_for_win(self, actors: List[Actor]) -> bool:
         # Check if the faction has won
         faction_win = super().check_for_win(actors)
-        print("faction win", faction_win)
         if faction_win:
             return faction_win
 

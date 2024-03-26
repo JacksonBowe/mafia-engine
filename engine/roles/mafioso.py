@@ -36,6 +36,11 @@ class Mafioso(Mafia):
     def action(self):
         target = self.targets[0]
 
+        # clear all other Mafioso targets
+        brothers = [ally for ally in self.allies if isinstance(ally, Mafioso)]
+        for brother in brothers:
+            brother.clear_targets()
+
         def success():
             success_event_group = events.GameEventGroup(
                 group_id="mafioso_action_success", duration=events.Duration.MAFIA_KILL
